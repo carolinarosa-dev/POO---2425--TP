@@ -1,0 +1,20 @@
+exec <nomeFicheiro>
+prox <n> 
+comprac <C> <T> 
+precos
+cidade 
+caravana <C> 
+compra <N> <M> 
+vende <N>
+move <N> <X> 
+auto <N> 
+stop <N>
+barbaro <l> <c> 
+areia <l> <c> <r> 
+moedas <N> 
+tripul <N> <T>
+saves <nome> 
+loads <nome> 
+lists 
+dels <nome>
+terminar 
