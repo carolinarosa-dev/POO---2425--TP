@@ -12,19 +12,27 @@
 #include<fstream>
 #include <map>
 #include "Buffer.h"
+#include "Deserto.h"
+#include "Caravana.h"
 
 using namespace std;
 
 class Comandos {
 private:
+
     Buffer* bufferAtual;
     map<string, Buffer*> buffersSalvos;
     vector<string> mapa;
+    //vector<Caravana> caravanas; // Lista de caravanas
+    vector<Cidade> cidades; // Lista de cidades
     int linhas, colunas;
     int moedas, instantesEntreNovosItens, duracaoItem, maxItens;
-    int precoVendaMercadoria, precoCompraMercadoria, precoCaravana;
+    int precoVendaMercadoria=0, precoCompraMercadoria=0, precoCaravana;
     int instantesEntreNovosBarbaros, duracaoBarbaros;
     int fase; // 1 para Fase 1, 2 para Fase 2
+
+
+
 
 public:
     Comandos(int linhas, int colunas);
@@ -36,12 +44,9 @@ public:
     void mostrarConfig() const;
     //void processarComandos();
     int calcularPontuacao() const;
-    void saves(std::istringstream& iss);
-    void loads(std::istringstream& iss);
-    void lists();
-    void dels(std::istringstream& iss);
 
-// Comandos da Fase 1
+
+    // Comandos da Fase 1
     void config(istringstream &iss);
     void sair();
 
@@ -49,7 +54,14 @@ public:
     void exec(istringstream &iss);
     void prox(istringstream &iss);
     void terminar();
-
+    void saves(istringstream& iss);
+    void loads(istringstream& iss);
+    void lists();
+    void dels(istringstream& iss);
+    void adicionaMoedas(istringstream& iss);
+    void listarPrecos();
+    void tripul(istringstream& iss);
+    void comprac(std::istringstream& iss);
 
 };
 

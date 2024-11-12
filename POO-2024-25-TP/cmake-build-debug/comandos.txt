@@ -1,5 +1,4 @@
-exec <nomeFicheiro>
-prox <n> 
+prox 1
 comprac <C> <T> 
 precos
 cidade 
@@ -11,10 +10,10 @@ auto <N>
 stop <N>
 barbaro <l> <c> 
 areia <l> <c> <r> 
-moedas <N> 
+moedas 10
 tripul <N> <T>
-saves <nome> 
-loads <nome> 
+saves buff1
+loads buff1
 lists 
-dels <nome>
+dels buff1
 terminar 

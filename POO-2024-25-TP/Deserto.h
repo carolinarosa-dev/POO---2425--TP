@@ -13,6 +13,7 @@
 #include "Deserto.h"
 #include "Caravana.h"
 #include "Simulador.h"
+#include "Comandos.h"
 #include <iostream>
 #include <sstream>
 #include <cstdlib>

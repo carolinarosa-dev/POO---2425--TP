@@ -14,7 +14,10 @@ Comandos::Comandos() : linhas(0), colunas(0), moedas(0),
                        instantesEntreNovosItens(0), duracaoItem(0),
                        maxItens(0), precoVendaMercadoria(0),
                        precoCompraMercadoria(0), precoCaravana(0),
-                       instantesEntreNovosBarbaros(0), duracaoBarbaros(0) {}
+                       instantesEntreNovosBarbaros(0), duracaoBarbaros(0) {
+
+
+}
 
 
 void Comandos::limparDados() {
@@ -91,6 +94,14 @@ void Comandos::executarComando(const string &comando) {
         exec(iss);
     } else if (cmd == "prox") {
         prox(iss);
+    } else if (cmd == "comprac") {
+       // comprac(iss);
+    } else if (cmd == "precos") {
+        listarPrecos();
+    } else if (cmd == "moedas") {
+        adicionaMoedas(iss);
+    } else if (cmd == "tripul") {
+       // tripul(iss);
     }else if (cmd == "saves") {
             saves(iss);
     } else if (cmd == "loads") {
@@ -263,8 +274,46 @@ void Comandos::dels(std::istringstream& iss) {
     }
 }
 
+void Comandos::adicionaMoedas(istringstream& iss) {
+    int n;
+    iss >> n;
+    moedas += n;
+    std::cout << "Moedas atualizadas: " << moedas << std::endl;
+}
 
 
+void Comandos::listarPrecos() {
+    cout << "Preços das mercadorias:" << endl;
+    cout << "Preço de venda: " << precoVendaMercadoria << " moedas" << endl;
+    cout << "Preço de compra: " << precoCompraMercadoria << " moedas" << endl;
+}
+
+
+
+/*
+void Comandos::tripul(std::istringstream& iss) {
+    int n, t;
+    iss >> n >> t;
+    if (iss.fail() || n <= 0 || t <= 0) {
+        std::cerr << "Erro: valores inválidos para caravana ou tripulantes." << std::endl;
+        return;
+    }
+
+    for (auto& caravana : caravanas) {
+        if (caravana.getId() == n) {
+            if (caravana.estaEmCidade()) {
+                caravana.adicionarTripulantes(t);
+                std::cout << "Adicionados " << t << " tripulantes à caravana " << n << "." << std::endl;
+            } else {
+                std::cerr << "Erro: a caravana " << n << " não está em uma cidade." << std::endl;
+            }
+            return;
+        }
+    }
+    std::cerr << "Erro: caravana " << n << " não encontrada." << std::endl;
+}
+
+*/
 
 
 

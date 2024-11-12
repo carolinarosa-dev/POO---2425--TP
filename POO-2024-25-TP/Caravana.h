@@ -10,6 +10,7 @@
 #include <vector>
 #include "Cidade.h"
 #include <sstream>
+#include"Comandos.h"
 
 using namespace  std;
 
@@ -17,6 +18,8 @@ using namespace  std;
 class Caravana {
 public:
     enum Tipo { COMERCIO, MILITAR, SECRETA, BARBARA };
+
+    Caravana(int id) : id(id), tripulantes(0), emCidade(false) {}
 
     Caravana(Tipo tipo, int id, int linha, int coluna);
     virtual ~Caravana() = default;
@@ -41,7 +44,9 @@ public:
     bool estaDestruida() const;
     void perderTripulantes(int quantidade);
     void adicionarAgua(int quantidade);
-    void exibirDetalhes();
+    virtual void exibirDetalhes() const;
+    bool estaEmCidade() const;
+    void setEmCidade(bool estado) ;
 
 protected:
     Tipo tipo;
@@ -53,8 +58,24 @@ protected:
     int capacidadeCarga;
     int capacidadeAgua;
     int consumoAgua;
-    std::vector<std::string> mercadorias;
+    vector<string> mercadorias;
+    vector<string>caravanas;
+    bool emCidade;
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif //POO_2024_25_TP_CARAVANA_H

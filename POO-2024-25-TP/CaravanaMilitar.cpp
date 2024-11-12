@@ -15,10 +15,19 @@ CaravanaMilitar::CaravanaMilitar(int id, int linha, int coluna)
     consumoAgua = 3;
 }
 
+
+
 void CaravanaMilitar::mover(char direcao) {
-    // Implementar lógica de movimentação específica para caravana militar
+    // Implementar lógica de movimentação específica para Caravana Militar
+    std::cout << "Movendo Caravana Militar na direção " << direcao << std::endl;
 }
 
 void CaravanaMilitar::aplicarEfeitoItem(int tipoItem) {
-    // Implementar lógica específica de aplicação de efeito de item
+    // Implementar lógica de aplicação de efeito de item específica para Caravana Militar
+    std::cout << "Aplicando efeito do item " << tipoItem << " na Caravana Militar" << std::endl;
 }
+
+void CaravanaMilitar::exibirDetalhes() const {
+    std::cout << "Caravana Militar ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+}
+

@@ -33,6 +33,13 @@ int Caravana::getTripulantes() const {
     return tripulantes;
 }
 
+bool Caravana::estaEmCidade() const {
+    return emCidade;
+}
+void Caravana::setEmCidade(bool estado) {
+    emCidade = estado;
+}
+
 int Caravana::getCarga() const {
     return carga;
 }
@@ -109,7 +116,7 @@ void Caravana::adicionarAgua(int quantidade) {
 
 
 // Exibe detalhes da caravana
-void Caravana::exibirDetalhes() {
+void Caravana::exibirDetalhes() const {
     std::cout << "Caravana ID: " << id << ", Tripulantes: " << tripulantes << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {
         std::cout << mercadoria << " ";

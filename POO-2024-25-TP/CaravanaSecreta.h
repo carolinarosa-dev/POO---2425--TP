@@ -13,6 +13,8 @@ public:
     CaravanaSecreta(int id, int linha, int coluna);
     void mover(char direcao) override;
     void aplicarEfeitoItem(int tipoItem) override;
+    void esconder();
+    void exibirDetalhes() const;
 };
 
 

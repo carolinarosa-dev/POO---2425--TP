@@ -9,21 +9,20 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Caravana.h"
+//#include "Caravana.h"
 
 
-class Caravana;
 
 class Cidade {
 
     public:
     Cidade(char nome, int linha, int coluna);
-    void adicionarCaravana(Caravana* caravana);
+   /* void adicionarCaravana(Caravana* caravana);
     void removerCaravana(Caravana* caravana);
     void comprarMercadoria(Caravana* caravana, const std::string& mercadoria);
     void venderMercadoria(Caravana* caravana, const std::string& mercadoria);
     void recrutarTripulantes(Caravana* caravana, int quantidade);
-    void listarCaravanas();
+    void listarCaravanas();*/
     void mostrarPosicao();
     char getNome() const;
     int getTripulantes(int tripulantes);
@@ -31,11 +30,12 @@ class Cidade {
 
 
 private:
+    //Caravana* caravanas;
     char nome;                          // Nome da cidade (uma letra)
     int linha, coluna;// Posição no mapa (linha, coluna)
-    std::vector<Caravana*> caravanas;   // Lista de caravanas na cidade
+ //  vector<string> caravanas;   // Lista de caravanas na cidade
     int tripulantes;                    // Número de tripulantes disponíveis
-    std::vector<std::string> mercadorias; // Mercadorias disponíveis para compra e venda
+  //  vector<string> mercadorias; // Mercadorias disponíveis para compra e venda
 
 
 };

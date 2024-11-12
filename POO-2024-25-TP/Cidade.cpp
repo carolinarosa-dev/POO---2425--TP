@@ -4,13 +4,16 @@
 
 #include "Cidade.h"
 
-    // Construtor
+  /*  // Construtor
     Cidade::Cidade(char nome, int linha, int coluna) : nome(nome), linha(linha), coluna(coluna), tripulantes(10) {
         // Inicializa algumas mercadorias como exemplo
         mercadorias.push_back("Água");
         mercadorias.push_back("Comida");
         mercadorias.push_back("Armas");
-    }
+    }*/
+
+/*
+
 
     // Adiciona uma caravana à cidade
     void Cidade::adicionarCaravana(Caravana* caravana) {
@@ -68,6 +71,7 @@
             }
         }
     }
+*/
 
     // Função de utilidade para ver a posição da cidade no mapa
     void Cidade::mostrarPosicao() {
@@ -83,4 +87,5 @@
     int Cidade::getTripulantes(int tripulantes) {
         return tripulantes;
     }
+
 
