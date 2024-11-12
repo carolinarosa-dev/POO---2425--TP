@@ -5,6 +5,10 @@
 #include "Comandos.h"
 
 
+Comandos::Comandos(int linhas, int colunas) {
+    bufferAtual = new Buffer(linhas, colunas);
+}
+
 // Construtor
 Comandos::Comandos() : linhas(0), colunas(0), moedas(0),
                        instantesEntreNovosItens(0), duracaoItem(0),
@@ -83,10 +87,25 @@ void Comandos::executarComando(const string &comando) {
         config(iss);
     } else if (cmd == "sair") {
         sair();
+    } else if (cmd == "exec") {
+        exec(iss);
+    } else if (cmd == "prox") {
+        prox(iss);
+    }else if (cmd == "saves") {
+            saves(iss);
+    } else if (cmd == "loads") {
+            loads(iss);
+    } else if (cmd == "lists") {
+            lists();
+    } else if (cmd == "dels") {
+            dels(iss);
+    }else if (cmd == "terminar") {
+            terminar();
     } else {
         cout << "Comando desconhecido: " << cmd << endl;
     }
 }
+
 
 
     void Comandos::config(istringstream &iss) {
@@ -122,7 +141,127 @@ void Comandos::executarComando(const string &comando) {
         cout << "Duração dos bárbaros: " << duracaoBarbaros << endl;
     }
 
+void Comandos::exec(istringstream &iss) {
+    string nomeFicheiro;
+    iss >> nomeFicheiro;
+    if (nomeFicheiro.empty()) {
+        cerr << "Nome de ficheiro não especificado!" << endl;
+        return;
+    }
 
+    ifstream ficheiro(nomeFicheiro);
+    if (!ficheiro.is_open()) {
+        cerr << "Erro ao abrir o ficheiro: " << nomeFicheiro << endl;
+        return;
+    }
+
+    string linha;
+    while (getline(ficheiro, linha)) {
+        executarComando(linha);
+    }
+
+    ficheiro.close();
+    cout << "Comandos do ficheiro " << nomeFicheiro << " executados com sucesso!" << endl;
+}
+
+void Comandos::prox(istringstream &iss) {
+    int n = 1; // Valor padrão
+    iss >> n;
+    if (n <= 0) {
+        cerr << "Número de instantes deve ser maior que 0!" << endl;
+        return;
+    }
+
+    for (int i = 0; i < n; ++i) {
+        // adicionar a lógica para atualizar o estado da simulação a cada instante
+        cout << "Avançando instante " << (i + 1) << " de " << n << endl;
+        // Exibir o mapa e outras informações relevantes
+        mostrarConfig();
+    }
+}
+
+void Comandos::terminar() {
+    // Calcular e exibir a pontuação
+    int pontuacao = calcularPontuacao();
+    cout << "Simulação terminada!" << endl;
+    cout << "Pontuação final: " << pontuacao << endl;
+
+    fase = 1;
+    limparDados();
+    cout << "Está de volta à fase 1. Pode iniciar uma nova simulação ou sair do programa." << endl;
+}
+
+int Comandos::calcularPontuacao() const {
+    // Exemplo de cálculo de pontuação (ajuste conforme necessário)
+    int pontuacao = moedas;
+    return pontuacao;
+}
+
+
+Comandos::~Comandos() {
+    delete bufferAtual;
+    for (auto& pair : buffersSalvos) {
+        delete pair.second;
+    }
+}
+
+void Comandos::saves(std::istringstream& iss) {
+    std::string nome;
+    iss >> nome;
+    if (nome.empty()) {
+        std::cerr << "Nome não especificado!" << std::endl;
+        return;
+    }
+
+    buffersSalvos[nome] = new Buffer(*bufferAtual);
+    std::cout << "Estado do buffer salvo com o nome: " << nome << std::endl;
+}
+
+void Comandos::loads(std::istringstream& iss) {
+    std::string nome;
+    iss >> nome;
+    if (nome.empty()) {
+        std::cerr << "Nome não especificado!" << std::endl;
+        return;
+    }
+
+    auto it = buffersSalvos.find(nome);
+    if (it != buffersSalvos.end()) {
+        std::cout << "Carregando estado do buffer com o nome: " << nome << std::endl;
+        std::cout << *(it->second);
+    } else {
+        std::cerr << "Nenhum buffer salvo com o nome: " << nome << std::endl;
+    }
+}
+
+void Comandos::lists() {
+    if (buffersSalvos.empty()) {
+        std::cout << "Nenhum buffer salvo." << std::endl;
+    } else {
+        std::cout << "Buffers salvos:" << std::endl;
+        for (const auto& pair : buffersSalvos) {
+            std::cout << pair.first << std::endl;
+        }
+    }
+}
+
+void Comandos::dels(std::istringstream& iss) {
+    std::string nome;
+    iss >> nome;
+    if (nome.empty()) {
+        std::cerr << "Nome não especificado!" << std::endl;
+        return;
+    }
+
+    auto it = buffersSalvos.find(nome);
+    if (it != buffersSalvos.end()) {
+        delete it->second;
+        buffersSalvos.erase(it);
+        std::cout << "Buffer com o nome " << nome << " apagado." << std::endl;
+    } else {
+        std::cerr << "Nenhum buffer salvo com o nome: " << nome << std::endl;
+    }
+}
 
 
 

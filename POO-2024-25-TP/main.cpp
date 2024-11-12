@@ -3,30 +3,32 @@
 #include <string>
 #include <sstream>
 #include "Comandos.h"
-
+using namespace std;
 
 
 int main() {
-    // Instanciar a classe Comandos
-    Comandos comandos;
 
+    Comandos comandos(10, 10); // Exemplo com um buffer de 10x10 para testar os comandos saves,loads,dels,lists
+
+
+   // Comandos comandos;
     string linhaComando;
 
-    cout << "Bem-vindo ao programa!" << endl;
+    cout << "Bem-vindo ao Simulador de Viagens no Deserto!" << endl;
+    cout << "Digite 'sair' para encerrar o programa." << endl;
 
-    // Loop para ler e executar comandos até que o usuário saia
     while (true) {
-        cout << "> ";  // Prompt para o usuário digitar o comando
-        getline(cin, linhaComando);  // Ler o comando do usuário
+        cout << "> ";
+        getline(cin, linhaComando);
 
-        // Executar o comando
-        comandos.executarComando(linhaComando);
-
-        // Verificar se o comando foi 'sair', caso contrário continuar
         if (linhaComando == "sair") {
-            break;  // Sai do loop e finaliza o programa
+            comandos.sair();
+            break;
         }
+
+        comandos.executarComando(linhaComando);
     }
+
 
     return 0;  // Fim do programa
 }

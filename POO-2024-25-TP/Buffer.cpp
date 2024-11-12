@@ -29,7 +29,7 @@ void Buffer::esvaziar() {
     // Preencher o buffer com espaços
     for (int i = 0; i < linhas; ++i) {
         for (int j = 0; j < colunas; ++j) {
-            buffer[i][j] = ' ';
+            buffer[i][j] = '-';
         }
     }
     cursorLinha = 0;
