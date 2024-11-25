@@ -1,0 +1,12 @@
+# ninja log v6
+8	460	7538535194645376	CMakeFiles/tinoco.dir/main.cpp.obj	64b6c2f0fc305b49
+6	203	7540927163823244	build.ninja	8276b09bbcaedaca
+11	453	7538459044153759	CMakeFiles/tinoco.dir/Buffer.cpp.obj	73e5212c44d434ca
+460	559	7538535199161415	tinoco.exe	4e51312314ef52ec
+6	620	7538529506203811	CMakeFiles/tinoco.dir/Comandos.cpp.obj	baf98fe8fd9d1b56
+8	484	7538533470603384	CMakeFiles/tinoco.dir/Simulador.cpp.obj	8b20933f6ce7df0b
+12	560	7538513059935974	CMakeFiles/tinoco.dir/Caravana.cpp.obj	37793f6c61b0791f
+16	390	7538502961142486	CMakeFiles/tinoco.dir/Cidade.cpp.obj	9b3543d34c3543bf
+18	450	7538517685920690	CMakeFiles/tinoco.dir/CaravanaSecreta.cpp.obj	54da4a2b6c37bad4
+16	450	7538517685910690	CMakeFiles/tinoco.dir/CaravanaMilitar.cpp.obj	429cc6f95be8c931
+14	451	7538517685890665	CMakeFiles/tinoco.dir/CaravanaComercio.cpp.obj	8d95137ab47cf291
