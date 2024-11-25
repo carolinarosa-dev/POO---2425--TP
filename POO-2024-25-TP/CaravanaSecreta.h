@@ -11,8 +11,8 @@
 class CaravanaSecreta : public Caravana {
 public:
     CaravanaSecreta(int id, int linha, int coluna);
-    void mover(char direcao) override;
-    void aplicarEfeitoItem(int tipoItem) override;
+    void mover(char direcao) ;
+    void aplicarEfeitoItem(int tipoItem) ;
     void esconder();
     void exibirDetalhes() const;
 };

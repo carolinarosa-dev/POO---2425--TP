@@ -5,36 +5,36 @@
 #include "Deserto.h"
 
 // Construtor que inicializa o deserto com dimensões
-    Deserto::Deserto(int linhas, int colunas)
-            : numLinhas(linhas), numColunas(colunas), mapa(linhas, std::vector<TipoPosicao>(colunas, VAZIO)) {}
+Deserto::Deserto(int linhas, int colunas)
+        : numLinhas(linhas), numColunas(colunas), mapa(linhas, std::vector<TipoPosicao>(colunas, VAZIO)) {}
 
-    // Configura o mapa com cidades e montanhas
-    void Deserto::configurarMapa(const std::vector<std::vector<TipoPosicao>>& configuracao) {
-        if (configuracao.size() != numLinhas || configuracao[0].size() != numColunas) {
-            throw std::invalid_argument("Dimensões do mapa não coincidem com a configuração.");
+// Configura o mapa com cidades e montanhas
+void Deserto::configurarMapa(const std::vector<std::vector<TipoPosicao>>& configuracao) {
+    if (configuracao.size() != numLinhas || configuracao[0].size() != numColunas) {
+        throw std::invalid_argument("Dimensões do mapa não coincidem com a configuração.");
+    }
+    mapa = configuracao;
+}
+
+// Exibe o estado atual do deserto
+void Deserto::exibirMapa() {
+    for (int i = 0; i < numLinhas; i++) {
+        for (int j = 0; j < numColunas; j++) {
+            if (mapa[i][j] == MONTANHA)
+                std::cout << "M ";
+            else if (mapa[i][j] == CIDADE)
+                std::cout << "C ";
+            else
+                std::cout << ". ";
         }
-        mapa = configuracao;
+        std::cout << std::endl;
     }
+}
 
-    // Exibe o estado atual do deserto
-    void Deserto::exibirMapa() {
-        for (int i = 0; i < numLinhas; i++) {
-            for (int j = 0; j < numColunas; j++) {
-                if (mapa[i][j] == MONTANHA)
-                    std::cout << "M ";
-                else if (mapa[i][j] == CIDADE)
-                    std::cout << "C ";
-                else
-                    std::cout << ". ";
-            }
-            std::cout << std::endl;
-        }
-    }
-
-    // Verifica se uma posição é válida para uma caravana (não montanha)
-    bool Deserto::posicaoValida(int linha, int coluna) {
-        return linha >= 0 && linha < numLinhas && coluna >= 0 && coluna < numColunas && mapa[linha][coluna] != MONTANHA;
-    }
+// Verifica se uma posição é válida para uma caravana (não montanha)
+bool Deserto::posicaoValida(int linha, int coluna) {
+    return linha >= 0 && linha < numLinhas && coluna >= 0 && coluna < numColunas && mapa[linha][coluna] != MONTANHA;
+}
 
 
 
@@ -86,17 +86,16 @@ void Deserto::moverCaravana(Caravana* caravana, int direcao) {
         std::cout << "Movimento inválido! A posição está ocupada ou fora dos limites.\n";
     }
 }
-    // Adiciona uma caravana ao deserto (em uma posição válida)
-    void Deserto::adicionarCaravana(Caravana* caravana, int linha, int coluna) {
-        if (posicaoValida(linha, coluna)) {
-            // Assumir que a caravana tem método para se registrar no deserto
-            // caravana->registrarNoDeserto();
-            caravanas.push_back(caravana);
-            std::cout << "Caravana adicionada ao deserto em (" << linha << ", " << coluna << ").\n";
-        } else {
-            std::cout << "Posição inválida para adicionar a caravana.\n";
-        }
+// Adiciona uma caravana ao deserto (em uma posição válida)
+void Deserto::adicionarCaravana(Caravana* caravana, int linha, int coluna) {
+    if (posicaoValida(linha, coluna)) {
+        // Assumir que a caravana tem método para se registrar no deserto
+        // caravana->registrarNoDeserto();
+        caravanas.push_back(caravana);
+        std::cout << "Caravana adicionada ao deserto em (" << linha << ", " << coluna << ").\n";
+    } else {
+        std::cout << "Posição inválida para adicionar a caravana.\n";
     }
-
+}
 
 

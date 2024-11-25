@@ -10,6 +10,8 @@ void Simulador::iniciar() {
 
 }
 
+
+
 void Simulador::executarComando(const std::string &comando) {
     std::cout << "Executando comando: " << comando << "\n";
 }
@@ -18,5 +20,29 @@ void Simulador::executarComando(const std::string &comando) {
 void Simulador::imprimirEstado() const {
     std::cout << "Estado atual do simulador.\n";
 }
+
+/*void Simulador::atualizarEstado() {
+    // Atualizar o tempo da simulação
+    instanteAtual++;
+
+    // Movimentar entidades no mapa (se aplicável)
+    moverEntidades();
+
+    // Gerar novos itens, se necessário
+    if (instanteAtual % instantesEntreNovosItens == 0) {
+        gerarNovosItens();
+    }
+
+    // Gerar novos bárbaros, se necessário
+    if (instanteAtual % instantesEntreNovosBarbaros == 0) {
+        gerarNovosBarbaros();
+    }
+
+    // Remover itens ou bárbaros que já expiraram
+    removerElementosExpirados();
+
+    // Outras lógicas específicas da simulação
+    processarEventosEspeciais();
+}*/
 
 

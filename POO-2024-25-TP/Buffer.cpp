@@ -49,12 +49,18 @@ void Buffer::transcreverParaConsola() {
 }
 
 
+
+
 void Buffer::moverCursor(int linha, int coluna) {
     if (linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas) {
         cursorLinha = linha;
         cursorColuna = coluna;
+    } else {
+        // Opcional: Adicionar mensagem para indicar erro.
+        std::cerr << "Erro: Coordenadas fora dos limites do buffer." << std::endl;
     }
 }
+
 
 
 
@@ -77,11 +83,11 @@ void Buffer::imprimir(const std::string& str) {
 }
 
 
-void Buffer::imprimir(int num) {
+/*void Buffer::imprimir(int num) {
     std::ostringstream oss;
     oss << num;
     imprimir(oss.str());
-}
+}*/
 
 
 // Implementação da sobrecarga do operador <<
@@ -95,6 +101,64 @@ std::ostream& operator<<(std::ostream& os, const Buffer& buf) { //funçao global
     return os;
 
 }
+
+
+
+void Buffer::imprimir(int num) {
+    // Caso especial para 0
+    if (num == 0) {
+        imprimir('0');
+        return;
+    }
+
+    char temp[12]; // Array temporário para armazenar o número (int suporta até 10 dígitos, mais sinal)
+    int i = 0;
+    bool negativo = false;
+
+    // Gerir números negativos
+    if (num < 0) {
+        negativo = true;
+        num = -num; // Tornar positivo para processar os dígitos
+    }
+
+    // Extrair dígitos em ordem inversa
+    while (num > 0) {
+        temp[i++] = '0' + (num % 10); // Converter o último dígito para char
+        num /= 10;
+    }
+
+    // Adicionar o sinal de negativo, se aplicável
+    if (negativo) {
+        temp[i++] = '-';
+    }
+
+    // Imprimir os caracteres na ordem correta
+    while (i > 0) {
+        imprimir(temp[--i]);
+    }
+}
+
+
+
+// Para imprimir diretamente no buffer
+Buffer& operator<<(Buffer& buf, char c) {
+    buf.imprimir(c);
+    return buf;
+}
+
+Buffer& operator<<(Buffer& buf, const std::string& str) {
+    for (char c : str) {
+        buf.imprimir(c);
+    }
+    return buf;
+}
+
+Buffer& operator<<(Buffer& buf, int num) {
+    buf.imprimir(num);
+    return buf;
+}
+
+
 
 
 

@@ -3,9 +3,8 @@
 //
 
 #include "Caravana.h"
-
-Caravana::Caravana(Tipo tipo, int id, int linha, int coluna)
-        : tipo(tipo), id(id), linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {}
+Caravana::Caravana(int id,Tipo tipo,  int linha, int coluna)
+        : id(id),tipo(tipo),linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {}
 
 
 

@@ -19,7 +19,7 @@ Habilidade Especial: Pode se esconder por um turno, tornando-se invisível para 
 
 
 CaravanaSecreta::CaravanaSecreta(int id, int linha, int coluna)
-        : Caravana(SECRETA, id, linha, coluna) {
+        : Caravana(id,SECRETA, linha, coluna) {
 
     tripulantes = 10;
     capacidadeAgua = 100;

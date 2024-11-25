@@ -95,23 +95,27 @@ void Comandos::executarComando(const string &comando) {
     } else if (cmd == "prox") {
         prox(iss);
     } else if (cmd == "comprac") {
-       // comprac(iss);
+        // comprac(iss);
     } else if (cmd == "precos") {
         listarPrecos();
+    }else if (cmd == "cidade") {
+//            listarCaravanasCidade(iss);
+        } else if (cmd == "caravana") {
+//            mostrarDetalhesCaravana(iss);
     } else if (cmd == "moedas") {
         adicionaMoedas(iss);
     } else if (cmd == "tripul") {
-       // tripul(iss);
+        // tripul(iss);
     }else if (cmd == "saves") {
-            saves(iss);
+        saves(iss);
     } else if (cmd == "loads") {
-            loads(iss);
+        loads(iss);
     } else if (cmd == "lists") {
-            lists();
+        lists();
     } else if (cmd == "dels") {
-            dels(iss);
+        dels(iss);
     }else if (cmd == "terminar") {
-            terminar();
+        terminar();
     } else {
         cout << "Comando desconhecido: " << cmd << endl;
     }
@@ -119,38 +123,41 @@ void Comandos::executarComando(const string &comando) {
 
 
 
-    void Comandos::config(istringstream &iss) {
-        string nomeFicheiro;
-        iss >> nomeFicheiro;
-        if (nomeFicheiro.empty()) {
-            cerr << "Nome de ficheiro não especificado!" << endl;
-            return;
-        }
-        lerConfiguracao(nomeFicheiro);
-        mostrarConfig();
+void Comandos::config(istringstream &iss) {
+    string nomeFicheiro;
+    iss >> nomeFicheiro;
+    if (nomeFicheiro.empty()) {
+        cerr << "Nome de ficheiro não especificado!" << endl;
+        return;
     }
+    lerConfiguracao(nomeFicheiro);
+    mostrarConfig();
+}
 
-    void Comandos::sair() {
-        cout << "Saindo do programa..." << endl;
-    }
+void Comandos::sair() {
+    cout << "Saindo do programa..." << endl;
+}
 
-    void Comandos::mostrarConfig() const {
-        cout << "Linhas: " << linhas << endl;
-        cout << "Colunas: " << colunas << endl;
-        cout << "Mapa do deserto:" << endl;
-        for (const auto &linha: mapa) {
-            cout << linha << endl;
-        }
-        cout << "Moedas: " << moedas << endl;
-        cout << "Instantes entre novos itens: " << instantesEntreNovosItens << endl;
-        cout << "Duração do item: " << duracaoItem << endl;
-        cout << "Máximo de itens: " << maxItens << endl;
-        cout << "Preço de venda de mercadoria: " << precoVendaMercadoria << endl;
-        cout << "Preço de compra de mercadoria: " << precoCompraMercadoria << endl;
-        cout << "Preço da caravana: " << precoCaravana << endl;
-        cout << "Instantes entre novos bárbaros: " << instantesEntreNovosBarbaros << endl;
-        cout << "Duração dos bárbaros: " << duracaoBarbaros << endl;
+void Comandos::mostrarConfig() const {
+    cout << "Linhas: " << linhas << endl;
+    cout << "Colunas: " << colunas << endl;
+    cout << "Mapa do deserto:" << endl;
+    for (const auto &linha: mapa) {
+        cout << linha << endl;
     }
+    cout << "Moedas: " << moedas << endl;
+    cout << "Instantes entre novos itens: " << instantesEntreNovosItens << endl;
+    cout << "Duração do item: " << duracaoItem << endl;
+    cout << "Máximo de itens: " << maxItens << endl;
+    cout << "Preço de venda de mercadoria: " << precoVendaMercadoria << endl;
+    cout << "Preço de compra de mercadoria: " << precoCompraMercadoria << endl;
+    cout << "Preço da caravana: " << precoCaravana << endl;
+    cout << "Instantes entre novos bárbaros: " << instantesEntreNovosBarbaros << endl;
+    cout << "Duração dos bárbaros: " << duracaoBarbaros << endl;
+}
+
+
+
 
 void Comandos::exec(istringstream &iss) {
     string nomeFicheiro;
@@ -186,10 +193,16 @@ void Comandos::prox(istringstream &iss) {
     for (int i = 0; i < n; ++i) {
         // adicionar a lógica para atualizar o estado da simulação a cada instante
         cout << "Avançando instante " << (i + 1) << " de " << n << endl;
+
+        // Atualizar o estado da simulação chamando Simulacao::atualizarEstado
+       // simulador.atualizarEstado(); // 'simulacao' é uma instância da classe Simulacao
         // Exibir o mapa e outras informações relevantes
         mostrarConfig();
     }
 }
+
+
+
 
 void Comandos::terminar() {
     // Calcular e exibir a pontuação
@@ -289,6 +302,63 @@ void Comandos::listarPrecos() {
 }
 
 
+// Adiciona uma cidade ao vetor de cidades
+/*
+void Comandos::adicionarCidade(Cidade cidade) {
+    cidades.push_back(cidade);
+}
+
+// Adiciona uma caravana ao vetor de caravanas
+void Comandos::adicionarCaravana(Caravana* caravana) {
+    caravanas.push_back(caravana);
+}
+*/
+
+// Lista as caravanas presentes numa cidade
+/*void Comandos::listarCaravanasCidade(std::istringstream &iss) {
+    char cidadeNome;
+    iss >> cidadeNome;*/
+
+    // Procura pela cidade no vetor
+/*    bool cidadeEncontrada = false;
+    for (const auto& cidade : cidades) {
+        if (cidade.getNome() == cidadeNome) {
+            cidadeEncontrada = true;
+            cidade.listarCaravanas();  // Chama a função para listar caravanas na cidade
+            break;
+        }
+    }*/
+/*
+    if (!cidadeEncontrada) {
+        std::cout << "Cidade não encontrada!" << std::endl;
+    }
+}*/
+
+// Exibe detalhes de uma caravana
+/*
+void Comandos::mostrarDetalhesCaravana(std::istringstream &iss) {
+    int idCaravana;
+    iss >> idCaravana;
+
+    // Procura pela caravana no vetor
+    bool caravanaEncontrada = false;
+    for (const auto& caravana : caravanas) {
+        if (caravana->getId() == idCaravana) {
+            caravanaEncontrada = true;
+            caravana->exibirDetalhes();  // Chama a função para exibir detalhes da caravana
+            break;
+        }
+    }
+
+    if (!caravanaEncontrada) {
+        std::cout << "Caravana não encontrada!" << std::endl;
+    }
+}
+*/
+
+
+
+
 
 /*
 void Comandos::tripul(std::istringstream& iss) {
@@ -314,7 +384,4 @@ void Comandos::tripul(std::istringstream& iss) {
 }
 
 */
-
-
-
 

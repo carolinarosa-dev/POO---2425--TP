@@ -5,8 +5,10 @@
 #include "CaravanaComercio.h"
 
 
+
+
 CaravanaComercio::CaravanaComercio(int id, int linha, int coluna)
-        : Caravana(COMERCIO, id, linha, coluna) {
+        : Caravana(id,COMERCIO,  linha, coluna) {
     tripulantes = 20;
     carga = 0;
     agua = 200;
@@ -15,7 +17,7 @@ CaravanaComercio::CaravanaComercio(int id, int linha, int coluna)
     consumoAgua = 2;
 }
 
-void CaravanaComercio::mover(char direcao) {
+void CaravanaComercio::mover(char direcao){
     cout << "Movendo Caravana de Comércio na direção " << direcao << endl;
     // Implementar lógica de movimentação específica para caravana de comércio
 }
@@ -28,4 +30,3 @@ void CaravanaComercio::aplicarEfeitoItem(int tipoItem) {
 void CaravanaComercio::exibirDetalhes() const {
     cout << "Caravana de Comércio ID: " << id << ", Tripulantes: " << tripulantes << "\n";
 }
-
