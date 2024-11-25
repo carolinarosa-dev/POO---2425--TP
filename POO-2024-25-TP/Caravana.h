@@ -17,36 +17,61 @@ using namespace  std;
 
 class Caravana {
 public:
-    enum Tipo { COMERCIO, MILITAR, SECRETA, BARBARA };
+    enum Tipo {
+        COMERCIO, MILITAR, SECRETA, BARBARA
+    };
 
-    Caravana(int id) : id(id), tripulantes(0), emCidade(false) {}
+   /// Caravana(int id) : id(id), tripulantes(0), emCidade(false) {}
 
-    Caravana(Tipo tipo, int id, int linha, int coluna);
+    Caravana(int id,Tipo tipo,  int linha, int coluna);
+
     virtual ~Caravana() = default;
 
     Tipo getTipo() const;
+
     int getId() const;
+
     pair<int, int> getPosicao() const;
+
     void setPosicao(int novaLinha, int novaColuna);
+
     int getTripulantes() const;
+
     int getCarga() const;
+
     int getAgua() const;
+
     virtual void mover(char direcao);
+
     void adicionarTripulantes(int quantidade);
+
     void removerTripulantes(int quantidade);
+
     void adicionarCarga(int quantidade);
+
     void removerCarga(int quantidade);
-    void venderMercadoria(const std::string& mercadoria);
-    void comprarMercadoria(const std::string& mercadoria);
+
+    void venderMercadoria(const std::string &mercadoria);
+
+    void comprarMercadoria(const std::string &mercadoria);
+
     void reabastecerAgua();
+
     void consumirAgua();
+
     virtual void aplicarEfeitoItem(int tipoItem);
+
     bool estaDestruida() const;
+
     void perderTripulantes(int quantidade);
+
     void adicionarAgua(int quantidade);
+
     virtual void exibirDetalhes() const;
+
     bool estaEmCidade() const;
-    void setEmCidade(bool estado) ;
+
+    void setEmCidade(bool estado);
 
 protected:
     Tipo tipo;
@@ -59,22 +84,9 @@ protected:
     int capacidadeAgua;
     int consumoAgua;
     vector<string> mercadorias;
-    vector<string>caravanas;
+    vector<string> caravanas;
     bool emCidade;
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

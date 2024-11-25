@@ -10,9 +10,11 @@
 
 class CaravanaMilitar : public Caravana {
 public:
-    CaravanaMilitar(int id, int linha, int coluna);
-    void mover(char direcao) override;
-    void aplicarEfeitoItem(int tipoItem) override;
+
+    CaravanaMilitar(int id, Tipo tipo, int linha, int coluna);
+
+    void mover(char direcao) ;
+    void aplicarEfeitoItem(int tipoItem) ;
     void exibirDetalhes() const;
 };
 

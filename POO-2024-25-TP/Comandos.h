@@ -14,6 +14,8 @@
 #include "Buffer.h"
 #include "Deserto.h"
 #include "Caravana.h"
+#include"Cidade.h"
+#include <unordered_map>  // Para unordered_map
 
 using namespace std;
 
@@ -23,15 +25,13 @@ private:
     Buffer* bufferAtual;
     map<string, Buffer*> buffersSalvos;
     vector<string> mapa;
-    //vector<Caravana> caravanas; // Lista de caravanas
-    vector<Cidade> cidades; // Lista de cidades
-    int linhas, colunas;
+  //  vector<Caravana*> caravanas; // Lista de caravanas
+   // vector<Cidade> cidades; // Lista de cidades
+    int linhas=10, colunas=20;
     int moedas, instantesEntreNovosItens, duracaoItem, maxItens;
     int precoVendaMercadoria=0, precoCompraMercadoria=0, precoCaravana;
     int instantesEntreNovosBarbaros, duracaoBarbaros;
     int fase; // 1 para Fase 1, 2 para Fase 2
-
-
 
 
 public:
@@ -40,10 +40,14 @@ public:
     Comandos(); // Construtor
     void limparDados();
     void lerConfiguracao(const string &nomeFicheiro);
-   void executarComando(const string &comando);
+    void executarComando(const string &comando); // Método para execução de comandos
     void mostrarConfig() const;
     //void processarComandos();
     int calcularPontuacao() const;
+
+// Métodos para adicionar cidades e caravanas
+/*void adicionarCidade(Cidade cidade);
+void adicionarCaravana(Caravana* caravana);*/
 
 
     // Comandos da Fase 1
@@ -60,12 +64,12 @@ public:
     void dels(istringstream& iss);
     void adicionaMoedas(istringstream& iss);
     void listarPrecos();
+    void mostrarDetalhesCaravana(istringstream& iss);
+    void listarCaravanasCidade(std::istringstream &iss);
     void tripul(istringstream& iss);
     void comprac(std::istringstream& iss);
 
 };
-
-
 
 
 

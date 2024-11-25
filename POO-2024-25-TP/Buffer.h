@@ -8,28 +8,33 @@
 #include <iostream>
 
 
-class Buffer {
 
+    class Buffer {
+    public:
+        // Construtor e destrutor
+        Buffer(int linhas, int colunas);  // Inicializa o buffer com o número de linhas e colunas fornecido
+        ~Buffer();                       // Libera memória alocada dinamicamente
 
-public:
-    Buffer(int linhas, int colunas);
-    ~Buffer();
+        // Métodos principais
+        void esvaziar();                 // Limpa o buffer, preenchendo com espaços
+        void transcreverParaConsola();   // Imprime o conteúdo do buffer na consola
+        void moverCursor(int linha, int coluna); // Move o cursor para uma posição específica (linha, coluna)
+        void imprimir(char c);           // Imprime um único caractere na posição do cursor
+        void imprimir(const std::string& str); // Imprime uma string a partir da posição do cursor
+        void imprimir(int num);          // Imprime um número inteiro a partir da posição do cursor
 
-    void esvaziar();
-    void transcreverParaConsola();
-    void moverCursor(int linha, int coluna);
-    void imprimir(char c);
-    void imprimir(const std::string& str);
-    void imprimir(int num);
+        // Operador de saída para facilitar a transcrição do buffer
+        // Declaração da função friend para a sobrecarg
+        friend std::ostream& operator<<(std::ostream& os, const Buffer& buf);
 
-    // Declaração da função friend para a sobrecarga
-    friend std::ostream& operator<<(std::ostream& os, const Buffer& buf);
+    private:
+        int linhas;                      // Número de linhas do buffer
+        int colunas;                     // Número de colunas do buffer
+        char** buffer;                   // Matriz bidimensional que armazena o conteúdo do buffer
+        int cursorLinha;                 // Linha atual do cursor
+        int cursorColuna;                // Coluna atual do cursor
+    };
 
-    int linhas;
-    int colunas;
-    char** buffer;
-    int cursorLinha, cursorColuna;
-};
 
 #endif //POO_2024_25_TP_BUFFER_H
 

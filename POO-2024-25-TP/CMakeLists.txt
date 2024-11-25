@@ -25,6 +25,5 @@ add_executable(POO_2024_25_TP main.cpp
         Comandos.cpp
         Cidade.h
         Cidade.cpp
-        Cidade.cpp
         Jogador.h
 )
