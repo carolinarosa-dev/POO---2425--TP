@@ -43,8 +43,6 @@ public:
     void moverCaravana(Caravana* caravana, int direcao);
     void adicionarCaravana(Caravana* caravana, int linha, int coluna);
 
-   // shared_ptr<Cidade> arrayCidade(char nome);
-
 };
 
 

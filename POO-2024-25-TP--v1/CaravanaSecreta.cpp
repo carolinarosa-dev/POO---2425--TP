@@ -37,13 +37,12 @@ void CaravanaSecreta::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica de aplicação de efeito de item específica para Caravana Secreta
     std::cout << "Aplicando efeito do item " << tipoItem << " na Caravana Secreta" << std::endl;
 }
-
-void CaravanaSecreta::exibirDetalhes() const {
-    std::cout << "Caravana Secreta ID: " << id << ", Tripulantes: " << tripulantes << "\n";
-}
-
 void CaravanaSecreta::esconder() {
     // Implementar lógica para esconder a caravana
     std::cout << "Caravana Secreta está se escondendo." << std::endl;
 }
+string CaravanaSecreta::exibirDetalhes() const {
+    std::cout << "Caravana Secreta ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+}
+
 

@@ -26,4 +26,6 @@ add_executable(POO_2024_25_TP main.cpp
         Cidade.h
         Cidade.cpp
         Jogador.h
+        CaravanaBarbara.cpp
+        CaravanaBarbara.h
 )

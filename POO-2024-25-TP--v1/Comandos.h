@@ -46,10 +46,10 @@ public:
     //void processarComandos();
     int calcularPontuacao() const;
 
+//Acho que é no simulador
 // Métodos para adicionar cidades e caravanas
 /*void adicionarCidade(Cidade cidade);
 void adicionarCaravana(Caravana* caravana);*/
-
 
     // Comandos da Fase 1
     void config(istringstream &iss);
@@ -58,6 +58,7 @@ void adicionarCaravana(Caravana* caravana);*/
     // Comandos da Fase 2
     void exec(istringstream &iss);
     void prox(istringstream &iss);
+    void comprac(std::istringstream& iss);// implementar a "logica" no simulador
     void terminar();
     void saves(istringstream& iss);
     void loads(istringstream& iss);
@@ -69,7 +70,7 @@ void adicionarCaravana(Caravana* caravana);*/
     void listarCaravanasCidade(std::istringstream &iss);
     void tripul(istringstream& iss);
 
-    void comprac(std::istringstream& iss);
+
 };
 
 #endif //POO_2024_25_TP_COMANDOS_H

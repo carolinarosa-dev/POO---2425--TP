@@ -14,7 +14,8 @@ public:
 
     void mover(char direcao) ;
     void aplicarEfeitoItem(int tipoItem) ;
-    void exibirDetalhes() const;
+    void esconder();
+    string exibirDetalhes() const;
 };
 
 #endif //POO_2024_25_TP_CARAVANAMILITAR_H

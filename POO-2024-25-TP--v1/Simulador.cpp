@@ -22,7 +22,7 @@ void Simulador::imprimirEstado() const {
 }
 
 void Simulador::adicionaCaravanaJogador() {
-    // Cria a caravana com o número fornecido
+   /* // Cria a caravana com o número fornecido
     int idCaravana = tipoCaravanaNum;  // Usando o número da caravana diretamente
 
     Caravana::Tipo tipoCaravana = Caravana::COMERCIO; // Podemos atribuir um tipo fixo, ou modificar conforme a lógica
@@ -35,6 +35,7 @@ void Simulador::adicionaCaravanaJogador() {
 
     // Feedback para o usuário
     cout << "Caravana de número " << tipoCaravanaNum << " comprada na cidade " << cidadeNome << "." << endl;
+    */
 }
 
 /*void Simulador::atualizarEstado() {

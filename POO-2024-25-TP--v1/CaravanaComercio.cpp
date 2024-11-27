@@ -26,6 +26,10 @@ void CaravanaComercio::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica específica de aplicação de efeito de item
     cout << "Aplicando efeito do item " << tipoItem << " na Caravana de Comércio" << endl;
 }
+void CaravanaComercio::esconder() {
+    // Implementar lógica para esconder a caravana
+    std::cout << "Caravana Secreta está se escondendo." << std::endl;
+}
 
 string CaravanaComercio::exibirDetalhes() const {
     ostringstream oss;

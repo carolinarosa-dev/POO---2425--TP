@@ -27,13 +27,14 @@ int Cidade::getColuna() const {
 
 
 
-void Cidade::listarCaravanas() const {
-    std::cout << "Caravanas na cidade " << nome << ":" << std::endl;
-
+string Cidade::listarCaravanas() const {
+    ostringstream oss;
     for (const auto& caravana : caravanasNaCidade) {
         if(auto obj = caravana.lock())
         cout << "ID: " << obj->getId() << " Tipo: " << obj->exibirDetalhes()<< std::endl;
     }
+    oss << "Caravanas na cidade " << nome << ":" << std::endl;
+    return oss.str();
 }
 
 /*

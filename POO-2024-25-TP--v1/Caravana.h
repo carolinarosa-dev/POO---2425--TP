@@ -11,9 +11,9 @@
 #include <sstream>
 
 #include"Comandos.h"
-#include "Cidade.h"
 #include "Jogador.h"
 
+class Cidade; //cidade conhece as caravanas
 using namespace  std;
 
 

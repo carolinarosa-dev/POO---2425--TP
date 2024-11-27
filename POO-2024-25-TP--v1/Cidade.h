@@ -22,7 +22,7 @@ class Cidade {
 public:
     Cidade(char nome, int linha, int coluna);
 
-    void listarCaravanas() const;
+    string listarCaravanas() const;
     void mostrarPosicao();
     char getNome() const;
     int getTripulantes() const;
@@ -38,8 +38,8 @@ private:
     int linha, coluna;
     int tripulantes;
     std::vector<string> mercadorias;
-    //vector<Caravana*> caravanasNaCidade;  // Caravanas nesta cidade
-    vector<weak_ptr<Caravana>> caravanasNaCidade;  // Usando shared_ptr para gestão automática de memória
+    vector<shared_ptr<Cidade>> cidades; //Dono???
+    vector<weak_ptr<Caravana>> caravanasNaCidade;
     //fazer verificaçoes dos ponteiros
 
     };

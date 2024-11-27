@@ -26,9 +26,15 @@ void CaravanaMilitar::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica de aplicação de efeito de item específica para Caravana Militar
     std::cout << "Aplicando efeito do item " << tipoItem << " na Caravana Militar" << std::endl;
 }
+void CaravanaMilitar::esconder() {
+    // Implementar lógica para esconder a caravana
+    std::cout << "Caravana Secreta está se escondendo." << std::endl;
+}
 
-void CaravanaMilitar::exibirDetalhes() const {
-    std::cout << "Caravana Militar ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+string CaravanaMilitar::exibirDetalhes() const {
+    ostringstream oss;
+    oss << "Caravana Militar ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+    return oss.str();
 }
 
 
