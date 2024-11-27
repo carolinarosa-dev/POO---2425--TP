@@ -13,7 +13,9 @@
     <option name="reloaded" value="true" />
   </component>
   <component name="CMakeRunConfigurationManager">
-    <generated />
+    <generated>
+      <config projectName="POO_2024_25_TP" targetName="POO_2024_25_TP" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -79,11 +81,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="POO_2024_25_TP" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="POO_2024_25_TP" TARGET_NAME="POO_2024_25_TP" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="POO_2024_25_TP" RUN_TARGET_NAME="POO_2024_25_TP">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -100,6 +97,8 @@
       <updated>1731946443059</updated>
       <workItem from="1731946444105" duration="7006000" />
       <workItem from="1732117730735" duration="251000" />
+      <workItem from="1732715506296" duration="216000" />
+      <workItem from="1732715750832" duration="6000" />
     </task>
     <servers />
   </component>
