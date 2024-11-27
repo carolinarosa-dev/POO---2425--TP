@@ -5,7 +5,6 @@
 #ifndef POO_2024_25_TP_CARAVANAMILITAR_H
 #define POO_2024_25_TP_CARAVANAMILITAR_H
 
-
 #include "Caravana.h"
 
 class CaravanaMilitar : public Caravana {

@@ -26,8 +26,8 @@ private:
     Buffer* bufferAtual;
     map<string, Buffer*> buffersSalvos;
     vector<string> mapa;
-  //  vector<Caravana*> caravanas; // Lista de caravanas
-   // vector<Cidade> cidades; // Lista de cidades
+
+    vector<weak_ptr<Cidade>> cidades;
     int linhas=10, colunas=20;
     int moedas, instantesEntreNovosItens, duracaoItem, maxItens;
     int precoVendaMercadoria=0, precoCompraMercadoria=0, precoCaravana;
@@ -69,11 +69,7 @@ void adicionarCaravana(Caravana* caravana);*/
     void listarCaravanasCidade(std::istringstream &iss);
     void tripul(istringstream& iss);
 
-
     void comprac(std::istringstream& iss);
-
 };
-
-
 
 #endif //POO_2024_25_TP_COMANDOS_H

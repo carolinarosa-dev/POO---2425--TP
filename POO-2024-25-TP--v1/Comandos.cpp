@@ -389,34 +389,26 @@ void Comandos::comprac(istringstream& iss) {
 
     // Verifica se o número da caravana está dentro do intervalo esperado (1 a 9)
     if (tipoCaravanaNum < 0 || tipoCaravanaNum > 9) {
+        //gerar execções
         cout << "Número de caravana inválido! Deve ser de 0 a 9." << endl;
         return;
     }
 
     // Encontra a cidade correspondente
-    Cidade* cidade = nullptr;
-    /*for (auto& c : cidades) { // Supondo que 'cidades' é um vetor de cidades
-        if (c.getNome() == cidadeNome) {
-            cidade = &c;
+    weak_ptr<Cidade> cidade;
+    for (auto& cidadeAtual : cidades) { // Supondo que 'cidades' é um vetor de cidades
+        if(auto obj = cidadeAtual.lock())
+        if (obj->getNome() == cidadeNome) {
+            cidade = cidadeAtual;
             break;
         }
-    }*/
+    }
 
-    if (cidade == nullptr) {
-        cout << "Cidade " << cidadeNome << " não encontrada!" << endl;
+    if (!cidade.lock()) {
+        //gerar execções
+        //cout << "Cidade " << cidadeNome << " não encontrada!" << endl;
         return; // Se a cidade não for encontrada
     }
 
-    // Cria a caravana com o número fornecido
-    int idCaravana = tipoCaravanaNum;  // Usando o número da caravana diretamente
-    Caravana::Tipo tipoCaravana = Caravana::COMERCIO; // Podemos atribuir um tipo fixo, ou modificar conforme a lógica
-
-    // Exemplo de criação da caravana (pode ser ajustado conforme a lógica de tipos)
-    Caravana* novaCaravana = new Caravana(idCaravana, tipoCaravana, 0, 0); // Aqui você pode passar as coordenadas da caravana
-
-    // Adiciona a caravana à cidade
-    cidade->adicionarCaravana(shared_ptr<Caravana>(novaCaravana));
-
-    // Feedback para o usuário
-    cout << "Caravana de número " << tipoCaravanaNum << " comprada na cidade " << cidadeNome << "." << endl;
+    //chamar o simudador
 }

@@ -3,10 +3,7 @@
 //
 
 #include "Cidade.h"
-#include "CaravanaComercio.h"
-#include "CaravanaMilitar.h"
-#include "CaravanaSecreta.h"
-
+#include "Caravana.h"
 
 Cidade::Cidade(char nome, int linha, int coluna)
         : nome(nome), linha(linha), coluna(coluna), tripulantes(10) {
@@ -32,8 +29,10 @@ int Cidade::getColuna() const {
 
 void Cidade::listarCaravanas() const {
     std::cout << "Caravanas na cidade " << nome << ":" << std::endl;
+
     for (const auto& caravana : caravanasNaCidade) {
-        std::cout << "ID: " << caravana->getId() << " Tipo: " << static_cast<int>(caravana->getTipo()) << std::endl;
+        if(auto obj = caravana.lock())
+        cout << "ID: " << obj->getId() << " Tipo: " << obj->exibirDetalhes()<< std::endl;
     }
 }
 
@@ -43,7 +42,7 @@ void Cidade::adicionarCaravana(Caravana* caravana) {
 }*/
 
 
-void Cidade::adicionarCaravana(const shared_ptr<Caravana>&caravana) {
+void Cidade::adicionarCaravana(weak_ptr<Caravana>&caravana) {
     caravanasNaCidade.push_back(caravana);
 }
 

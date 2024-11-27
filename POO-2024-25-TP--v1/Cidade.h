@@ -5,15 +5,15 @@
 #ifndef POO_2024_25_TP_CIDADE_H
 #define POO_2024_25_TP_CIDADE_H
 
-
 #include <vector>
 #include <string>
 #include <memory>
 #include <algorithm>
 #include <iostream>
+
 #include "Caravana.h"
 #include "Comandos.h"
-
+#include "Jogador.h"
 class Caravana;
 
 using namespace std;
@@ -21,6 +21,7 @@ using namespace std;
 class Cidade {
 public:
     Cidade(char nome, int linha, int coluna);
+
     void listarCaravanas() const;
     void mostrarPosicao();
     char getNome() const;
@@ -30,9 +31,7 @@ public:
     void listarMercadorias() const;
 
     //void adicionarCaravana(Caravana* caravana);
-    void adicionarCaravana(const shared_ptr<Caravana>& caravana);
-
-
+    void adicionarCaravana(weak_ptr<Caravana>& caravana);//conhece do dono jogador
 
 private:
     char nome;
@@ -40,9 +39,9 @@ private:
     int tripulantes;
     std::vector<string> mercadorias;
     //vector<Caravana*> caravanasNaCidade;  // Caravanas nesta cidade
-    vector<shared_ptr<Caravana>> caravanasNaCidade;  // Usando shared_ptr para gestão automática de memória
+    vector<weak_ptr<Caravana>> caravanasNaCidade;  // Usando shared_ptr para gestão automática de memória
+    //fazer verificaçoes dos ponteiros
+
     };
-
-
 
 #endif //POO_2024_25_TP_CIDADE_H

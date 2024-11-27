@@ -6,7 +6,8 @@
 #define POO_2024_25_TP_BUFFER_H
 
 #include <iostream>
-
+//#include <iomanip>
+//#include "sstream"
 
 
     class Buffer {

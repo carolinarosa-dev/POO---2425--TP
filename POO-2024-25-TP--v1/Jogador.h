@@ -7,11 +7,10 @@
 
 #include"Caravana.h"
 
-
 class Jogador {
     private:
         int moedas;
-        std::vector<Caravana> caravanas;
+        std::vector<shared_ptr<Caravana>> caravanas;//DONO
 
     public:
         Jogador(int moedasIniciais);

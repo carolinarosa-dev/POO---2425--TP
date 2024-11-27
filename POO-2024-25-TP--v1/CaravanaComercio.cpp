@@ -27,6 +27,8 @@ void CaravanaComercio::aplicarEfeitoItem(int tipoItem) {
     cout << "Aplicando efeito do item " << tipoItem << " na Caravana de Comércio" << endl;
 }
 
-void CaravanaComercio::exibirDetalhes() const {
-    cout << "Caravana de Comércio ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+string CaravanaComercio::exibirDetalhes() const {
+    ostringstream oss;
+    oss << "Caravana de Comércio ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+    return oss.str();
 }

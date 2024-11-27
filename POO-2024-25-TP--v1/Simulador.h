@@ -17,16 +17,12 @@
 #include "Deserto.h"
 #include "Caravana.h"
 #include "Comandos.h"
-using namespace std;
 
+using namespace std;
 
 class Simulador {
 
-
 public:
-
-
-
 
     ~Simulador();
 
@@ -34,25 +30,20 @@ public:
     void iniciar();               // Inicia a simulação
     void executarComando(const std::string& comando); // Executa um comando
 
-
     void caravana(int id);
 
     // Funções auxiliares
     void imprimirEstado() const;
 
-    // Simulador.h
-
-
-
+    void adicionaCaravanaJogador();
 
 private:
     int moedasJogador;                     // Moedas do jogador
     int instantes;                  // Número de instantes decorridos
     int combatesVencidos;           // Número de combates vencidos
     //Deserto **deserto;               // Mapa do deserto - aloca o mapa e o local da referencia na memoria
-    //   std::vector<Caravana*> caravanas; // Caravanas do jogador
+    vector<shared_ptr<Cidade>> cidades; //DONO
     Buffer buffer;                  // Buffer para output
-
 
 };
 

@@ -3,9 +3,7 @@
 //
 
 #include "Buffer.h"
-#include <iostream>
-#include <iomanip>
-#include "sstream"
+
 
 Buffer::Buffer(int linhas, int colunas) : linhas(linhas), colunas(colunas), cursorLinha(0), cursorColuna(0) {
     // Alocação dinâmica de memória

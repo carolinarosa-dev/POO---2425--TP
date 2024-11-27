@@ -14,7 +14,6 @@
 #include <ctime>
 #include <stdexcept>
 
-
 #include "Item.h"
 #include "Caravana.h"
 #include "Simulador.h"

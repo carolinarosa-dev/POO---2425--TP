@@ -8,9 +8,11 @@
 #include <string>
 #include <algorithm> // Para std::max
 #include <vector>
-#include "Cidade.h"
 #include <sstream>
+
 #include"Comandos.h"
+#include "Cidade.h"
+#include "Jogador.h"
 
 using namespace  std;
 
@@ -67,7 +69,7 @@ public:
 
     void adicionarAgua(int quantidade);
 
-    virtual void exibirDetalhes() const;
+    virtual string exibirDetalhes() const;
 
     bool estaEmCidade() const;
 

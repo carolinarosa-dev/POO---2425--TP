@@ -5,7 +5,6 @@
 #ifndef POO_2024_25_TP_ITEM_H
 #define POO_2024_25_TP_ITEM_H
 
-
 #include <string>
 
 class Item {
