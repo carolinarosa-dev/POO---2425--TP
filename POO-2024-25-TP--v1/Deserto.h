@@ -33,7 +33,7 @@ private:
     int numLinhas, numColunas;  // Dimensões do deserto
     std::vector<std::vector<TipoPosicao>> mapa;  // Mapa do deserto
     std::vector<Caravana *> caravanas;  // Caravanas no deserto (não nas cidades)
-    std::vector<std::shared_ptr<Cidade>> cidades;  // Cidades no deserto (gerenciadas com shared_ptr)
+   // std::vector<std::shared_ptr<Cidade>> cidades;  // Cidades no deserto (gerenciadas com shared_ptr)
 
 public:
     // Construtor que inicializa o deserto com dimensões
@@ -44,8 +44,7 @@ public:
     void moverCaravana(Caravana* caravana, int direcao);
     void adicionarCaravana(Caravana* caravana, int linha, int coluna);
 
-    shared_ptr<Cidade> arrayCidade(char nome);
-
+   // shared_ptr<Cidade> arrayCidade(char nome);
 
 };
 

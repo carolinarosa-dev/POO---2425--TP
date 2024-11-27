@@ -98,7 +98,7 @@ void Deserto::adicionarCaravana(Caravana* caravana, int linha, int coluna) {
     }
 }
 
-
+/*
 shared_ptr<Cidade> Deserto::arrayCidade(char nome) {
     for (const auto& cidade : cidades) {
         if (cidade->getNome() == nome) {
@@ -106,4 +106,4 @@ shared_ptr<Cidade> Deserto::arrayCidade(char nome) {
         }
     }
     return nullptr;  // Retorna nullptr se a cidade não for encontrada
-}
+}*/
