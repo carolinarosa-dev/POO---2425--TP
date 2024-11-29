@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(POO_2024_25_TP)
+project(POO_2024_25_TP--v1)
 
 set(CMAKE_CXX_STANDARD 20)
 
