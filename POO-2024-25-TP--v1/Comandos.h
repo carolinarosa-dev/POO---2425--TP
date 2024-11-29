@@ -13,14 +13,13 @@
 #include <map>
 #include <unordered_map>  // Para unordered_map
 
-#include "Buffer.h"
-#include "Deserto.h"
+#include "Simulador.h"
 #include "Caravana.h"
-#include"Cidade.h"
-
+class Cidade;
 using namespace std;
 
 class Comandos {
+
 private:
 
     Buffer* bufferAtual;

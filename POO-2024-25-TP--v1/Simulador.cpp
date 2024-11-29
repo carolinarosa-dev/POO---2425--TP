@@ -21,6 +21,7 @@ void Simulador::imprimirEstado() const {
     std::cout << "Estado atual do simulador.\n";
 }
 
+//adiciona as caravanas ao jogador quando ele compra
 void Simulador::adicionaCaravanaJogador() {
    /* // Cria a caravana com o número fornecido
     int idCaravana = tipoCaravanaNum;  // Usando o número da caravana diretamente

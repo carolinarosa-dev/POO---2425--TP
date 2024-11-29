@@ -37,12 +37,7 @@ string Cidade::listarCaravanas() const {
     return oss.str();
 }
 
-/*
-void Cidade::adicionarCaravana(Caravana* caravana) {
-    caravanasNaCidade.push_back(caravana);
-}*/
-
-
+//coloca as caravanas na cidade
 void Cidade::adicionarCaravana(weak_ptr<Caravana>&caravana) {
     caravanasNaCidade.push_back(caravana);
 }

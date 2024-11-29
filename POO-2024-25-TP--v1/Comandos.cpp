@@ -396,13 +396,13 @@ void Comandos::comprac(istringstream& iss) {
 
     // Encontra a cidade correspondente
     weak_ptr<Cidade> cidade;
-    for (auto& cidadeAtual : cidades) { // Supondo que 'cidades' é um vetor de cidades
+   /* for (auto& cidadeAtual : cidades) { // Supondo que 'cidades' é um vetor de cidades
         if(auto obj = cidadeAtual.lock())
         if (obj->getNome() == cidadeNome) {
             cidade = cidadeAtual;
             break;
         }
-    }
+    }*/
 
     if (!cidade.lock()) {
         //gerar execções

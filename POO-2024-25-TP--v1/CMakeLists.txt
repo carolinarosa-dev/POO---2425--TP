@@ -4,28 +4,18 @@ project(POO_2024_25_TP)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(POO_2024_25_TP main.cpp
-        Simulador.cpp
-        Buffer.h
-        Buffer.cpp
-        Deserto.h
-        Deserto.cpp
-        Item.h
-        Item.cpp
-        Caravana.h
-        Caravana.cpp
-        CaravanaComercio.h
-        CaravanaComercio.cpp
-        CaravanaMilitar.h
-        CaravanaMilitar.cpp
-        CaravanaSecreta.h
-        CaravanaSecreta.cpp
-        Combate.h
-        Combate.cpp
-        Simulador.h
-        Comandos.cpp
-        Cidade.h
-        Cidade.cpp
-        Jogador.h
-        CaravanaBarbara.cpp
-        CaravanaBarbara.h
+        Buffer.h            Buffer.cpp
+        Caravana.h          Caravana.cpp
+        CaravanaBarbara.h   CaravanaBarbara.cpp
+        CaravanaComercio.h  CaravanaComercio.cpp
+        CaravanaMilitar.h   CaravanaMilitar.cpp
+        CaravanaSecreta.h   CaravanaSecreta.cpp
+        Cidade.h            Cidade.cpp
+        Comandos.h          Comandos.cpp
+        Deserto.h           Deserto.cpp
+        Item.h              Item.cpp
+        Jogador.h           Jogador.cpp
+        Simulador.h         Simulador.cpp
+
+        Combate.h           Combate.cpp
 )

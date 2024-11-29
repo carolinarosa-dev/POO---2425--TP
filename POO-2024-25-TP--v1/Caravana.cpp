@@ -115,10 +115,12 @@ void Caravana::adicionarAgua(int quantidade) {
 
 
 // Exibe detalhes da caravana
-void Caravana::exibirDetalhes() const {
-    std::cout << "Caravana ID: " << id << ", Tripulantes: " << tripulantes << ", Mercadorias: ";
+string Caravana::exibirDetalhes() const {
+    ostringstream  oss;
+     oss << "Caravana ID: " << id << ", Tripulantes: " << tripulantes << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {
-        std::cout << mercadoria << " ";
+        oss << mercadoria << " ";
     }
-    std::cout << "\n";
+    oss << endl;
+    return oss.str();
 }

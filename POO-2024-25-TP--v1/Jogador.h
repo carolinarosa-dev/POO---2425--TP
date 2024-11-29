@@ -5,7 +5,13 @@
 #ifndef POO_2024_25_TP_JOGADOR_H
 #define POO_2024_25_TP_JOGADOR_H
 
-#include"Caravana.h"
+#include <memory>
+#include <vector>
+
+#include"Simulador.h"
+class Caravana;
+
+using namespace std;
 
 class Jogador {
     private:

@@ -17,18 +17,20 @@ void Deserto::configurarMapa(const std::vector<std::vector<TipoPosicao>>& config
 }
 
 // Exibe o estado atual do deserto
-void Deserto::exibirMapa() {
+string Deserto::exibirMapa() {
+    ostringstream oss;
     for (int i = 0; i < numLinhas; i++) {
         for (int j = 0; j < numColunas; j++) {
             if (mapa[i][j] == MONTANHA)
-                std::cout << "M ";
+                oss<< "M ";
             else if (mapa[i][j] == CIDADE)
-                std::cout << "C ";
+                oss << "C ";
             else
-                std::cout << ". ";
+                oss << ". ";
         }
-        std::cout << std::endl;
+        oss << endl;
     }
+    return oss.str();
 }
 
 // Verifica se uma posição é válida para uma caravana (não montanha)
@@ -91,7 +93,7 @@ void Deserto::adicionarCaravana(Caravana* caravana, int linha, int coluna) {
     if (posicaoValida(linha, coluna)) {
         // Assumir que a caravana tem método para se registrar no deserto
         // caravana->registrarNoDeserto();
-        caravanas.push_back(caravana);
+        //caravanas.push_back(caravana);
         std::cout << "Caravana adicionada ao deserto em (" << linha << ", " << coluna << ").\n";
     } else {
         std::cout << "Posição inválida para adicionar a caravana.\n";

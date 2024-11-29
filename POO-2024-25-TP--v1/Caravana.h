@@ -13,7 +13,8 @@
 #include"Comandos.h"
 #include "Jogador.h"
 
-class Cidade; //cidade conhece as caravanas
+//class Cidade; //cidade conhece as caravanas
+
 using namespace  std;
 
 
@@ -86,7 +87,7 @@ protected:
     int capacidadeAgua;
     int consumoAgua;
     vector<string> mercadorias;
-    vector<string> caravanas;
+    //vector<string> caravanas;
     bool emCidade;
 };
 

@@ -12,11 +12,13 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <memory>
 
 #include "Buffer.h"
-#include "Deserto.h"
 #include "Caravana.h"
 #include "Comandos.h"
+
+class Deserto;
 
 using namespace std;
 
@@ -42,7 +44,7 @@ private:
     int instantes;                  // Número de instantes decorridos
     int combatesVencidos;           // Número de combates vencidos
     //Deserto **deserto;               // Mapa do deserto - aloca o mapa e o local da referencia na memoria
-    vector<shared_ptr<Cidade>> cidades; //DONO
+    //std::vector<shared_ptr<Cidade>> cidades; //DONO
     Buffer buffer;                  // Buffer para output
 
 };

@@ -42,7 +42,9 @@ void CaravanaSecreta::esconder() {
     std::cout << "Caravana Secreta está se escondendo." << std::endl;
 }
 string CaravanaSecreta::exibirDetalhes() const {
-    std::cout << "Caravana Secreta ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+    ostringstream oss;
+     oss << "Caravana Secreta ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+    return oss.str();
 }
 
 

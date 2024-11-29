@@ -11,9 +11,11 @@
 #include <algorithm>
 #include <iostream>
 
-#include "Caravana.h"
+
 #include "Comandos.h"
-#include "Jogador.h"
+#include "Simulador.h"
+
+class Jogador;
 class Caravana;
 
 using namespace std;
@@ -30,7 +32,6 @@ public:
     int getColuna() const;
     void listarMercadorias() const;
 
-    //void adicionarCaravana(Caravana* caravana);
     void adicionarCaravana(weak_ptr<Caravana>& caravana);//conhece do dono jogador
 
 private:
@@ -38,7 +39,6 @@ private:
     int linha, coluna;
     int tripulantes;
     std::vector<string> mercadorias;
-    vector<shared_ptr<Cidade>> cidades; //Dono???
     vector<weak_ptr<Caravana>> caravanasNaCidade;
     //fazer verificaçoes dos ponteiros
 
