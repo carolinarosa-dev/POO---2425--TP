@@ -11,9 +11,9 @@
 #include"Simulador.h"
 class Caravana;
 
-using namespace std;
 
-class Jogador {
+
+/*class Jogador {
     private:
         int moedas;
         std::vector<shared_ptr<Caravana>> caravanas;//DONO
@@ -24,6 +24,25 @@ class Jogador {
         void adicionarMoedas(int quantidade);
         int getMoedas();
         bool temCaravanas();
-    };
+    };*/
+
+//#include "Caravana.h"
+
+using namespace std;
+
+class Jogador {
+private:
+    int moedas;
+    vector<shared_ptr<Caravana>> caravanas; // DONO
+
+public:
+    Jogador(int moedasIniciais);
+    //void comprarCaravana(int id, Caravana::Tipo tipo, int linha, int coluna);
+    void adicionarMoedas(int quantidade);
+    int getMoedas() const;
+    bool temCaravanas() const;
+    void listarCaravanas() const;
+    const vector<shared_ptr<Caravana>>& getCaravanas() const;
+};
 
 #endif //POO_2024_25_TP_JOGADOR_H

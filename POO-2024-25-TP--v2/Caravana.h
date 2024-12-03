@@ -24,8 +24,6 @@ public:
         COMERCIO, MILITAR, SECRETA, BARBARA
     };
 
-   /// Caravana(int id) : id(id), tripulantes(0), emCidade(false) {}
-
     Caravana(int id,Tipo tipo,  int linha, int coluna);
 
     virtual ~Caravana() = default;
@@ -87,7 +85,6 @@ protected:
     int capacidadeAgua;
     int consumoAgua;
     vector<string> mercadorias;
-    //vector<string> caravanas;
     bool emCidade;
 };
 

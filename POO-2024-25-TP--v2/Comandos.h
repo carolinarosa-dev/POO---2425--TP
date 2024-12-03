@@ -11,11 +11,12 @@
 #include <vector>
 #include<fstream>
 #include <map>
-#include <unordered_map>  // Para unordered_map
+#include <stdexcept>
 
 #include "Simulador.h"
 #include "Caravana.h"
 class Cidade;
+class Simulador;
 using namespace std;
 
 class Comandos {
@@ -32,9 +33,11 @@ private:
     int precoVendaMercadoria=0, precoCompraMercadoria=0, precoCaravana;
     int instantesEntreNovosBarbaros, duracaoBarbaros;
     int fase; // 1 para Fase 1, 2 para Fase 2
+    Simulador* simulador;
 
 
 public:
+
     Comandos(int linhas, int colunas);
     ~Comandos();
     Comandos(); // Construtor
@@ -44,6 +47,7 @@ public:
     void mostrarConfig() const;
     //void processarComandos();
     int calcularPontuacao() const;
+    void criarCaravanaBarbara(std::istringstream &iss);
 
 //Acho que é no simulador
 // Métodos para adicionar cidades e caravanas

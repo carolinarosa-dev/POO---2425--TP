@@ -17,5 +17,16 @@ add_executable(POO_2024_25_TP main.cpp
         Jogador.h           Jogador.cpp
         Simulador.h         Simulador.cpp
 
-        Combate.h           Combate.cpp
+        Montanha.h
+        Montanha.cpp
+        CaixaPandora.h
+        CaixaPandora.cpp
+        ArcaTesouro.h
+        ArcaTesouro.cpp
+        Jaula.h
+        Jaula.cpp
+        Mina.h
+        Mina.cpp
+        Surpresa.h
+        Surpresa.cpp
 )

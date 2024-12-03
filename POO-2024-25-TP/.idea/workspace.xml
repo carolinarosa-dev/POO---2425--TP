@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="POO_2024_25_TP" targetName="POO_2024_25_TP" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0a52cfdb-2068-4287-ab23-2336b443a238" name="Changes" comment="caraterizar a caravana secreta e mais alguns comandos feitos.">
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/.cmake/api/v1/reply/cache-v2-84803a94b23ecdc94411.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-b3e38398dd60b65b612a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e360b33147f5fb8e6688.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-29T12-35-19-0167.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-56d7836a41eebfa66f77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Combate.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Combate.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/POO_2024_25_TP.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/POO_2024_25_TP.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/POO_2024_25_TP.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/POO_2024_25_TP.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../POO-2024-25-TP--v2/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;cleobanshee&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="901bb633-4088-4232-bf03-d3bb2832dc78" />
+        <option name="url" value="https://github.com/cleobanshee/POO---2425--TP" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.5" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2okGLHz4SsZ57CQCaJYhIokwKj1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;C/C++ File.main.cpp.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.POO_2024_25_TP.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-TP&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="CMake Application.POO_2024_25_TP">
+    <configuration name="POO_2024_25_TP" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="POO_2024_25_TP" RUN_TARGET_NAME="POO_2024_25_TP" EXPLICIT_BUILD_TARGET_NAME="all">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="POO_2024_25_TP" TARGET_NAME="main.cpp" CONFIG_NAME="main.cpp">
+      <option name="sourceFile" value="main.cpp" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.POO_2024_25_TP" />
+      <item itemvalue="C/C++ File.main.cpp" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="C/C++ File.main.cpp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a52cfdb-2068-4287-ab23-2336b443a238" name="Changes" comment="" />
+      <created>1731406102363</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731406102363</updated>
+      <workItem from="1731406103642" duration="17760000" />
+      <workItem from="1731779483637" duration="1582000" />
+      <workItem from="1731781741718" duration="3392000" />
+      <workItem from="1731798786299" duration="4337000" />
+      <workItem from="1731849977745" duration="8490000" />
+      <workItem from="1731861645601" duration="5000" />
+      <workItem from="1731862328519" duration="9470000" />
+      <workItem from="1732642097690" duration="32000" />
+      <workItem from="1732642320310" duration="735000" />
+      <workItem from="1732791787359" duration="518000" />
+      <workItem from="1732883027796" duration="882000" />
+      <workItem from="1732883932561" duration="162000" />
+      <workItem from="1733135764069" duration="13000" />
+    </task>
+    <task id="LOCAL-00001" summary="comandos para o buffer - saves,loads,lists,dels e o terminar. o buffer aindo so é lido como tamanho pré-definido para testar os comandos.">
+      <option name="closed" value="true" />
+      <created>1731410246488</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731410246488</updated>
+    </task>
+    <task id="LOCAL-00002" summary="caraterizar a caravana secreta e mais alguns comandos feitos.">
+      <option name="closed" value="true" />
+      <created>1731436665428</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731436665428</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="comandos para o buffer - saves,loads,lists,dels e o terminar. o buffer aindo so é lido como tamanho pré-definido para testar os comandos." />
+    <MESSAGE value="caraterizar a caravana secreta e mais alguns comandos feitos." />
+    <option name="LAST_COMMIT_MESSAGE" value="caraterizar a caravana secreta e mais alguns comandos feitos." />
+  </component>
+</project>

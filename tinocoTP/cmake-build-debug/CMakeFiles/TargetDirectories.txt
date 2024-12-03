@@ -1,3 +1,0 @@
-C:/Users/Tinoco/Desktop/Isec_2425/POO/Trabalho pratico/tinoco/cmake-build-debug/CMakeFiles/tinoco.dir
-C:/Users/Tinoco/Desktop/Isec_2425/POO/Trabalho pratico/tinoco/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Tinoco/Desktop/Isec_2425/POO/Trabalho pratico/tinoco/cmake-build-debug/CMakeFiles/rebuild_cache.dir

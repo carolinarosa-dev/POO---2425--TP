@@ -5,45 +5,48 @@
 #ifndef POO_2024_25_TP_DESERTO_H
 #define POO_2024_25_TP_DESERTO_H
 
+
+
 #include <vector>
 #include <string>
-#include <map>
+#include <memory>
 #include <iostream>
 #include <sstream>
-#include <cstdlib>
-#include <ctime>
-#include <stdexcept>
-
-//#include "Item.h"
-#include "Simulador.h"
-//#include "Comandos.h"
+#include "Caravana.h"
+#include "Cidade.h"
+#include "Item.h"
 
 using namespace std;
 
-enum TipoPosicao {
-    VAZIO,   // Espaço vazio (Deserto)
-    CIDADE,  // Cidade
-    MONTANHA // Montanha
-};
-
-class Caravana;  // Declaração antecipada da classe Caravana
-
 class Deserto {
-private:
-    int numLinhas, numColunas;  // Dimensões do deserto
-    std::vector<std::vector<TipoPosicao>> mapa;  // Mapa do deserto
-
 public:
-    // Construtor que inicializa o deserto com dimensões
+    enum TipoPosicao { VAZIO, MONTANHA, CIDADE };
+
     Deserto(int linhas, int colunas);
-    void configurarMapa(const std::vector<std::vector<TipoPosicao>>& configuracao);
-    string exibirMapa();
-    bool posicaoValida(int linha, int coluna);
-    void moverCaravana(Caravana* caravana, int direcao);
-    void adicionarCaravana(Caravana* caravana, int linha, int coluna);
 
+    void configurarMapa(const vector<vector<TipoPosicao>>& configuracao);
+    string exibirMapa() const;
+    bool posicaoValida(int linha, int coluna) const;
+    void moverCaravana(shared_ptr<Caravana> caravana, int direcao);
+    void adicionarCaravana(shared_ptr<Caravana> caravana, int linha, int coluna);
+    void adicionarCidade(shared_ptr<Cidade> cidade);
+    void provocarTempestade(int linhaCentro, int colunaCentro, int raio);
+    void adicionarItem(shared_ptr<Item> item, int linha, int coluna);
+    void atualizarItens();
+
+protected:
+    void setMontanha(int linha, int coluna);
+
+private:
+    int numLinhas;
+    int numColunas;
+    vector<vector<TipoPosicao>> mapa;
+    vector<shared_ptr<Caravana>> caravanas;
+    vector<shared_ptr<Cidade>> cidades;
+    vector<shared_ptr<Item>> itens;
+    vector<pair<int, int>> posicoesItens;
+    int contadorInstantes;
 };
-
 
 
 

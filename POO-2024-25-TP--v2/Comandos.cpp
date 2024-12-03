@@ -6,14 +6,19 @@
 
 Comandos::Comandos(int linhas, int colunas) {
     bufferAtual = new Buffer(linhas, colunas);
+
 }
+
+
 
 // Construtor
 Comandos::Comandos() : linhas(0), colunas(0), moedas(0),
                        instantesEntreNovosItens(0), duracaoItem(0),
                        maxItens(0), precoVendaMercadoria(0),
                        precoCompraMercadoria(0), precoCaravana(0),
-                       instantesEntreNovosBarbaros(0), duracaoBarbaros(0) {}
+                       instantesEntreNovosBarbaros(0), duracaoBarbaros(0) {
+        simulador = nullptr;
+    }
 
 void Comandos::limparDados() {
     linhas = colunas = moedas = 0;
@@ -90,13 +95,15 @@ void Comandos::executarComando(const string &comando) {
     } else if (cmd == "prox") {
         prox(iss);
     } else if (cmd == "comprac") {
-        // comprac(iss);
+//        comprac(iss);
     } else if (cmd == "precos") {
         listarPrecos();
     }else if (cmd == "cidade") {
 //            listarCaravanasCidade(iss);
         } else if (cmd == "caravana") {
 //            mostrarDetalhesCaravana(iss);
+    } else if (cmd == "barbaro") {
+        criarCaravanaBarbara(iss);
     } else if (cmd == "moedas") {
         adicionaMoedas(iss);
     } else if (cmd == "tripul") {
@@ -219,6 +226,7 @@ int Comandos::calcularPontuacao() const {
 
 Comandos::~Comandos() {
     delete bufferAtual;
+//    delete simulador;
     for (auto& pair : buffersSalvos) {
         delete pair.second;
     }
@@ -296,89 +304,15 @@ void Comandos::listarPrecos() {
     cout << "Preço de compra: " << precoCompraMercadoria << " moedas" << endl;
 }
 
-
-// Adiciona uma cidade ao vetor de cidades
-/*
-void Comandos::adicionarCidade(Cidade cidade) {
-    cidades.push_back(cidade);
+void Comandos::criarCaravanaBarbara(std::istringstream &iss) {
+    int linha, coluna;
+    iss >> linha >> coluna;
+    simulador->criarCaravanaBarbara(linha, coluna);
 }
-
-// Adiciona uma caravana ao vetor de caravanas
-void Comandos::adicionarCaravana(Caravana* caravana) {
-    caravanas.push_back(caravana);
-}
-*/
-
-// Lista as caravanas presentes numa cidade
-/*void Comandos::listarCaravanasCidade(std::istringstream &iss) {
-    char cidadeNome;
-    iss >> cidadeNome;*/
-
-    // Procura pela cidade no vetor
-/*    bool cidadeEncontrada = false;
-    for (const auto& cidade : cidades) {
-        if (cidade.getNome() == cidadeNome) {
-            cidadeEncontrada = true;
-            cidade.listarCaravanas();  // Chama a função para listar caravanas na cidade
-            break;
-        }
-    }*/
-/*
-    if (!cidadeEncontrada) {
-        std::cout << "Cidade não encontrada!" << std::endl;
-    }
-}*/
-
-// Exibe detalhes de uma caravana
-/*
-void Comandos::mostrarDetalhesCaravana(std::istringstream &iss) {
-    int idCaravana;
-    iss >> idCaravana;
-
-    // Procura pela caravana no vetor
-    bool caravanaEncontrada = false;
-    for (const auto& caravana : caravanas) {
-        if (caravana->getId() == idCaravana) {
-            caravanaEncontrada = true;
-            caravana->exibirDetalhes();  // Chama a função para exibir detalhes da caravana
-            break;
-        }
-    }
-
-    if (!caravanaEncontrada) {
-        std::cout << "Caravana não encontrada!" << std::endl;
-    }
-}
-*/
-
-
-
 
 
 /*
-void Comandos::tripul(std::istringstream& iss) {
-    int n, t;
-    iss >> n >> t;
-    if (iss.fail() || n <= 0 || t <= 0) {
-        std::cerr << "Erro: valores inválidos para caravana ou tripulantes." << std::endl;
-        return;
-    }
 
-    for (auto& caravana : caravanas) {
-        if (caravana.getId() == n) {
-            if (caravana.estaEmCidade()) {
-                caravana.adicionarTripulantes(t);
-                std::cout << "Adicionados " << t << " tripulantes à caravana " << n << "." << std::endl;
-            } else {
-                std::cerr << "Erro: a caravana " << n << " não está em uma cidade." << std::endl;
-            }
-            return;
-        }
-    }
-    std::cerr << "Erro: caravana " << n << " não encontrada." << std::endl;
-}
-
-*/
 
 void Comandos::comprac(istringstream& iss) {
     char cidadeNome;
@@ -396,19 +330,40 @@ void Comandos::comprac(istringstream& iss) {
 
     // Encontra a cidade correspondente
     weak_ptr<Cidade> cidade;
-   /* for (auto& cidadeAtual : cidades) { // Supondo que 'cidades' é um vetor de cidades
+ for (auto& cidadeAtual : cidades) { // Supondo que 'cidades' é um vetor de cidades
         if(auto obj = cidadeAtual.lock())
         if (obj->getNome() == cidadeNome) {
             cidade = cidadeAtual;
             break;
         }
-    }*/
+    }
 
     if (!cidade.lock()) {
         //gerar execções
         //cout << "Cidade " << cidadeNome << " não encontrada!" << endl;
         return; // Se a cidade não for encontrada
     }
-
+    //simulador.adicionaCaravanaJogador();
     //chamar o simudador
 }
+*/
+/*
+
+void Comandos::comprac(std::istringstream& iss) {
+    char cidadeNome;
+    int tipoCaravanaNum;
+    char tipoCaravanaChar;
+
+    // Lê a cidade, o número da caravana e o tipo da caravana
+    iss >> cidadeNome >> tipoCaravanaNum >> tipoCaravanaChar;
+
+    // Verifica se o número da caravana está dentro do intervalo esperado (0 a 9)
+    if (tipoCaravanaNum < 0 || tipoCaravanaNum > 9) {
+        throw std::invalid_argument("Número de caravana inválido! Deve ser de 0 a 9.");
+    }
+
+    // Chama a função do simulador para adicionar a caravana
+    simulador->adicionaCaravanaJogador(cidadeNome, tipoCaravanaNum, tipoCaravanaChar);
+}
+*/
+

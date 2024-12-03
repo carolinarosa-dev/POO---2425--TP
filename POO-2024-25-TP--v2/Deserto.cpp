@@ -2,27 +2,28 @@
 // Created by Carolina Rosa on 10/11/2024.
 //
 
+
 #include "Deserto.h"
 
 // Construtor que inicializa o deserto com dimensões
 Deserto::Deserto(int linhas, int colunas)
-        : numLinhas(linhas), numColunas(colunas), mapa(linhas, std::vector<TipoPosicao>(colunas, VAZIO)) {}
+        : numLinhas(linhas), numColunas(colunas), mapa(linhas, vector<TipoPosicao>(colunas, VAZIO)), contadorInstantes(0) {}
 
 // Configura o mapa com cidades e montanhas
-void Deserto::configurarMapa(const std::vector<std::vector<TipoPosicao>>& configuracao) {
+void Deserto::configurarMapa(const vector<vector<TipoPosicao>>& configuracao) {
     if (configuracao.size() != numLinhas || configuracao[0].size() != numColunas) {
-        throw std::invalid_argument("Dimensões do mapa não coincidem com a configuração.");
+        throw invalid_argument("Dimensões do mapa não coincidem com a configuração.");
     }
     mapa = configuracao;
 }
 
 // Exibe o estado atual do deserto
-string Deserto::exibirMapa() {
+string Deserto::exibirMapa() const {
     ostringstream oss;
     for (int i = 0; i < numLinhas; i++) {
         for (int j = 0; j < numColunas; j++) {
             if (mapa[i][j] == MONTANHA)
-                oss<< "M ";
+                oss << "M ";
             else if (mapa[i][j] == CIDADE)
                 oss << "C ";
             else
@@ -34,16 +35,13 @@ string Deserto::exibirMapa() {
 }
 
 // Verifica se uma posição é válida para uma caravana (não montanha)
-bool Deserto::posicaoValida(int linha, int coluna) {
+bool Deserto::posicaoValida(int linha, int coluna) const {
     return linha >= 0 && linha < numLinhas && coluna >= 0 && coluna < numColunas && mapa[linha][coluna] != MONTANHA;
 }
 
-
-
-void Deserto::moverCaravana(Caravana* caravana, int direcao) {
+void Deserto::moverCaravana(shared_ptr<Caravana> caravana, int direcao) {
     if (!caravana) {
-        std::cout << "Caravana inválida.\n";
-        return;
+        throw invalid_argument("Caravana inválida.");
     }
 
     // Obter a posição atual da caravana
@@ -75,37 +73,62 @@ void Deserto::moverCaravana(Caravana* caravana, int direcao) {
             novaColuna = (colunaAtual + 1) % numColunas;
             break;
         default:
-            std::cout << "Direção inválida.\n";
-            return;
+            throw invalid_argument("Direção inválida.");
     }
 
     // Verificar se a nova posição é válida
     if (posicaoValida(novaLinha, novaColuna)) {
         // Atualizar a posição da caravana
         caravana->setPosicao(novaLinha, novaColuna);
-        std::cout << "Caravana movida para (" << novaLinha << ", " << novaColuna << ").\n";
     } else {
-        std::cout << "Movimento inválido! A posição está ocupada ou fora dos limites.\n";
-    }
-}
-// Adiciona uma caravana ao deserto (em uma posição válida)
-void Deserto::adicionarCaravana(Caravana* caravana, int linha, int coluna) {
-    if (posicaoValida(linha, coluna)) {
-        // Assumir que a caravana tem método para se registrar no deserto
-        // caravana->registrarNoDeserto();
-        //caravanas.push_back(caravana);
-        std::cout << "Caravana adicionada ao deserto em (" << linha << ", " << coluna << ").\n";
-    } else {
-        std::cout << "Posição inválida para adicionar a caravana.\n";
+        throw runtime_error("Movimento inválido! A posição está ocupada ou fora dos limites.");
     }
 }
 
-/*
-shared_ptr<Cidade> Deserto::arrayCidade(char nome) {
-    for (const auto& cidade : cidades) {
-        if (cidade->getNome() == nome) {
-            return cidade;  // Retorna a cidade encontrada
+// Adiciona uma caravana ao deserto (em uma posição válida)
+void Deserto::adicionarCaravana(shared_ptr<Caravana> caravana, int linha, int coluna) {
+    if (posicaoValida(linha, coluna)) {
+        caravanas.push_back(caravana);
+        caravana->setPosicao(linha, coluna);
+    } else {
+        throw invalid_argument("Posição inválida para adicionar a caravana.");
+    }
+}
+
+// Adiciona uma cidade ao deserto
+void Deserto::adicionarCidade(shared_ptr<Cidade> cidade) {
+    int linha = cidade->getLinha();
+    int coluna = cidade->getColuna();
+    if (posicaoValida(linha, coluna)) {
+        cidades.push_back(cidade);
+        mapa[linha][coluna] = CIDADE;
+    } else {
+        throw invalid_argument("Posição inválida para adicionar a cidade.");
+    }
+}
+
+// Provoca uma tempestade de areia em uma região do deserto
+void Deserto::provocarTempestade(int linhaCentro, int colunaCentro, int raio) {
+    for (int i = -raio; i <= raio; ++i) {
+        for (int j = -raio; j <= raio; ++j) {
+            int linha = (linhaCentro + i + numLinhas) % numLinhas;
+            int coluna = (colunaCentro + j + numColunas) % numColunas;
+            // Afeta a caravana na posição (linha, coluna) se houver uma
+            for (auto& caravana : caravanas) {
+                auto [caravanaLinha, caravanaColuna] = caravana->getPosicao();
+                if (caravanaLinha == linha && caravanaColuna == coluna) {
+                    caravana->perderTripulantes(5); // Exemplo de efeito da tempestade
+                }
+            }
         }
     }
-    return nullptr;  // Retorna nullptr se a cidade não for encontrada
-}*/
+}
+
+// Define uma posição como montanha
+void Deserto::setMontanha(int linha, int coluna) {
+    if (posicaoValida(linha, coluna)) {
+        mapa[linha][coluna] = MONTANHA;
+    } else {
+        throw invalid_argument("Posição inválida para configurar montanha.");
+    }
+}
