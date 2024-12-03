@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "POO_2024_25_TP",
+					"name" : "POO_2024_25_TP--v1",
 					"targetIndexes" : 
 					[
 						0
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP--v1/cmake-build-debug",
-		"source" : "C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP--v1"
+		"build" : "C:/Users/Tinoco/Desktop/POO---2425--TP/lixo/POO-2024-25-TP--v1/cmake-build-debug",
+		"source" : "C:/Users/Tinoco/Desktop/POO---2425--TP/lixo/POO-2024-25-TP--v1"
 	},
 	"version" : 
 	{

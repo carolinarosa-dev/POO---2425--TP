@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: POO_2024_25_TP
+# Project: POO_2024_25_TP--v1
 # Configurations: Debug
 # =============================================================================
 # =============================================================================
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP--v1 -BC:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP--v1\cmake-build-debug
+  command = "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Tinoco\Desktop\POO---2425--TP\lixo\POO-2024-25-TP--v1 -BC:\Users\Tinoco\Desktop\POO---2425--TP\lixo\POO-2024-25-TP--v1\cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

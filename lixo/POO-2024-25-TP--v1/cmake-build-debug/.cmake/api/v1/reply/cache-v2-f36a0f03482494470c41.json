@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP/cmake-build-debug"
+			"value" : "c:/Users/Tinoco/Desktop/POO---2425--TP/lixo/POO-2024-25-TP--v1/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/lixo/POO-2024-25-TP--v1/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP"
+			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/lixo/POO-2024-25-TP--v1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/POO_2024_25_TP"
+			"value" : "C:/Program Files (x86)/POO_2024_25_TP--v1"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -875,7 +875,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "POO_2024_25_TP"
+			"value" : "POO_2024_25_TP--v1"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1270,7 +1270,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "POO_2024_25_TP_BINARY_DIR",
+			"name" : "POO_2024_25_TP--v1_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1279,10 +1279,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP/cmake-build-debug"
+			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/lixo/POO-2024-25-TP--v1/cmake-build-debug"
 		},
 		{
-			"name" : "POO_2024_25_TP_IS_TOP_LEVEL",
+			"name" : "POO_2024_25_TP--v1_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1294,7 +1294,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "POO_2024_25_TP_SOURCE_DIR",
+			"name" : "POO_2024_25_TP--v1_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1303,7 +1303,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP"
+			"value" : "C:/Users/Tinoco/Desktop/POO---2425--TP/lixo/POO-2024-25-TP--v1"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
