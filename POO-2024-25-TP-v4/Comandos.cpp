@@ -100,7 +100,7 @@ void Comandos::processaMapa() {
                 cout << "na posição (" << linha << ", " << coluna << ")\n";
 
                 //simulador->adicionaCaravanaJogador(make_shared<Caravana>(caractere, linha, coluna));
-            } else if (caractere == '+') { // Se for uma montanha
+            } else if (caractere == '+'){ // Se for uma montanha
                 //cout << "Montanha na posição (" << linha << ", " << coluna << ")\n";
             } else if (caractere == '.') { // uma posição vazia
                 //cout << "Posição vazia (" << linha << ", " << coluna << ")\n";
