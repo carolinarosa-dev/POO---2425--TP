@@ -1,5 +1,5 @@
 prox 1
-comprac <C> <T> 
+comprac a C
 precos
 cidade 
 caravana <C> 

@@ -27,7 +27,7 @@ int Cidade::getColuna() const {
 
 
 
-string Cidade::listarCaravanas() const {
+/*string Cidade::listarCaravanas() const {
     ostringstream oss;
     for (const auto& caravana : caravanasNaCidade) {
         //if(auto obj = caravana.lock())
@@ -35,14 +35,19 @@ string Cidade::listarCaravanas() const {
     }
     oss << "Caravanas na cidade " << nome << ":" << std::endl;
     return oss.str();
+}*/
+
+std::string Cidade::listarCaravanas() const {
+    std::ostringstream oss;
+    oss << "Caravanas na cidade " << nome << ":" << std::endl;
+    for (const auto& caravana : caravanasNaCidade) {
+        // Assumindo que caravana é um shared_ptr ou unique_ptr
+        oss << "ID: " << caravana->getId() << " Tipo: " << caravana->exibirDetalhes() << std::endl;
+    }
+    return oss.str();
 }
 
 //coloca as caravanas na cidade
 void Cidade::adicionarCaravana(shared_ptr<Caravana> caravana) {
     caravanasNaCidade.push_back(caravana);
 }
-
-
-
-
-

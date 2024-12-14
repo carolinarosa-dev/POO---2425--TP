@@ -6,9 +6,12 @@
 #include "Cidade.h"
 #include "Caravana.h"
 #include "CaravanaComercio.h"
+#include "CaravanaMilitar.h"
+#include "CaravanaSecreta.h"
+
 Comandos::Comandos(int linhas, int colunas) : linhas(linhas), colunas(colunas) {
     bufferAtual = new Buffer(linhas, colunas);
-    simulador = new Simulador(linhas,colunas,bufferAtual);
+    simulador = std::make_shared<Simulador>(linhas, colunas, bufferAtual);
 
 }
 
@@ -20,8 +23,8 @@ Comandos::Comandos() : linhas(0), colunas(0), moedas(0),
                        maxItens(0), precoVendaMercadoria(0),
                        precoCompraMercadoria(0), precoCaravana(0),
                        instantesEntreNovosBarbaros(0), duracaoBarbaros(0) {
-        simulador = nullptr;
-    }
+    simulador = nullptr;
+}
 
 void Comandos::limparDados() {
     linhas = colunas = moedas = 0;
@@ -60,7 +63,7 @@ void Comandos::lerConfiguracao(const string &nomeFicheiro) {
     while (ficheiro >> linha) {
         if (linha == "moedas") {
             ficheiro >> moedas;
-            simulador->getJogador().adicionarMoedas(moedas);
+            simulador->getJogador()->adicionarMoedas(moedas);
         }else if (linha == "instantes_entre_novos_itens")
             ficheiro >> instantesEntreNovosItens;
         else if (linha == "duração_item")
@@ -108,7 +111,7 @@ void Comandos::processaMapa() {
                 //simulador->adicionaCaravanaBarbara(make_shared<CaravanaBarbara>(caractere, linha, coluna));
             }else {
                 cerr << "Caractere desconhecido '" << caractere << "' na posição ("
-                          << linha << ", " << coluna << ")\n";
+                     << linha << ", " << coluna << ")\n";
             }
         }
     }
@@ -118,44 +121,47 @@ void Comandos::executarComando(const string &comando) {
     istringstream iss(comando);
     string cmd;
     iss >> cmd;
-
-    if (cmd == "config") {
-        config(iss);
-    } else if (cmd == "sair") {
-        sair();
-    } else if (cmd == "exec") {
-        exec(iss);
-    } else if (cmd == "prox") {
-        prox(iss);
-    } else if (cmd == "comprac") {
-        comprac(iss,precoCaravana);
-    } else if (cmd == "precos") {
-        listarPrecos();
-    }else if (cmd == "cidade") {
+    try {
+        if (cmd == "config") {
+            config(iss);
+        } else if (cmd == "sair") {
+            sair();
+        } else if (cmd == "exec") {
+            exec(iss);
+        } else if (cmd == "prox") {
+            prox(iss);
+        } else if (cmd == "comprac") {
+            comprac(iss, precoCaravana);
+        } else if (cmd == "precos") {
+            std::string precos = listarPrecos();
+            std::cout << precos;
+        } else if (cmd == "cidade") {
             listarCaravanasCidade(iss);
         } else if (cmd == "caravana") {
             mostrarDetalhesCaravana(iss);
-    } else if (cmd == "barbaro") {
-        criarCaravanaBarbara(iss);
-    } else if (cmd == "moedas") {
-        adicionaMoedas(iss);
-    } else if (cmd == "tripul") {
-        // tripul(iss);
-    }else if (cmd == "saves") {
-        saves(iss);
-    } else if (cmd == "loads") {
-        loads(iss);
-    } else if (cmd == "lists") {
-        lists();
-    } else if (cmd == "dels") {
-        dels(iss);
-    }else if (cmd == "terminar") {
-        terminar();
-    } else {
-        cout << "Comando desconhecido: " << cmd << endl;
+        } else if (cmd == "barbaro") {
+            criarCaravanaBarbara(iss);
+        } else if (cmd == "moedas") {
+            adicionaMoedas(iss);
+        } else if (cmd == "tripul") {
+            // tripul(iss);
+        } else if (cmd == "saves") {
+            saves(iss);
+        } else if (cmd == "loads") {
+            loads(iss);
+        } else if (cmd == "lists") {
+            lists();
+        } else if (cmd == "dels") {
+            dels(iss);
+        } else if (cmd == "terminar") {
+            terminar();
+        } else {
+            std::cout << "Comando desconhecido: " << cmd << std::endl;
+        }
+    } catch (const std::invalid_argument &e) {
+        std::cerr << e.what() << std::endl;
     }
 }
-
 
 
 void Comandos::config(istringstream &iss) {
@@ -230,7 +236,7 @@ void Comandos::prox(istringstream &iss) {
         cout << "Avançando instante " << (i + 1) << " de " << n << endl;
 
         // Atualizar o estado da simulação chamando Simulacao::atualizarEstado
-       // simulador.atualizarEstado(); // 'simulacao' é uma instância da classe Simulacao
+        // simulador.atualizarEstado(); // 'simulacao' é uma instância da classe Simulacao
         // Exibir o mapa e outras informações relevantes
         mostrarConfig();
     }
@@ -331,13 +337,21 @@ void Comandos::adicionaMoedas(istringstream& iss) {
 }
 
 
-void Comandos::listarPrecos() {
+/*void Comandos::listarPrecos() {
     cout << "Preços das mercadorias:" << endl;
     cout << "Preço de venda: " << precoVendaMercadoria << " moedas" << endl;
     cout << "Preço de compra: " << precoCompraMercadoria << " moedas" << endl;
+}*/
+
+string Comandos::listarPrecos() {
+    ostringstream oss;
+    oss << "Preços das mercadorias:" << std::endl;
+    oss << "Preço de venda: " << precoVendaMercadoria << " moedas" << std::endl;
+    oss << "Preço de compra: " << precoCompraMercadoria << " moedas" << std::endl;
+    return oss.str();
 }
 
-void Comandos::listarCaravanasCidade(std::istringstream &iss){
+/*void Comandos::listarCaravanasCidade(std::istringstream &iss){
     char letraCidade;
     iss >> letraCidade;
     shared_ptr<Cidade> cidadeEscolhida = nullptr;
@@ -354,6 +368,26 @@ void Comandos::listarCaravanasCidade(std::istringstream &iss){
 
     cidadeEscolhida->listarCaravanas();
 
+}*/
+
+void Comandos::listarCaravanasCidade(std::istringstream &iss) {
+    char letraCidade;
+    iss >> letraCidade;
+
+    std::shared_ptr<Cidade> cidadeEscolhida = nullptr;
+    for (const auto& cidade : simulador->getCidades()) {
+        if (cidade->getNome() == letraCidade) {
+            cidadeEscolhida = cidade;
+            break;
+        }
+    }
+
+    if (!cidadeEscolhida) {
+        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' não encontrada!");
+    }
+
+    std::string detalhesCaravanas = cidadeEscolhida->listarCaravanas();
+    std::cout << detalhesCaravanas;
 }
 
 void Comandos::criarCaravanaBarbara(std::istringstream &iss) {
@@ -418,6 +452,41 @@ void Comandos::comprac(std::istringstream& iss, int precoCaravana) {
     simulador->adicionaCaravanaJogador(cidadeNome, tipoCaravana, precoCaravana);
 }
 
+/*
+void Comandos::comprac(std::istringstream& iss, int precoCaravana) {
+    char cidadeNome;
+    char tipoCaravana;
+
+    // Lê a cidade e o tipo da caravana
+    iss >> cidadeNome >> tipoCaravana;
+
+    try {
+        if (Caravana::getProximoId() > 9) {
+            throw std::runtime_error("Número máximo de caravanas atingido.");
+        }
+
+        std::shared_ptr<Caravana> novaCaravana;
+        if (tipoCaravana == 'C') {
+
+            novaCaravana = std::make_shared<CaravanaComercio>(cidadeNome, precoCaravana);
+        } else if (tipoCaravana == 'M') {
+            novaCaravana = std::make_shared<CaravanaMilitar>(cidadeNome, precoCaravana);
+        } else if (tipoCaravana == 'S') {
+            novaCaravana = std::make_shared<CaravanaSecreta>(cidadeNome, precoCaravana);
+        } else {
+            throw std::invalid_argument("Tipo de caravana desconhecido.");
+        }
+
+        simulador->adicionaCaravanaJogador(novaCaravana);
+        std::cout << "Caravana do tipo " << tipoCaravana << " comprada na cidade " << cidadeNome << "." << std::endl;
+    } catch (const std::runtime_error &e) {
+        std::cerr << "Erro ao comprar caravana: " << e.what() << std::endl;
+    } catch (const std::invalid_argument &e) {
+        std::cerr << "Erro: " << e.what() << std::endl;
+    }
+}
+*/
+
 void Comandos::mostrarDetalhesCaravana(istringstream &iss) {
     char tipoCaravana;
     iss >> tipoCaravana;
@@ -426,7 +495,7 @@ void Comandos::mostrarDetalhesCaravana(istringstream &iss) {
     Caravana* caravana;
     switch (tipoCaravana) {
         case 'C':
-            caravana = new CaravanaComercio();
+           // caravana = new CaravanaComercio();
             cout << caravana->exibirDetalhes();
             break;
         case 'M':
@@ -441,5 +510,3 @@ void Comandos::mostrarDetalhesCaravana(istringstream &iss) {
 
 
 }
-
-

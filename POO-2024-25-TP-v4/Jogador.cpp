@@ -3,13 +3,16 @@
 //
 
 
-#include"Caravana.h"
+
+//#include"Caravana.h"
 
 #include "Jogador.h"
 #include "CaravanaComercio.h"
 #include "CaravanaMilitar.h"
 #include "CaravanaSecreta.h"
 #include <iostream>
+
+class Caravana;
 
 Jogador::Jogador(int moedasIniciais) : moedas(moedasIniciais) {}
 
@@ -61,4 +64,3 @@ void Jogador::listarCaravanas() const {
 const vector<shared_ptr<Caravana>>& Jogador::getCaravanas() const {
     return caravanas;
 }
-

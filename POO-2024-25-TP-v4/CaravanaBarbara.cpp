@@ -1,11 +1,10 @@
 //
 // Created by Tinoco on 27/11/2024.
 //
-
 #include "CaravanaBarbara.h"
 
 
-CaravanaBarbara::CaravanaBarbara(int id, int linha, int coluna)
+CaravanaBarbara::CaravanaBarbara(int id,int linha, int coluna)
         : Caravana(id, BARBARA, linha, coluna), turnosAteDesaparecer(60) {
     tripulantes = 40;
 }
@@ -59,4 +58,8 @@ std::string CaravanaBarbara::turno(int caravanaLinha, int caravanaColuna) {
     }
     turnosAteDesaparecer--;
     return "Caravana em movimento";
+}
+
+CaravanaBarbara::~CaravanaBarbara() {
+    // Destructor implementation
 }

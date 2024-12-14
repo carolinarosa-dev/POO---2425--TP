@@ -14,7 +14,7 @@ void Montanha::configurarMontanhas(const std::vector<std::pair<int, int>>& posic
     }
 }
 
-void Montanha::adicionaMontanha(int linha, int coluna) {
+void Montanha::adicionaMontanha(int linha, int coluna) { //?? nao pode ter nada
 
 }
 

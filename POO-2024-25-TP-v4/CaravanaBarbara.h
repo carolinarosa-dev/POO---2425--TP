@@ -1,7 +1,6 @@
 //
 // Created by Tinoco on 27/11/2024.
 //
-
 #ifndef POO_2024_25_TP_CARAVANABARBARA_H
 #define POO_2024_25_TP_CARAVANABARBARA_H
 
@@ -17,6 +16,7 @@
 class CaravanaBarbara : public Caravana {
 public:
     CaravanaBarbara(int id, int linha, int coluna);
+    ~CaravanaBarbara() override;
 
     void moverAleatoriamente();
     void moverParaCaravana(int caravanaLinha, int caravanaColuna);

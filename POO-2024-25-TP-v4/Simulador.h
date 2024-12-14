@@ -27,15 +27,22 @@
 class Deserto;
 class Cidade;
 class CaravanaBarbara;
+class Jogador;
+
+
 
 using namespace std;
+
+
+
 
 class Simulador {
 
 public:
 
     Simulador(int linhas, int colunas, int moedasIniciais);
-    void adicionaCaravanaJogador(char cidadeLetra, char tipoCaravana, int precoCaravana);
+    //void adicionaCaravanaJogador(std::shared_ptr<Caravana> caravana);
+   void adicionaCaravanaJogador(char cidadeLetra, char tipoCaravana, int precoCaravana);
     void adicionaCaravanaBarbara(char caractere, int linha, int coluna);
     void listarCaravanas(char cidadeLetra) const;
     void adicionarCidade(shared_ptr<Cidade> cidade);
@@ -44,7 +51,8 @@ public:
     void verificarCombate();
     bool terminarSimulacao() const;
     Simulador(int linhas, int colunas, Buffer *buffer);
-    Jogador& getJogador();
+    std::shared_ptr<Jogador> getJogador();
+   // Jogador& getJogador();
     void criarCaravanaBarbara(int linha, int coluna);
 
 
@@ -70,7 +78,9 @@ private:
     vector<shared_ptr<Cidade>> cidades;//DONO
     vector<shared_ptr<CaravanaBarbara>> caravanasBarbaras;
     Buffer *buffer;                  // Buffer para output
-    Jogador jogador;
+    //Jogador jogador;
+    std::shared_ptr<Jogador> jogador;
+    vector<std::shared_ptr<Caravana>> caravanas; // Declaração da variável caravanas
 };
 
 

@@ -4,7 +4,6 @@
 
 #ifndef POO_2024_25_TP_COMANDOS_H
 #define POO_2024_25_TP_COMANDOS_H
-
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -33,7 +32,7 @@ private:
     int precoVendaMercadoria=0, precoCompraMercadoria=0, precoCaravana;
     int instantesEntreNovosBarbaros, duracaoBarbaros;
     int fase; // 1 para Fase 1, 2 para Fase 2
-    Simulador* simulador;
+    shared_ptr<Simulador> simulador;
 
 
 public:
@@ -69,7 +68,7 @@ void adicionarCaravana(Caravana* caravana);*/
     void lists();
     void dels(istringstream& iss);
     void adicionaMoedas(istringstream& iss);
-    void listarPrecos();
+    string listarPrecos();
     void mostrarDetalhesCaravana(istringstream& iss);
     void listarCaravanasCidade(std::istringstream &iss);
     void tripul(istringstream& iss);

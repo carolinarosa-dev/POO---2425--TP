@@ -24,10 +24,13 @@ public:
         COMERCIO, MILITAR, SECRETA, BARBARA
     };
 
-    Caravana();
+   // Caravana();
     Caravana(int id,Tipo tipo,  int linha, int coluna);
+    //Caravana(Tipo tipo, int linha, int coluna);
+   static  int getProximoId();
 
-    virtual ~Caravana() = default;
+
+    virtual ~Caravana();
 
     Tipo getTipo() const;
 
@@ -87,8 +90,8 @@ protected:
     int consumoAgua;
     vector<string> mercadorias;
     bool emCidade;
+private:
+    static int proximoId; // Variável estática para gerar IDs únicos
 };
-
-
 
 #endif //POO_2024_25_TP_CARAVANA_H

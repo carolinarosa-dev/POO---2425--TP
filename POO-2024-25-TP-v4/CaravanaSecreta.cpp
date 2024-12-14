@@ -2,7 +2,6 @@
 // Created by Carolina Rosa on 10/11/2024.
 //
 
-
 /*
 Capacidade de Tripulantes: Máximo de 10 tripulantes.
 Velocidade: Muito rápida, pode se deslocar até 4 vezes por turno.
@@ -17,7 +16,7 @@ Habilidade Especial: Pode se esconder por um turno, tornando-se invisível para 
 
 #include "CaravanaSecreta.h"
 
-
+/*
 CaravanaSecreta::CaravanaSecreta(int id, int linha, int coluna)
         : Caravana(id,SECRETA, linha, coluna) {
 
@@ -25,7 +24,16 @@ CaravanaSecreta::CaravanaSecreta(int id, int linha, int coluna)
     capacidadeAgua = 100;
     consumoAgua = 1;
 
+}*/
+
+CaravanaSecreta::CaravanaSecreta(int id,int linha, int coluna)
+        : Caravana(id,Tipo::SECRETA, linha, coluna) {
+    tripulantes = 10;
+    capacidadeAgua = 100;
+    consumoAgua = 1;
 }
+
+CaravanaSecreta::~CaravanaSecreta() {}
 
 
 void CaravanaSecreta::mover(char direcao) {
@@ -43,8 +51,6 @@ void CaravanaSecreta::esconder() {
 }
 string CaravanaSecreta::exibirDetalhes() const {
     ostringstream oss;
-     oss << "Caravana Secreta ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+    oss << "Caravana Secreta ID: " << id << ", Tripulantes: " << tripulantes << "\n";
     return oss.str();
 }
-
-

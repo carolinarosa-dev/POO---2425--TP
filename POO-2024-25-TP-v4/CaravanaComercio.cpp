@@ -7,6 +7,7 @@
 
 
 
+/*
 CaravanaComercio::CaravanaComercio(int id, int linha, int coluna)
         : Caravana(id, COMERCIO,  linha, coluna) {
     tripulantes = 20;
@@ -25,6 +26,18 @@ CaravanaComercio::CaravanaComercio(){
     capacidadeAgua = 200;
     consumoAgua = 2;
 }
+*/
+CaravanaComercio::CaravanaComercio(int id,int linha, int coluna)
+        : Caravana(id,Tipo::COMERCIO, linha, coluna) {
+    tripulantes = 20;
+    carga = 0;
+    agua = 200;
+    capacidadeCarga = 40;
+    capacidadeAgua = 200;
+    consumoAgua = 2;
+}
+
+CaravanaComercio::~CaravanaComercio() {}
 
 void CaravanaComercio::mover(char direcao){
     cout << "Movendo Caravana de Comércio na direção " << direcao << endl;

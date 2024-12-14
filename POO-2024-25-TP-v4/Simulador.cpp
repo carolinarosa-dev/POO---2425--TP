@@ -18,10 +18,13 @@
 //}
 
 Simulador::Simulador(int linhas, int colunas, Buffer *buffer)
-    : jogador(0), buffer(buffer) {
-    this->deserto = new Deserto(linhas, colunas);
+   /*     : jogador(0), buffer(buffer) {
+    this->deserto = new Deserto(linhas, colunas);*/
+    : jogador(std::make_shared<Jogador>(100)), buffer(buffer) {
+        this->deserto = new Deserto(linhas, colunas);
+    }
 
-} // Inicializa o jogador com 100 moedas
+ // Inicializa o jogador com 100 moedas
 
 
 
@@ -53,11 +56,18 @@ void Simulador::adicionaCaravanaJogador(char cidadeLetra, char tipoCaravana, int
         throw std::invalid_argument("Cidade não encontrada!");
     }
 
-   auto novaCaravana = jogador.comprarCaravana(tipoCaravana, tipo, 0, 0, precoCaravana);
-   cidadeEscolhida->adicionarCaravana(novaCaravana);
+    auto novaCaravana = jogador->comprarCaravana(tipoCaravana, tipo, 0, 0, precoCaravana);
+    cidadeEscolhida->adicionarCaravana(novaCaravana);
 
     std::cout << "Caravana de número " << tipoCaravana << " comprada na cidade " << cidadeLetra << "." << std::endl;
 }
+
+/*void Simulador::adicionaCaravanaJogador(std::shared_ptr<Caravana> caravana) {
+    if (caravanas.size() >= 9) {
+        throw std::runtime_error("Número máximo de caravanas atingido.");
+    }
+    caravanas.push_back(caravana);
+}*/
 void Simulador::adicionaCaravanaBarbara(char caractere, int linha, int coluna) {
     cout << "adicionaCaravanaBarbara";
 }
@@ -95,7 +105,7 @@ void Simulador::adicionarCidade(std::shared_ptr<Cidade> cidade) {
     // Adiciona a nova cidade
     cidades.push_back(cidade);
     cout << "REMOVER      Cidade '" << cidade->getNome() << "' adicionada na posição ("
-              << cidade->getLinha() << ", " << cidade->getColuna() << ").\n";
+         << cidade->getLinha() << ", " << cidade->getColuna() << ").\n";
 
 }
 
@@ -112,17 +122,22 @@ void Simulador::verificarCombate() {
 }
 
 bool Simulador::terminarSimulacao() const {
-    return jogador.getMoedas() <= 0 && !jogador.temCaravanas();
+    return jogador->getMoedas() <= 0 && !jogador->temCaravanas();
 }
 
-Jogador& Simulador::getJogador(){
+/*Jogador& Simulador::getJogador(){
+    return jogador;
+}*/
+
+std::shared_ptr<Jogador> Simulador::getJogador() {
     return jogador;
 }
 
 
 
+
 void Simulador::mostrarDescricaoCaravana(int idCaravana) const {
-    for (const auto& caravana : jogador.getCaravanas()) {
+    for (const auto& caravana : jogador->getCaravanas()) {
         if (caravana->getId() == idCaravana) {
             cout << caravana->exibirDetalhes() << endl;
             return;
@@ -135,7 +150,7 @@ void Simulador::mostrarDescricaoCaravana(int idCaravana) const {
 
 void Simulador::criarCaravanaBarbara(int linha, int coluna) {
     int id = caravanasBarbaras.size() + 1; // Gerar um ID único para a caravana
-    auto novaCaravana = std::make_shared<CaravanaBarbara>(id, linha, coluna);
+    auto novaCaravana = std::make_shared<CaravanaBarbara>(id,linha, coluna);
     caravanasBarbaras.push_back(novaCaravana);
     std::cout << "Caravana bárbara criada nas coordenadas (" << linha << ", " << coluna << ")." << std::endl;
 }
@@ -143,3 +158,5 @@ void Simulador::criarCaravanaBarbara(int linha, int coluna) {
 const vector<shared_ptr<Cidade>> &Simulador::getCidades() const {
     return cidades;
 }
+
+Simulador::~Simulador(){}

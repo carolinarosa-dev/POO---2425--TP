@@ -3,11 +3,28 @@
 //
 
 #include "Caravana.h"
+/*
 Caravana::Caravana():id(0){
 
 }
 Caravana::Caravana(int id, Tipo tipo, int linha, int coluna)
         : id(id),tipo(tipo),linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {}
+*/
+
+int Caravana::proximoId = 1;
+
+Caravana::Caravana(int id,Tipo tipo, int linha, int coluna)
+        : id(proximoId), tipo(tipo), linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {
+    if (proximoId > 9) {
+        throw std::runtime_error("Número máximo de caravanas atingido.");
+    }
+    proximoId++;
+}
+
+int Caravana::getProximoId() {
+    return proximoId;
+}
+
 
 
 
@@ -118,12 +135,29 @@ void Caravana::adicionarAgua(int quantidade) {
 
 
 // Exibe detalhes da caravana
+/*
 string Caravana::exibirDetalhes() const {
     ostringstream  oss;
-     oss << "Caravana ID: " << id << ", Tripulantes: " << tripulantes << ", Mercadorias: ";
+    oss << "Caravana ID: " << id << ", Tripulantes: " << tripulantes << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {
         oss << mercadoria << " ";
     }
     oss << endl;
     return oss.str();
+}*/
+
+string Caravana::exibirDetalhes() const {
+   ostringstream oss;
+    oss << "Caravana ID: " << id << ", Tipo: " << (tipo == Tipo::COMERCIO ? "Comércio" : "Bárbara")
+        << ", Tripulantes: " << tripulantes << ", Carga: " << carga << ", Água: " << agua
+        << ", Mercadorias: ";
+    for (const auto& mercadoria : mercadorias) {
+        oss << mercadoria << " ";
+    }
+    oss << std::endl;
+    return oss.str();
+}
+
+
+Caravana::~Caravana() {
 }
