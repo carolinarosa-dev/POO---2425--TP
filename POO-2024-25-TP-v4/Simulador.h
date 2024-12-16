@@ -55,6 +55,13 @@ public:
    // Jogador& getJogador();
     void criarCaravanaBarbara(int linha, int coluna);
 
+    void comprarMercadoria(int idCaravana, int quantidadeMercadoria);
+    void venderMercadoria(int idCaravana);
+    void moverCaravana(int idCaravana, const std::string &direcao);
+    void ativarAutoGestao(int idCaravana);
+    void desativarAutoGestao(int idCaravana);
+
+
 
     void mostrarDescricaoCaravana(int idCaravana) const;
 
@@ -81,6 +88,8 @@ private:
     //Jogador jogador;
     std::shared_ptr<Jogador> jogador;
     vector<std::shared_ptr<Caravana>> caravanas; // Declaração da variável caravanas
+    int precoCompraMercadoria;
+    int precoVendaMercadoria;
 };
 
 

@@ -110,7 +110,8 @@ void Simulador::adicionarCidade(std::shared_ptr<Cidade> cidade) {
 }
 
 void Simulador::provocarTempestade(int linhaCentro, int colunaCentro, int raio) {
-    // Implementar lógica de tempestade de areia
+    deserto->provocarTempestade(linhaCentro, colunaCentro, raio);
+
 }
 
 void Simulador::moverCaravana(int idCaravana, int direcao) {
@@ -155,8 +156,133 @@ void Simulador::criarCaravanaBarbara(int linha, int coluna) {
     std::cout << "Caravana bárbara criada nas coordenadas (" << linha << ", " << coluna << ")." << std::endl;
 }
 
+
+
 const vector<shared_ptr<Cidade>> &Simulador::getCidades() const {
     return cidades;
 }
+void Simulador::comprarMercadoria(int idCaravana, int quantidadeMercadoria) {
+    auto caravanas = jogador->getCaravanas();
+    std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
+
+    for (const auto& caravana : caravanas) {
+        if (caravana->getId() == idCaravana) {
+            caravanaEncontrada = caravana;
+            break;
+        }
+    }
+
+    if (caravanaEncontrada) {
+        if (caravanaEncontrada->estaEmCidade()) {
+            int custoTotal = quantidadeMercadoria * precoCompraMercadoria;
+            if (jogador->getMoedas() >= custoTotal) {
+                if (caravanaEncontrada->getCarga() + quantidadeMercadoria <= caravanaEncontrada->getCapacidadeCarga()) {
+                    jogador->adicionarMoedas(-custoTotal);
+                    caravanaEncontrada->adicionarCarga(quantidadeMercadoria);
+                    std::cout << "Compradas " << quantidadeMercadoria << " toneladas de mercadorias para a caravana " << idCaravana << "." << std::endl;
+                } else {
+                    throw std::runtime_error("Capacidade de carga da caravana excedida.");
+                }
+            } else {
+                throw std::runtime_error("Moedas insuficientes para comprar mercadorias.");
+            }
+        } else {
+            throw std::runtime_error("A caravana não está em uma cidade.");
+        }
+    } else {
+        throw std::runtime_error("Caravana com ID não encontrada.");
+    }
+}
+
+void Simulador::venderMercadoria(int idCaravana) {
+    auto caravanas = jogador->getCaravanas();
+    std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
+
+    for (const auto& caravana : caravanas) {
+        if (caravana->getId() == idCaravana) {
+            caravanaEncontrada = caravana;
+            break;
+        }
+    }
+
+    if (caravanaEncontrada) {
+        if (caravanaEncontrada->estaEmCidade()) {
+            int quantidadeMercadoria = caravanaEncontrada->getCarga();
+            int valorVenda = quantidadeMercadoria * precoVendaMercadoria;
+            jogador->adicionarMoedas(valorVenda);
+            caravanaEncontrada->removerCarga(quantidadeMercadoria);
+            std::cout << "Vendida toda a mercadoria da caravana " << idCaravana << " por " << valorVenda << " moedas." << std::endl;
+        } else {
+            throw std::runtime_error("A caravana não está em uma cidade.");
+        }
+    } else {
+        throw std::runtime_error("Caravana com ID não encontrada.");
+    }
+}
+
+void Simulador::moverCaravana(int idCaravana, const std::string &direcao) {
+    auto caravanas = jogador->getCaravanas();
+    std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
+
+    for (const auto& caravana : caravanas) {
+        if (caravana->getId() == idCaravana) {
+            caravanaEncontrada = caravana;
+            break;
+        }
+    }
+
+    if (caravanaEncontrada) {
+        int direcaoNumerica;
+        if (direcao == "D") direcaoNumerica = 3;
+        else if (direcao == "E") direcaoNumerica = 2;
+        else if (direcao == "C") direcaoNumerica = 0;
+        else if (direcao == "B") direcaoNumerica = 1;
+        else if (direcao == "CE") direcaoNumerica = 4;
+        else if (direcao == "CD") direcaoNumerica = 5;
+        else if (direcao == "BE") direcaoNumerica = 6;
+        else if (direcao == "BD") direcaoNumerica = 7;
+        else throw std::invalid_argument("Direção inválida.");
+
+        deserto->moverCaravana(caravanaEncontrada, direcaoNumerica);
+    } else {
+        throw std::runtime_error("Caravana com ID não encontrada.");
+    }
+}
+void Simulador::ativarAutoGestao(int idCaravana) {
+    auto caravanas = jogador->getCaravanas();
+    std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
+
+    for (const auto& caravana : caravanas) {
+        if (caravana->getId() == idCaravana) {
+            caravanaEncontrada = caravana;
+            break;
+        }
+    }
+
+    if (caravanaEncontrada) {
+        caravanaEncontrada->setAutoGestao(true);
+    } else {
+        throw std::runtime_error("Caravana com ID não encontrada.");
+    }
+}
+
+void Simulador::desativarAutoGestao(int idCaravana) {
+    auto caravanas = jogador->getCaravanas();
+    std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
+
+    for (const auto& caravana : caravanas) {
+        if (caravana->getId() == idCaravana) {
+            caravanaEncontrada = caravana;
+            break;
+        }
+    }
+
+    if (caravanaEncontrada) {
+        caravanaEncontrada->setAutoGestao(false);
+    } else {
+        throw std::runtime_error("Caravana com ID não encontrada.");
+    }
+}
+
 
 Simulador::~Simulador(){}

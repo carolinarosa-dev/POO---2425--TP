@@ -34,6 +34,7 @@ public:
     void adicionarItem(shared_ptr<Item> item, int linha, int coluna);
     void atualizarItens();
 
+
 protected:
     void setMontanha(int linha, int coluna);
 

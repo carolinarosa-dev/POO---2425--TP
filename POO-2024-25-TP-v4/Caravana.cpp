@@ -62,6 +62,13 @@ void Caravana::setEmCidade(bool estado) {
 int Caravana::getCarga() const {
     return carga;
 }
+int Caravana::getCapacidadeCarga() const {
+    return capacidadeCarga;
+}
+
+void Caravana::adicionarCarga(int quantidade) {
+    carga += quantidade;
+}
 
 int Caravana::getAgua() const {
     return agua;
@@ -81,12 +88,12 @@ void Caravana::removerTripulantes(int quantidade) {
     tripulantes -= quantidade;
 }
 
-void Caravana::adicionarCarga(int quantidade) {
-    carga += quantidade;
-}
 
 void Caravana::removerCarga(int quantidade) {
     carga -= quantidade;
+    if (carga < 0) {
+        carga = 0;
+    }
 }
 
 void Caravana::reabastecerAgua() {
@@ -127,6 +134,10 @@ bool Caravana::estaDestruida() const {
 
 void Caravana::perderTripulantes(int quantidade) {
     tripulantes = std::max(0, tripulantes - quantidade);
+}
+
+void Caravana::setAutoGestao(bool estado) {
+    autoGestao = estado;
 }
 
 void Caravana::adicionarAgua(int quantidade) {

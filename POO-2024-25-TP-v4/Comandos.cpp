@@ -139,12 +139,24 @@ void Comandos::executarComando(const string &comando) {
             listarCaravanasCidade(iss);
         } else if (cmd == "caravana") {
             mostrarDetalhesCaravana(iss);
+        } else if (cmd == "compra") {
+            compra(iss);
+        } else if (cmd == "vende") {
+            vende(iss);
+        } else if (cmd == "move") {
+            move(iss);
+        } else if (cmd == "auto") {
+            autoGestao(iss);
+        } else if (cmd == "stop") {
+           stop(iss);
         } else if (cmd == "barbaro") {
-            criarCaravanaBarbara(iss);
+            barbaro(iss);
         } else if (cmd == "moedas") {
             adicionaMoedas(iss);
+        } else if (cmd == "areia") {
+            areia(iss);
         } else if (cmd == "tripul") {
-            // tripul(iss);
+            tripul(iss);
         } else if (cmd == "saves") {
             saves(iss);
         } else if (cmd == "loads") {
@@ -337,11 +349,6 @@ void Comandos::adicionaMoedas(istringstream& iss) {
 }
 
 
-/*void Comandos::listarPrecos() {
-    cout << "Preços das mercadorias:" << endl;
-    cout << "Preço de venda: " << precoVendaMercadoria << " moedas" << endl;
-    cout << "Preço de compra: " << precoCompraMercadoria << " moedas" << endl;
-}*/
 
 string Comandos::listarPrecos() {
     ostringstream oss;
@@ -390,10 +397,17 @@ void Comandos::listarCaravanasCidade(std::istringstream &iss) {
     std::cout << detalhesCaravanas;
 }
 
-void Comandos::criarCaravanaBarbara(std::istringstream &iss) {
+
+void Comandos::barbaro(istringstream &iss) {
     int linha, coluna;
     iss >> linha >> coluna;
-    simulador->criarCaravanaBarbara(linha, coluna);
+
+    try {
+        simulador->criarCaravanaBarbara(linha, coluna);
+        std::cout << "Caravana bárbara criada nas coordenadas (" << linha << ", " << coluna << ")." << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro ao criar caravana bárbara: " << e.what() << std::endl;
+    }
 }
 
 
@@ -507,6 +521,110 @@ void Comandos::mostrarDetalhesCaravana(istringstream &iss) {
         default:
             throw std::invalid_argument("Tipo inválido de caravana!");
     }
+}
 
 
+void Comandos::tripul(istringstream &iss) {
+    int idCaravana, quantidadeTripulantes;
+    iss >> idCaravana >> quantidadeTripulantes;
+
+    try {
+        // Encontrar a caravana com o ID fornecido
+        auto caravanas = simulador->getJogador()->getCaravanas();
+        std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
+
+        for (const auto& caravana : caravanas) {
+            std::cout << "Verificando caravana com ID: " << caravana->getId() << std::endl; // Depuração
+            if (caravana->getId() == idCaravana) {
+                caravanaEncontrada = caravana;
+                break;
+            }
+        }
+
+        if (caravanaEncontrada) {
+            if (caravanaEncontrada->estaEmCidade()) {
+                caravanaEncontrada->adicionarTripulantes(quantidadeTripulantes);
+                std::cout << "Adicionados " << quantidadeTripulantes << " tripulantes à caravana " << idCaravana << "." << std::endl;
+            } else {
+                throw std::runtime_error("A caravana não está em uma cidade.");
+            }
+        } else {
+            throw std::runtime_error("Caravana com ID não encontrada.");
+        }
+    } catch (const std::exception &e) {
+        std::cerr << "Erro: " << e.what() << std::endl;
+    }
+}
+
+void Comandos::areia(istringstream &iss) {
+    int linha, coluna, raio;
+    iss >> linha >> coluna >> raio;
+
+    try {
+        simulador->provocarTempestade(linha, coluna, raio);
+        std::cout << "Tempestade de areia criada na posição (" << linha << ", " << coluna << ") com raio " << raio << "." << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro ao criar tempestade de areia: " << e.what() << std::endl;
+    }
+}
+
+void Comandos::compra(istringstream &iss) {
+    int idCaravana, quantidadeMercadoria;
+    iss >> idCaravana >> quantidadeMercadoria;
+
+    try {
+        simulador->comprarMercadoria(idCaravana, quantidadeMercadoria);
+        std::cout << "Compradas " << quantidadeMercadoria << " toneladas de mercadorias para a caravana " << idCaravana << "." << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro ao comprar mercadorias: " << e.what() << std::endl;
+    }
+}
+
+void Comandos::vende(istringstream &iss) {
+    int idCaravana;
+    iss >> idCaravana;
+
+    try {
+        simulador->venderMercadoria(idCaravana);
+        std::cout << "Vendida toda a mercadoria da caravana " << idCaravana << "." << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro ao vender mercadorias: " << e.what() << std::endl;
+    }
+}
+
+void Comandos::move(istringstream &iss) {
+    int idCaravana;
+    std::string direcao;
+    iss >> idCaravana >> direcao;
+
+    try {
+        simulador->moverCaravana(idCaravana, direcao);
+        std::cout << "Caravana " << idCaravana << " movida na direção " << direcao << "." << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro ao mover a caravana: " << e.what() << std::endl;
+    }
+}
+
+void Comandos::autoGestao(istringstream &iss) {
+    int idCaravana;
+    iss >> idCaravana;
+
+    try {
+        simulador->ativarAutoGestao(idCaravana);
+        std::cout << "Caravana " << idCaravana << " colocada em auto-gestão." << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro ao ativar auto-gestão: " << e.what() << std::endl;
+    }
+}
+
+void Comandos::stop(istringstream &iss) {
+    int idCaravana;
+    iss >> idCaravana;
+
+    try {
+        simulador->desativarAutoGestao(idCaravana);
+        std::cout << "Caravana " << idCaravana << " parou o comportamento automático." << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Erro ao parar o comportamento automático: " << e.what() << std::endl;
+    }
 }

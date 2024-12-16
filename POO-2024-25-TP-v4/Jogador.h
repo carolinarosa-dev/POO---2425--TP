@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 
+
 #include"Simulador.h"
 
 class Caravana;

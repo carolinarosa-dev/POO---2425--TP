@@ -11,6 +11,7 @@
 #include<fstream>
 #include <map>
 #include <stdexcept>
+#include<iterator>
 
 #include "Simulador.h"
 #include "Caravana.h"
@@ -47,7 +48,7 @@ public:
     void mostrarConfig() const;
     //void processarComandos();
     int calcularPontuacao() const;
-    void criarCaravanaBarbara(std::istringstream &iss);
+    void barbaro(istringstream &iss);
 
 //Acho que é no simulador
 // Métodos para adicionar cidades e caravanas
@@ -72,6 +73,13 @@ void adicionarCaravana(Caravana* caravana);*/
     void mostrarDetalhesCaravana(istringstream& iss);
     void listarCaravanasCidade(std::istringstream &iss);
     void tripul(istringstream& iss);
+    void areia(istringstream &iss);
+    void compra(istringstream &iss);
+    void vende(istringstream &iss);
+    void move(istringstream &iss);
+    void autoGestao(istringstream &iss);
+    void stop(istringstream &iss);
+
 
 
 };

@@ -42,6 +42,7 @@ shared_ptr<Caravana> Jogador::comprarCaravana(int id, int tipo, int linha, int c
 }
 
 
+
 void Jogador::adicionarMoedas(int quantidade) {
     moedas += quantidade;
 }

@@ -26,7 +26,6 @@ public:
 
    // Caravana();
     Caravana(int id,Tipo tipo,  int linha, int coluna);
-    //Caravana(Tipo tipo, int linha, int coluna);
    static  int getProximoId();
 
 
@@ -77,6 +76,9 @@ public:
     bool estaEmCidade() const;
 
     void setEmCidade(bool estado);
+    int getCapacidadeCarga() const;
+    void setAutoGestao(bool estado);
+
 
 protected:
     Tipo tipo;
@@ -90,8 +92,10 @@ protected:
     int consumoAgua;
     vector<string> mercadorias;
     bool emCidade;
+    bool autoGestao;
 private:
     static int proximoId; // Variável estática para gerar IDs únicos
+
 };
 
 #endif //POO_2024_25_TP_CARAVANA_H
