@@ -1,6 +1,6 @@
 CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj: \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Jogador.cpp \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Jogador.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.cpp \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -175,7 +175,7 @@ CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Simulador.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
@@ -201,9 +201,9 @@ CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Buffer.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Caravana.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Comandos.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\CaravanaComercio.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\CaravanaMilitar.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\CaravanaSecreta.h
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaMilitar.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaSecreta.h

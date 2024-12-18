@@ -1,7 +1,7 @@
 CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj: \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\CaravanaComercio.cpp \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\CaravanaComercio.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Caravana.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.cpp \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -168,7 +168,7 @@ CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Comandos.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
@@ -184,7 +184,7 @@ CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Simulador.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_raw_storage_iter.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/align.h \
@@ -203,5 +203,5 @@ CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward/auto_ptr.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_uninitialized.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_memory_defs.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Buffer.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Jogador.h
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.h

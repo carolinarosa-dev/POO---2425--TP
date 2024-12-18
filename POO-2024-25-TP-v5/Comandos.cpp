@@ -1,6 +1,11 @@
 //
 // Created by Carolina Rosa on 10/11/2024.
 //
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <stdexcept>
+#include <filesystem>
 
 #include "Comandos.h"
 #include "Cidade.h"
@@ -8,6 +13,7 @@
 #include "CaravanaComercio.h"
 #include "CaravanaMilitar.h"
 #include "CaravanaSecreta.h"
+#include "CaravanaBarbara.h"
 
 Comandos::Comandos(int linhas, int colunas) : linhas(linhas), colunas(colunas) {
     bufferAtual = new Buffer(linhas, colunas);
@@ -15,9 +21,6 @@ Comandos::Comandos(int linhas, int colunas) : linhas(linhas), colunas(colunas) {
 
 }
 
-
-
-// Construtor
 Comandos::Comandos() : linhas(0), colunas(0), moedas(0),
                        instantesEntreNovosItens(0), duracaoItem(0),
                        maxItens(0), precoVendaMercadoria(0),
@@ -34,58 +37,59 @@ void Comandos::limparDados() {
     mapa.clear();
 }
 
-void Comandos::lerConfiguracao(const string &nomeFicheiro) {
-    ifstream ficheiro(nomeFicheiro);
+void Comandos::lerConfiguracao(const std::string &nomeFicheiro) {
+    if (!std::filesystem::exists(nomeFicheiro)) {
+        throw std::runtime_error("O ficheiro \"" + nomeFicheiro + "\" nao existe. Verifique o nome e tente novamente.");
+    }
+    std::ifstream ficheiro(nomeFicheiro);
     if (!ficheiro.is_open()) {
-        cerr << "Erro ao abrir o ficheiro: " << nomeFicheiro << endl;
-        return;
+        throw std::runtime_error("Erro ao abrir o ficheiro: " + nomeFicheiro);
     }
-
     limparDados();
-    string linha;
-
-    // Ler dimensões
-    ficheiro >> linha >> linhas;
-    ficheiro >> linha >> colunas;
-    ficheiro.ignore(); // Ignorar o newline após a leitura das dimensões
-
-    // Ler o mapa do deserto
-    for (int i = 0; i < linhas; ++i) {
-        getline(ficheiro, linha);
-        if (linha.length() != colunas) {
-            cerr << "Erro: o tamanho da linha do mapa não corresponde ao número de colunas." << endl;
-            return;
+    std::string linha;
+    try {
+        // Ler dimensões
+        ficheiro >> linha >> linhas;
+        ficheiro >> linha >> colunas;
+        ficheiro.ignore(); // Ignorar o newline após a leitura das dimensões
+        // Ler o mapa do deserto
+        for (int i = 0; i < linhas; ++i) {
+            std::getline(ficheiro, linha);
+            if (linha.length() != colunas) {
+                throw std::runtime_error("Erro: o tamanho da linha do mapa nao corresponde ao numero de colunas.");
+            }
+            mapa.push_back(linha);
         }
-        mapa.push_back(linha);
+        processaMapa();
+        // Ler parâmetros configuráveis
+        while (ficheiro >> linha) {
+            if (linha == "moedas") {
+                ficheiro >> moedas;
+                simulador->getJogador()->adicionarMoedas(moedas);
+            } else if (linha == "instantes_entre_novos_itens")
+                ficheiro >> instantesEntreNovosItens;
+            else if (linha == "duração_item")
+                ficheiro >> duracaoItem;
+            else if (linha == "max_itens")
+                ficheiro >> maxItens;
+            else if (linha == "preço_venda_mercadoria")
+                ficheiro >> precoVendaMercadoria;
+            else if (linha == "preço_compra_mercadoria")
+                ficheiro >> precoCompraMercadoria;
+            else if (linha == "preço_caravana")
+                ficheiro >> precoCaravana;
+            else if (linha == "instantes_entre_novos_barbaros")
+                ficheiro >> instantesEntreNovosBarbaros;
+            else if (linha == "duracao_barbaros")
+                ficheiro >> duracaoBarbaros;
+        }
+        ficheiro.close();
+        std::cout << "Configuracao lida com sucesso!" << std::endl;
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Erro ao processar o ficheiro: " + std::string(e.what()));
     }
-    processaMapa();
-    // Ler parâmetros configuráveis
-    while (ficheiro >> linha) {
-        if (linha == "moedas") {
-            ficheiro >> moedas;
-            simulador->getJogador()->adicionarMoedas(moedas);
-        }else if (linha == "instantes_entre_novos_itens")
-            ficheiro >> instantesEntreNovosItens;
-        else if (linha == "duração_item")
-            ficheiro >> duracaoItem;
-        else if (linha == "max_itens")
-            ficheiro >> maxItens;
-        else if (linha == "preço_venda_mercadoria")
-            ficheiro >> precoVendaMercadoria;
-        else if (linha == "preço_compra_mercadoria")
-            ficheiro >> precoCompraMercadoria;
-        else if (linha == "preço_caravana")
-            ficheiro >> precoCaravana;
-        else if (linha == "instantes_entre_novos_barbaros")
-            ficheiro >> instantesEntreNovosBarbaros;
-        else if (linha == "duração_barbaros")
-            ficheiro >> duracaoBarbaros;
-    }
-
-    ficheiro.close();
-    cout << "Configuração lida com sucesso!" << endl;
-
 }
+
 void Comandos::processaMapa() {
     for (int linha = 0; linha < mapa.size(); ++linha) {
         for (int coluna = 0; coluna < mapa[linha].size(); ++coluna) {
@@ -97,18 +101,20 @@ void Comandos::processaMapa() {
                     cerr << "Erro ao criar a cidade '" << caractere << "'.\n";
                     continue;  // Avançar para o próximo caractere
                 }
+                novaCidade->adicionarCaravana(make_shared<CaravanaComercio>(Caravana::getProximoId()+10,linha,coluna));
+                novaCidade->adicionarCaravana(make_shared<CaravanaMilitar>(Caravana::getProximoId()+10,linha,coluna));
+                novaCidade->adicionarCaravana(make_shared<CaravanaSecreta>(Caravana::getProximoId()+10,linha,coluna));
                 simulador->adicionarCidade(novaCidade);
 
             } else if (isdigit(caractere) && caractere != '0') { // Se for um número (caravana)
-                cout << "na posição (" << linha << ", " << coluna << ")\n";
-
-                //simulador->adicionaCaravanaJogador(make_shared<Caravana>(caractere, linha, coluna));
+                int id = caractere - '0'; //converte o caractere para o inteiro correspondente
+                simulador->adicionaCaravanaJogador(make_shared<CaravanaMilitar>(id,linha, coluna)); //por enquanto adiciona apenas militares aquelas já presentes no mapa, mas podemos fazer um random
             } else if (caractere == '+'){ // Se for uma montanha
                 //cout << "Montanha na posição (" << linha << ", " << coluna << ")\n";
             } else if (caractere == '.') { // uma posição vazia
                 //cout << "Posição vazia (" << linha << ", " << coluna << ")\n";
             } else if (caractere == '!') { // caravana barbara
-                //simulador->adicionaCaravanaBarbara(make_shared<CaravanaBarbara>(caractere, linha, coluna));
+                simulador->adicionaCaravanaBarbara(make_shared<CaravanaBarbara>(Caravana::getProximoId(), linha, coluna));
             }else {
                 cerr << "Caractere desconhecido '" << caractere << "' na posição ("
                      << linha << ", " << coluna << ")\n";
@@ -123,7 +129,26 @@ void Comandos::executarComando(const string &comando) {
     iss >> cmd;
     try {
         if (cmd == "config") {
-            config(iss);
+            std::string nomeFicheiro;
+            iss >> nomeFicheiro;
+            // Verifica se o nome do ficheiro foi fornecido
+            if (nomeFicheiro.empty()) {
+                std::cerr << "Erro: O comando 'config' requer o nome de um ficheiro como parametro." << std::endl;
+                return;
+            }
+            bool sucesso = false;
+            while (!sucesso) {
+                try {
+                    lerConfiguracao(nomeFicheiro);
+                    sucesso = true;
+                } catch (const std::runtime_error &e) {
+                    // Caso o ficheiro não seja encontrado ou outro erro ocorra
+                    std::cerr << e.what() << std::endl;
+                    std::cout << "Ficheiro nao encontrado\n";
+                    std::cout << "Digite novamente apenas o nome do ficheiro:";
+                    std::getline(std::cin, nomeFicheiro);
+                }
+            }
         } else if (cmd == "sair") {
             sair();
         } else if (cmd == "exec") {
@@ -148,7 +173,7 @@ void Comandos::executarComando(const string &comando) {
         } else if (cmd == "auto") {
             autoGestao(iss);
         } else if (cmd == "stop") {
-           stop(iss);
+            stop(iss);
         } else if (cmd == "barbaro") {
             barbaro(iss);
         } else if (cmd == "moedas") {
@@ -170,17 +195,18 @@ void Comandos::executarComando(const string &comando) {
         } else {
             std::cout << "Comando desconhecido: " << cmd << std::endl;
         }
-    } catch (const std::invalid_argument &e) {
-        std::cerr << e.what() << std::endl;
+    }
+        // Trata outros tipos de exceções
+    catch (const std::exception &e) {
+        std::cerr << "Erro: " << e.what() << std::endl;
     }
 }
-
 
 void Comandos::config(istringstream &iss) {
     string nomeFicheiro;
     iss >> nomeFicheiro;
     if (nomeFicheiro.empty()) {
-        cerr << "Nome de ficheiro não especificado!" << endl;
+        cerr << "Nome de ficheiro nao especificado!" << endl;
         return;
     }
     lerConfiguracao(nomeFicheiro);
@@ -192,7 +218,6 @@ void Comandos::sair() {
 }
 
 void Comandos::mostrarConfig() const {
-
     cout << "Linhas: " << linhas << endl;
     cout << "Colunas: " << colunas << endl;
     cout << "Mapa do deserto:" << endl;
@@ -210,9 +235,6 @@ void Comandos::mostrarConfig() const {
     cout << "Duracao dos barbaros: " << duracaoBarbaros << endl;
 }
 
-
-
-
 void Comandos::exec(istringstream &iss) {
     string nomeFicheiro;
     iss >> nomeFicheiro;
@@ -220,18 +242,15 @@ void Comandos::exec(istringstream &iss) {
         cerr << "Nome de ficheiro não especificado!" << endl;
         return;
     }
-
     ifstream ficheiro(nomeFicheiro);
     if (!ficheiro.is_open()) {
         cerr << "Erro ao abrir o ficheiro: " << nomeFicheiro << endl;
         return;
     }
-
     string linha;
     while (getline(ficheiro, linha)) {
         executarComando(linha);
     }
-
     ficheiro.close();
     cout << "Comandos do ficheiro " << nomeFicheiro << " executados com sucesso!" << endl;
 }
@@ -243,20 +262,15 @@ void Comandos::prox(istringstream &iss) {
         cerr << "Numero de instantes deve ser maior que 0!" << endl;
         return;
     }
-
     for (int i = 0; i < n; ++i) {
         // adicionar a lógica para atualizar o estado da simulação a cada instante
         cout << "Avancando instante " << (i + 1) << " de " << n << endl;
-
         // Atualizar o estado da simulação chamando Simulacao::atualizarEstado
         // simulador.atualizarEstado(); // 'simulacao' é uma instância da classe Simulacao
         // Exibir o mapa e outras informações relevantes
         mostrarConfig();
     }
 }
-
-
-
 
 void Comandos::terminar() {
     // Calcular e exibir a pontuação
@@ -274,7 +288,6 @@ int Comandos::calcularPontuacao() const {
     int pontuacao = moedas;
     return pontuacao;
 }
-
 
 Comandos::~Comandos() {
     delete bufferAtual;
@@ -303,7 +316,6 @@ void Comandos::loads(std::istringstream& iss) {
         std::cerr << "Nome nao especificado!" << std::endl;
         return;
     }
-
     auto it = buffersSalvos.find(nome);
     if (it != buffersSalvos.end()) {
         std::cout << "Carregando estado do buffer com o nome: " << nome << std::endl;
@@ -331,7 +343,6 @@ void Comandos::dels(std::istringstream& iss) {
         std::cerr << "Nome nao especificado!" << std::endl;
         return;
     }
-
     auto it = buffersSalvos.find(nome);
     if (it != buffersSalvos.end()) {
         delete it->second;
@@ -348,8 +359,6 @@ void Comandos::adicionaMoedas(istringstream& iss) {
     moedas += n;
     std::cout << "Moedas atualizadas: " << moedas << std::endl;
 }
-
-
 
 string Comandos::listarPrecos() {
     ostringstream oss;
@@ -398,11 +407,9 @@ void Comandos::listarCaravanasCidade(std::istringstream &iss) {
     std::cout << detalhesCaravanas;
 }
 
-
 void Comandos::barbaro(istringstream &iss) {
     int linha, coluna;
     iss >> linha >> coluna;
-
     try {
         simulador->criarCaravanaBarbara(linha, coluna);
         std::cout << "Caravana barbara criada nas coordenadas (" << linha << ", " << coluna << ")." << std::endl;
@@ -411,10 +418,7 @@ void Comandos::barbaro(istringstream &iss) {
     }
 }
 
-
 /*
-
-
 void Comandos::comprac(istringstream& iss) {
     char cidadeNome;
     int tipoCaravanaNum;  // Tipo da caravana (número de 0 a 9)
@@ -438,7 +442,6 @@ void Comandos::comprac(istringstream& iss) {
             break;
         }
     }
-
     if (!cidade.lock()) {
         //gerar execções
         //cout << "Cidade " << cidadeNome << " não encontrada!" << endl;
@@ -448,7 +451,6 @@ void Comandos::comprac(istringstream& iss) {
     //chamar o simudador
 }
 */
-
 
 void Comandos::comprac(std::istringstream& iss, int precoCaravana) {
     char cidadeNome;
@@ -467,68 +469,22 @@ void Comandos::comprac(std::istringstream& iss, int precoCaravana) {
     simulador->adicionaCaravanaJogador(cidadeNome, tipoCaravana, precoCaravana);
 }
 
-/*
-void Comandos::comprac(std::istringstream& iss, int precoCaravana) {
-    char cidadeNome;
-    char tipoCaravana;
-
-    // Lê a cidade e o tipo da caravana
-    iss >> cidadeNome >> tipoCaravana;
-
-    try {
-        if (Caravana::getProximoId() > 9) {
-            throw std::runtime_error("Número máximo de caravanas atingido.");
-        }
-
-        std::shared_ptr<Caravana> novaCaravana;
-        if (tipoCaravana == 'C') {
-
-            novaCaravana = std::make_shared<CaravanaComercio>(cidadeNome, precoCaravana);
-        } else if (tipoCaravana == 'M') {
-            novaCaravana = std::make_shared<CaravanaMilitar>(cidadeNome, precoCaravana);
-        } else if (tipoCaravana == 'S') {
-            novaCaravana = std::make_shared<CaravanaSecreta>(cidadeNome, precoCaravana);
-        } else {
-            throw std::invalid_argument("Tipo de caravana desconhecido.");
-        }
-
-        simulador->adicionaCaravanaJogador(novaCaravana);
-        std::cout << "Caravana do tipo " << tipoCaravana << " comprada na cidade " << cidadeNome << "." << std::endl;
-    } catch (const std::runtime_error &e) {
-        std::cerr << "Erro ao comprar caravana: " << e.what() << std::endl;
-    } catch (const std::invalid_argument &e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
-    }
-}
-*/
-
 void Comandos::mostrarDetalhesCaravana(istringstream &iss) {
-    char tipoCaravana;
-    iss >> tipoCaravana;
+    int numCaravana;
+    iss >> numCaravana;
 
-    Caravana::Tipo tipo;
-    Caravana* caravana;
-    switch (tipoCaravana) {
-        case 'C':
-           // caravana = new CaravanaComercio();
-            cout << caravana->exibirDetalhes();
-            break;
-        case 'M':
-            tipo = Caravana::MILITAR;
-            break;
-        case 'S':
-            tipo = Caravana::SECRETA;
-            break;
-        default:
-            throw std::invalid_argument("Tipo invalido de caravana!");
+    cout << "numCaravana" << numCaravana <<endl;
+    auto caravana = simulador->getCaravana(numCaravana);
+    if (caravana){
+        cout << caravana->exibirDetalhes();
+    }else{
+        cout << "Caravana nao encontrada"<<endl;
     }
 }
-
 
 void Comandos::tripul(istringstream &iss) {
     int idCaravana, quantidadeTripulantes;
     iss >> idCaravana >> quantidadeTripulantes;
-
     try {
         // Encontrar a caravana com o ID fornecido
         auto caravanas = simulador->getJogador()->getCaravanas();
@@ -541,7 +497,6 @@ void Comandos::tripul(istringstream &iss) {
                 break;
             }
         }
-
         if (caravanaEncontrada) {
             if (caravanaEncontrada->estaEmCidade()) {
                 caravanaEncontrada->adicionarTripulantes(quantidadeTripulantes);

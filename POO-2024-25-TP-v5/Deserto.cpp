@@ -43,13 +43,10 @@ void Deserto::moverCaravana(shared_ptr<Caravana> caravana, int direcao) {
     if (!caravana) {
         throw invalid_argument("Caravana invalida.");
     }
-
     // Obter a posição atual da caravana
     auto [linhaAtual, colunaAtual] = caravana->getPosicao();
-
     int novaLinha = linhaAtual;
     int novaColuna = colunaAtual;
-
     // Movimento esférico
     switch (direcao) {
         case 0: novaLinha = (linhaAtual - 1 + numLinhas) % numLinhas; break; // Cima
@@ -75,7 +72,6 @@ void Deserto::moverCaravana(shared_ptr<Caravana> caravana, int direcao) {
         default:
             throw invalid_argument("Direcao invalida.");
     }
-
     // Verificar se a nova posição é válida
     if (posicaoValida(novaLinha, novaColuna)) {
         // Atualizar a posição da caravana

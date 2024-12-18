@@ -2,7 +2,7 @@ prox 1
 comprac a C
 precos
 cidade a
-caravana C
+caravana 1
 compra <N> <M>
 vende <N>
 move <N> <X>

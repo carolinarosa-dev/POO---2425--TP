@@ -38,12 +38,13 @@ private:
 
 public:
     Jogador(int moedasIniciais);
-    shared_ptr<Caravana> comprarCaravana(int id, int tipo, int linha, int coluna, int precoCaravana);
+    void comprarCaravana(std::shared_ptr<Caravana>, int precoCaravana);
     void adicionarMoedas(int quantidade);
     int getMoedas() const;
     bool temCaravanas() const;
     void listarCaravanas() const;
     const vector<shared_ptr<Caravana>>& getCaravanas() const;
+    void adicionarCaravana(std::shared_ptr<Caravana> caravana);
 };
 
 #endif //POO_2024_25_TP_JOGADOR_H

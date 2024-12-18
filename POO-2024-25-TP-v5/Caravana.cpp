@@ -14,9 +14,9 @@ Caravana::Caravana(int id, Tipo tipo, int linha, int coluna)
 int Caravana::proximoId = 1;
 
 Caravana::Caravana(int id,Tipo tipo, int linha, int coluna)
-        : id(proximoId), tipo(tipo), linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {
-    if (proximoId > 9) {
-        throw std::runtime_error("Número máximo de caravanas atingido.");
+        : id(id), tipo(tipo), linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {
+    if (proximoId > 9) { //Seria melhor contar somente as caravas carregadas do mapa. Aquelas estacionadas não deveriam ser contados (opinião)
+        //throw std::runtime_error("Numero maximo de caravanas atingido.");
     }
     proximoId++;
 }
@@ -25,15 +25,16 @@ int Caravana::getProximoId() {
     return proximoId;
 }
 
-
-
-
 Caravana::Tipo Caravana::getTipo() const {
     return tipo;
 }
 
 int Caravana::getId() const {
     return id;
+}
+
+void Caravana::setId(int newId){
+    id = newId;
 }
 
 
@@ -82,12 +83,9 @@ void Caravana::adicionarTripulantes(int quantidade) {
     tripulantes += quantidade;
 }
 
-
-
 void Caravana::removerTripulantes(int quantidade) {
     tripulantes -= quantidade;
 }
-
 
 void Caravana::removerCarga(int quantidade) {
     carga -= quantidade;
@@ -113,12 +111,10 @@ void Caravana::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica básica de aplicação de efeito de item
 }
 
-
 // Compra mercadorias
 void Caravana::comprarMercadoria(const std::string& mercadoria) {
     mercadorias.push_back(mercadoria);
 }
-
 
 // Vende mercadorias
 void Caravana::venderMercadoria(const std::string& mercadoria) {
@@ -144,7 +140,6 @@ void Caravana::adicionarAgua(int quantidade) {
     agua = std::min(capacidadeAgua, agua + quantidade);
 }
 
-
 // Exibe detalhes da caravana
 /*
 string Caravana::exibirDetalhes() const {
@@ -159,7 +154,21 @@ string Caravana::exibirDetalhes() const {
 
 string Caravana::exibirDetalhes() const {
    ostringstream oss;
-    oss << "Caravana ID: " << id << ", Tipo: " << (tipo == Tipo::COMERCIO ? "Comercio" : "Barbara")
+    string type;
+    switch (tipo) {
+        case Tipo::COMERCIO:
+            type = "Comercio";
+            break;
+        case Tipo::MILITAR:
+            type = "Militar";
+            break;
+        case Tipo::SECRETA:
+            type = "Secreta";
+            break;
+        default:
+            throw std::invalid_argument("Tipo invalido de caravana!");
+    }
+    oss << "Caravana ID: " << id << ", Tipo: " << type
         << ", Tripulantes: " << tripulantes << ", Carga: " << carga << ", Agua: " << agua
         << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {
@@ -169,6 +178,6 @@ string Caravana::exibirDetalhes() const {
     return oss.str();
 }
 
-
 Caravana::~Caravana() {
+
 }

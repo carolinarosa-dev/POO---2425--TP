@@ -4,31 +4,18 @@
 
 #include "CaravanaComercio.h"
 
-
-
-
-/*
-CaravanaComercio::CaravanaComercio(int id, int linha, int coluna)
-        : Caravana(id, COMERCIO,  linha, coluna) {
-    tripulantes = 20;
-    carga = 0;
-    agua = 200;
-    capacidadeCarga = 40;
-    capacidadeAgua = 200;
-    consumoAgua = 2;
-}
-
-CaravanaComercio::CaravanaComercio(){
-    tripulantes = 20;
-    carga = 0;
-    agua = 200;
-    capacidadeCarga = 40;
-    capacidadeAgua = 200;
-    consumoAgua = 2;
-}
-*/
 CaravanaComercio::CaravanaComercio(int id,int linha, int coluna)
         : Caravana(id,Tipo::COMERCIO, linha, coluna) {
+    tripulantes = 20;
+    carga = 0;
+    agua = 200;
+    capacidadeCarga = 40;
+    capacidadeAgua = 200;
+    consumoAgua = 2;
+}
+
+CaravanaComercio::CaravanaComercio()
+        : Caravana(0,Tipo::COMERCIO, 0, 0) {
     tripulantes = 20;
     carga = 0;
     agua = 200;
@@ -53,8 +40,8 @@ void CaravanaComercio::esconder() {
     std::cout << "Caravana Secreta esta se escondendo." << std::endl;
 }
 
-string CaravanaComercio::exibirDetalhes() const {
-    ostringstream oss;
-    oss << "Caravana de Comercio ID: " << id << ", Tripulantes: " << tripulantes << "\n";
-    return oss.str();
-}
+//string CaravanaComercio::exibirDetalhes() const {
+//    ostringstream oss;
+//    oss << "Caravana de Comercio ID: " << id << ", Tripulantes: " << tripulantes << "\n";
+//    return oss.str();
+//}

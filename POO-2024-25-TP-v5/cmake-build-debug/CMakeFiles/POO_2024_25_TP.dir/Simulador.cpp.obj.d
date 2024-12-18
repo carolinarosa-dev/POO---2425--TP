@@ -1,6 +1,6 @@
 CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj: \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Simulador.cpp \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Simulador.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.cpp \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/string \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -200,11 +200,11 @@ CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Buffer.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Caravana.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Comandos.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Jogador.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\CaravanaBarbara.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/math.h \
@@ -222,6 +222,6 @@ CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_laguerre.tcc \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Cidade.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Deserto.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v4\Item.h
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Cidade.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Deserto.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Item.h

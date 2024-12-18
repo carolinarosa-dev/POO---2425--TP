@@ -26,7 +26,7 @@ public:
 
    // Caravana();
     Caravana(int id,Tipo tipo,  int linha, int coluna);
-   static  int getProximoId();
+   static int getProximoId();
 
 
     virtual ~Caravana();
@@ -78,6 +78,7 @@ public:
     void setEmCidade(bool estado);
     int getCapacidadeCarga() const;
     void setAutoGestao(bool estado);
+    void setId(int newId);
 
 
 protected:
@@ -94,7 +95,7 @@ protected:
     bool emCidade;
     bool autoGestao;
 private:
-    static int proximoId; // Variável estática para gerar IDs únicos
+    static int proximoId; // Variável estática para gerar IDs único
 
 };
 

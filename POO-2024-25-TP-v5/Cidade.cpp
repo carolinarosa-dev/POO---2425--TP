@@ -51,3 +51,27 @@ std::string Cidade::listarCaravanas() const {
 void Cidade::adicionarCaravana(shared_ptr<Caravana> caravana) {
     caravanasNaCidade.push_back(caravana);
 }
+
+std::shared_ptr<Caravana> Cidade::removerCaravana(Caravana::Tipo tipo) {
+    std::vector<std::shared_ptr<Caravana>> resultado;
+    std::shared_ptr<Caravana> caravanaRemovida;
+    for (const auto& caravana : caravanasNaCidade) {
+        if (caravana->getTipo() != tipo) {
+            resultado.push_back(caravana);
+        }else{
+            caravanaRemovida = caravana;
+        }
+    }
+    caravanasNaCidade = std::move(resultado);
+    return caravanaRemovida;
+}
+
+bool Cidade::possuiCaravana(Caravana::Tipo tipo){
+    for (const auto& caravana : caravanasNaCidade) {
+        if (caravana->getTipo() == tipo) {
+            return true;
+        }
+    }
+    return false;
+}
+    

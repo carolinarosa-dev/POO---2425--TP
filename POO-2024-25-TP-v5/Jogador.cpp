@@ -16,37 +16,23 @@ class Caravana;
 
 Jogador::Jogador(int moedasIniciais) : moedas(moedasIniciais) {}
 
-
-shared_ptr<Caravana> Jogador::comprarCaravana(int id, int tipo, int linha, int coluna, int precoCaravana) {
+void Jogador::comprarCaravana(std::shared_ptr<Caravana> caravana, int precoCaravana) {
     if (moedas >= precoCaravana) {
-        shared_ptr<Caravana> novaCaravana;
-        switch (tipo) {
-            case Caravana::COMERCIO:
-                novaCaravana = make_shared<CaravanaComercio>(id, linha, coluna);
-                break;
-            case Caravana::MILITAR:
-                novaCaravana = make_shared<CaravanaMilitar>(id, linha, coluna);
-                break;
-            case Caravana::SECRETA:
-                novaCaravana = make_shared<CaravanaSecreta>(id, linha, coluna);
-                break;
-            default:
-                throw invalid_argument("Tipo de caravana inválido!");
-        }
-        caravanas.push_back(novaCaravana);
+        caravana->setId(caravanas.size()+1);
+        caravanas.push_back(caravana);
         moedas -= precoCaravana;
-        return novaCaravana;
     } else {
         throw runtime_error("Moedas insuficientes para comprar uma caravana!");
     }
 }
 
-
+void Jogador::adicionarCaravana(std::shared_ptr<Caravana> caravana){
+    caravanas.push_back(caravana);
+}
 
 void Jogador::adicionarMoedas(int quantidade) {
     moedas += quantidade;
 }
-
 
 int Jogador::getMoedas() const {
     return moedas;

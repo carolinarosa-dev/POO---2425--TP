@@ -16,7 +16,7 @@ public:
     void mover(char direcao) override;
     void aplicarEfeitoItem(int tipoItem) override;
     void esconder();
-    string exibirDetalhes() const;
+    //string exibirDetalhes() const;
 
 };
 

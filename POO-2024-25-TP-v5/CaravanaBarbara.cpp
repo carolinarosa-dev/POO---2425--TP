@@ -3,7 +3,6 @@
 //
 #include "CaravanaBarbara.h"
 
-
 CaravanaBarbara::CaravanaBarbara(int id,int linha, int coluna)
         : Caravana(id, BARBARA, linha, coluna), turnosAteDesaparecer(60) {
     tripulantes = 40;

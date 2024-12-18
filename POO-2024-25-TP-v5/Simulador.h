@@ -41,9 +41,9 @@ class Simulador {
 public:
 
     Simulador(int linhas, int colunas, int moedasIniciais);
-    //void adicionaCaravanaJogador(std::shared_ptr<Caravana> caravana);
-   void adicionaCaravanaJogador(char cidadeLetra, char tipoCaravana, int precoCaravana);
-    void adicionaCaravanaBarbara(char caractere, int linha, int coluna);
+    void adicionaCaravanaJogador(std::shared_ptr<Caravana> caravana);//processaMapa
+    void adicionaCaravanaJogador(char cidadeLetra, char tipoCaravana, int precoCaravana);//comprac
+    void adicionaCaravanaBarbara(std::shared_ptr<CaravanaBarbara> caravana);
     void listarCaravanas(char cidadeLetra) const;
     void adicionarCidade(shared_ptr<Cidade> cidade);
     void provocarTempestade(int linhaCentro, int colunaCentro, int raio);
@@ -71,7 +71,7 @@ public:
     void iniciar();               // Inicia a simulação
     void executarComando(const std::string& comando); // Executa um comando
 
-    void caravana(int id);
+    std::shared_ptr<Caravana> getCaravana(int id);
 
     // Funções auxiliares
     void imprimirEstado() const;

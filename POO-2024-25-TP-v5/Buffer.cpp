@@ -14,7 +14,6 @@ Buffer::Buffer(int linhas, int colunas) : linhas(linhas), colunas(colunas), curs
     esvaziar();
 }
 
-
 Buffer::~Buffer() {
     // Libertar memória alocada
     for (int i = 0; i < linhas; ++i) {
@@ -34,8 +33,6 @@ void Buffer::esvaziar() {
     cursorColuna = 0;
 }
 
-
-
 void Buffer::transcreverParaConsola() {
     // Imprimir o conteúdo do buffer na consola
     for (int i = 0; i < linhas; ++i) {
@@ -46,9 +43,6 @@ void Buffer::transcreverParaConsola() {
     }
 }
 
-
-
-
 void Buffer::moverCursor(int linha, int coluna) {
     if (linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas) {
         cursorLinha = linha;
@@ -58,9 +52,6 @@ void Buffer::moverCursor(int linha, int coluna) {
         std::cerr << "Erro: Coordenadas fora dos limites do buffer." << std::endl;
     }
 }
-
-
-
 
 void Buffer::imprimir(char c) {
     if (cursorLinha >= 0 && cursorLinha < linhas && cursorColuna >= 0 && cursorColuna < colunas) {
@@ -73,13 +64,11 @@ void Buffer::imprimir(char c) {
     }
 }
 
-
 void Buffer::imprimir(const std::string& str) {
     for (char c : str) {
         imprimir(c);
     }
 }
-
 
 /*void Buffer::imprimir(int num) {
     std::ostringstream oss;
@@ -100,15 +89,12 @@ std::ostream& operator<<(std::ostream& os, const Buffer& buf) { //funçao global
 
 }
 
-
-
 void Buffer::imprimir(int num) {
     // Caso especial para 0
     if (num == 0) {
         imprimir('0');
         return;
     }
-
     char temp[12]; // Array temporário para armazenar o número (int suporta até 10 dígitos, mais sinal)
     int i = 0;
     bool negativo = false;
@@ -118,25 +104,20 @@ void Buffer::imprimir(int num) {
         negativo = true;
         num = -num; // Tornar positivo para processar os dígitos
     }
-
     // Extrair dígitos em ordem inversa
     while (num > 0) {
         temp[i++] = '0' + (num % 10); // Converter o último dígito para char
         num /= 10;
     }
-
     // Adicionar o sinal de negativo, se aplicável
     if (negativo) {
         temp[i++] = '-';
     }
-
     // Imprimir os caracteres na ordem correta
     while (i > 0) {
         imprimir(temp[--i]);
     }
 }
-
-
 
 // Para imprimir diretamente no buffer
 Buffer& operator<<(Buffer& buf, char c) {
