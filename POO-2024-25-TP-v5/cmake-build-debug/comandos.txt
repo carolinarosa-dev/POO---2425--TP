@@ -1,0 +1,19 @@
+prox 1
+comprac a C
+precos
+cidade a
+caravana C
+compra <N> <M>
+vende <N>
+move <N> <X>
+auto <N>
+stop <N>
+barbaro <l> <c>
+areia <l> <c> <r> 
+moedas 10
+tripul <N> <T>
+saves buff1
+loads buff1
+lists 
+dels buff1
+terminar 
