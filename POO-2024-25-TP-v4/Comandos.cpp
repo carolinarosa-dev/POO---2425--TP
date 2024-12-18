@@ -191,7 +191,7 @@ void Comandos::sair() {
     cout << "Saindo do programa..." << endl;
 }
 
-string Comandos::mostrarConfig() const {
+void Comandos::mostrarConfig() const {
 
     cout << "Linhas: " << linhas << endl;
     cout << "Colunas: " << colunas << endl;
@@ -201,13 +201,13 @@ string Comandos::mostrarConfig() const {
     }
     cout << "Moedas: " << moedas << endl;
     cout << "Instantes entre novos itens: " << instantesEntreNovosItens << endl;
-    cout << "Duração do item: " << duracaoItem << endl;
-    cout << "Máximo de itens: " << maxItens << endl;
+    cout << "Duracao do item: " << duracaoItem << endl;
+    cout << "Maximo de itens: " << maxItens << endl;
     cout << "Preço de venda de mercadoria: " << precoVendaMercadoria << endl;
     cout << "Preço de compra de mercadoria: " << precoCompraMercadoria << endl;
     cout << "Preço da caravana: " << precoCaravana << endl;
-    cout << "Instantes entre novos bárbaros: " << instantesEntreNovosBarbaros << endl;
-    cout << "Duração dos bárbaros: " << duracaoBarbaros << endl;
+    cout << "Instantes entre novos barbaros: " << instantesEntreNovosBarbaros << endl;
+    cout << "Duracao dos barbaros: " << duracaoBarbaros << endl;
 }
 
 
@@ -240,13 +240,13 @@ void Comandos::prox(istringstream &iss) {
     int n = 1; // Valor padrão
     iss >> n;
     if (n <= 0) {
-        cerr << "Número de instantes deve ser maior que 0!" << endl;
+        cerr << "Numero de instantes deve ser maior que 0!" << endl;
         return;
     }
 
     for (int i = 0; i < n; ++i) {
         // adicionar a lógica para atualizar o estado da simulação a cada instante
-        cout << "Avançando instante " << (i + 1) << " de " << n << endl;
+        cout << "Avancando instante " << (i + 1) << " de " << n << endl;
 
         // Atualizar o estado da simulação chamando Simulacao::atualizarEstado
         // simulador.atualizarEstado(); // 'simulacao' é uma instância da classe Simulacao
@@ -288,7 +288,7 @@ void Comandos::saves(std::istringstream& iss) {
     std::string nome;
     iss >> nome;
     if (nome.empty()) {
-        std::cerr << "Nome não especificado!" << std::endl;
+        std::cerr << "Nome nao especificado!" << std::endl;
         return;
     }
 
@@ -547,7 +547,7 @@ void Comandos::tripul(istringstream &iss) {
                 caravanaEncontrada->adicionarTripulantes(quantidadeTripulantes);
                 std::cout << "Adicionados " << quantidadeTripulantes << " tripulantes a caravana " << idCaravana << "." << std::endl;
             } else {
-                throw std::runtime_error("A caravana não esta em uma cidade.");
+                throw std::runtime_error("A caravana nao esta em uma cidade.");
             }
         } else {
             throw std::runtime_error("Caravana com ID nao encontrada.");
