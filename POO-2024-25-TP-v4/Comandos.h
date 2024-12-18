@@ -45,7 +45,7 @@ public:
     void lerConfiguracao(const string &nomeFicheiro);
     void processaMapa();
     void executarComando(const string &comando); // Método para execução de comandos
-    void mostrarConfig() const;
+    string mostrarConfig() const;
     //void processarComandos();
     int calcularPontuacao() const;
     void barbaro(istringstream &iss);

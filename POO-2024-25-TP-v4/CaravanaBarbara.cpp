@@ -49,7 +49,7 @@ void CaravanaBarbara::enfrentarTempestade() {
 }
 
 std::string CaravanaBarbara::turno(int caravanaLinha, int caravanaColuna) {
-    if (tripulantes <= 0) return "Caravana destruída";
+    if (tripulantes <= 0) return "Caravana destruida";
     if (turnosAteDesaparecer <= 0) return "Caravana desapareceu";
     if (caravanaLinha != -1 && caravanaColuna != -1 && verificarProximidade(caravanaLinha, caravanaColuna)) {
         moverParaCaravana(caravanaLinha, caravanaColuna);

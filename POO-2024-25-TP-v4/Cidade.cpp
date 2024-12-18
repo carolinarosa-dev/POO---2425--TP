@@ -8,7 +8,7 @@
 Cidade::Cidade(char nome, int linha, int coluna)
         : nome(nome), linha(linha), coluna(coluna), tripulantes(10) {
     // Inicializa algumas mercadorias como exemplo
-    mercadorias.push_back("Água");
+    mercadorias.push_back("Agua");
     mercadorias.push_back("Comida");
     mercadorias.push_back("Armas");
 }

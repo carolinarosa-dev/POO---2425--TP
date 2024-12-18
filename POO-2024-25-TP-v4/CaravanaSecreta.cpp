@@ -38,7 +38,7 @@ CaravanaSecreta::~CaravanaSecreta() {}
 
 void CaravanaSecreta::mover(char direcao) {
     // Implementar lógica de movimentação específica para Caravana Secreta
-    std::cout << "Movendo Caravana Secreta na direção " << direcao << std::endl;
+    std::cout << "Movendo Caravana Secreta na direcao " << direcao << std::endl;
 }
 
 void CaravanaSecreta::aplicarEfeitoItem(int tipoItem) {
@@ -47,7 +47,7 @@ void CaravanaSecreta::aplicarEfeitoItem(int tipoItem) {
 }
 void CaravanaSecreta::esconder() {
     // Implementar lógica para esconder a caravana
-    std::cout << "Caravana Secreta está se escondendo." << std::endl;
+    std::cout << "Caravana Secreta esta se escondendo." << std::endl;
 }
 string CaravanaSecreta::exibirDetalhes() const {
     ostringstream oss;

@@ -191,7 +191,8 @@ void Comandos::sair() {
     cout << "Saindo do programa..." << endl;
 }
 
-void Comandos::mostrarConfig() const {
+string Comandos::mostrarConfig() const {
+
     cout << "Linhas: " << linhas << endl;
     cout << "Colunas: " << colunas << endl;
     cout << "Mapa do deserto:" << endl;
@@ -260,12 +261,12 @@ void Comandos::prox(istringstream &iss) {
 void Comandos::terminar() {
     // Calcular e exibir a pontuação
     int pontuacao = calcularPontuacao();
-    cout << "Simulação terminada!" << endl;
-    cout << "Pontuação final: " << pontuacao << endl;
+    cout << "Simulacao terminada!" << endl;
+    cout << "Pontuacao final: " << pontuacao << endl;
 
     fase = 1;
     limparDados();
-    cout << "Está de volta à fase 1. Pode iniciar uma nova simulação ou sair do programa." << endl;
+    cout << "Esta de volta a fase 1. Pode iniciar uma nova simulacao ou sair do programa." << endl;
 }
 
 int Comandos::calcularPontuacao() const {
@@ -299,7 +300,7 @@ void Comandos::loads(std::istringstream& iss) {
     std::string nome;
     iss >> nome;
     if (nome.empty()) {
-        std::cerr << "Nome não especificado!" << std::endl;
+        std::cerr << "Nome nao especificado!" << std::endl;
         return;
     }
 
@@ -327,7 +328,7 @@ void Comandos::dels(std::istringstream& iss) {
     std::string nome;
     iss >> nome;
     if (nome.empty()) {
-        std::cerr << "Nome não especificado!" << std::endl;
+        std::cerr << "Nome nao especificado!" << std::endl;
         return;
     }
 
@@ -352,9 +353,9 @@ void Comandos::adicionaMoedas(istringstream& iss) {
 
 string Comandos::listarPrecos() {
     ostringstream oss;
-    oss << "Preços das mercadorias:" << std::endl;
-    oss << "Preço de venda: " << precoVendaMercadoria << " moedas" << std::endl;
-    oss << "Preço de compra: " << precoCompraMercadoria << " moedas" << std::endl;
+    oss << "Precos das mercadorias:"
+        << "\nPreco de venda: " << precoVendaMercadoria << " moedas"
+        << "\nPreco de compra: " << precoCompraMercadoria << " moedas" << std::endl;
     return oss.str();
 }
 
@@ -390,7 +391,7 @@ void Comandos::listarCaravanasCidade(std::istringstream &iss) {
     }
 
     if (!cidadeEscolhida) {
-        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' não encontrada!");
+        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' nao encontrada!");
     }
 
     std::string detalhesCaravanas = cidadeEscolhida->listarCaravanas();
@@ -404,9 +405,9 @@ void Comandos::barbaro(istringstream &iss) {
 
     try {
         simulador->criarCaravanaBarbara(linha, coluna);
-        std::cout << "Caravana bárbara criada nas coordenadas (" << linha << ", " << coluna << ")." << std::endl;
+        std::cout << "Caravana barbara criada nas coordenadas (" << linha << ", " << coluna << ")." << std::endl;
     } catch (const std::exception &e) {
-        std::cerr << "Erro ao criar caravana bárbara: " << e.what() << std::endl;
+        std::cerr << "Erro ao criar caravana barbara: " << e.what() << std::endl;
     }
 }
 
@@ -519,7 +520,7 @@ void Comandos::mostrarDetalhesCaravana(istringstream &iss) {
             tipo = Caravana::SECRETA;
             break;
         default:
-            throw std::invalid_argument("Tipo inválido de caravana!");
+            throw std::invalid_argument("Tipo invalido de caravana!");
     }
 }
 
@@ -544,12 +545,12 @@ void Comandos::tripul(istringstream &iss) {
         if (caravanaEncontrada) {
             if (caravanaEncontrada->estaEmCidade()) {
                 caravanaEncontrada->adicionarTripulantes(quantidadeTripulantes);
-                std::cout << "Adicionados " << quantidadeTripulantes << " tripulantes à caravana " << idCaravana << "." << std::endl;
+                std::cout << "Adicionados " << quantidadeTripulantes << " tripulantes a caravana " << idCaravana << "." << std::endl;
             } else {
-                throw std::runtime_error("A caravana não está em uma cidade.");
+                throw std::runtime_error("A caravana não esta em uma cidade.");
             }
         } else {
-            throw std::runtime_error("Caravana com ID não encontrada.");
+            throw std::runtime_error("Caravana com ID nao encontrada.");
         }
     } catch (const std::exception &e) {
         std::cerr << "Erro: " << e.what() << std::endl;
@@ -562,7 +563,7 @@ void Comandos::areia(istringstream &iss) {
 
     try {
         simulador->provocarTempestade(linha, coluna, raio);
-        std::cout << "Tempestade de areia criada na posição (" << linha << ", " << coluna << ") com raio " << raio << "." << std::endl;
+        std::cout << "Tempestade de areia criada na posicao (" << linha << ", " << coluna << ") com raio " << raio << "." << std::endl;
     } catch (const std::exception &e) {
         std::cerr << "Erro ao criar tempestade de areia: " << e.what() << std::endl;
     }
@@ -599,7 +600,7 @@ void Comandos::move(istringstream &iss) {
 
     try {
         simulador->moverCaravana(idCaravana, direcao);
-        std::cout << "Caravana " << idCaravana << " movida na direção " << direcao << "." << std::endl;
+        std::cout << "Caravana " << idCaravana << " movida na direcao " << direcao << "." << std::endl;
     } catch (const std::exception &e) {
         std::cerr << "Erro ao mover a caravana: " << e.what() << std::endl;
     }
@@ -611,9 +612,9 @@ void Comandos::autoGestao(istringstream &iss) {
 
     try {
         simulador->ativarAutoGestao(idCaravana);
-        std::cout << "Caravana " << idCaravana << " colocada em auto-gestão." << std::endl;
+        std::cout << "Caravana " << idCaravana << " colocada em auto-gestao." << std::endl;
     } catch (const std::exception &e) {
-        std::cerr << "Erro ao ativar auto-gestão: " << e.what() << std::endl;
+        std::cerr << "Erro ao ativar auto-gestao: " << e.what() << std::endl;
     }
 }
 
@@ -623,8 +624,8 @@ void Comandos::stop(istringstream &iss) {
 
     try {
         simulador->desativarAutoGestao(idCaravana);
-        std::cout << "Caravana " << idCaravana << " parou o comportamento automático." << std::endl;
+        std::cout << "Caravana " << idCaravana << " parou o comportamento automatico." << std::endl;
     } catch (const std::exception &e) {
-        std::cerr << "Erro ao parar o comportamento automático: " << e.what() << std::endl;
+        std::cerr << "Erro ao parar o comportamento automatico: " << e.what() << std::endl;
     }
 }

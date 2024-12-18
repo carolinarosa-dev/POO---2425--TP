@@ -12,7 +12,7 @@ Deserto::Deserto(int linhas, int colunas)
 // Configura o mapa com cidades e montanhas
 void Deserto::configurarMapa(const vector<vector<TipoPosicao>>& configuracao) {
     if (configuracao.size() != numLinhas || configuracao[0].size() != numColunas) {
-        throw invalid_argument("Dimensões do mapa não coincidem com a configuração.");
+        throw invalid_argument("Dimensoes do mapa nao coincidem com a configuracao.");
     }
     mapa = configuracao;
 }
@@ -41,7 +41,7 @@ bool Deserto::posicaoValida(int linha, int coluna) const {
 
 void Deserto::moverCaravana(shared_ptr<Caravana> caravana, int direcao) {
     if (!caravana) {
-        throw invalid_argument("Caravana inválida.");
+        throw invalid_argument("Caravana invalida.");
     }
 
     // Obter a posição atual da caravana
@@ -73,7 +73,7 @@ void Deserto::moverCaravana(shared_ptr<Caravana> caravana, int direcao) {
             novaColuna = (colunaAtual + 1) % numColunas;
             break;
         default:
-            throw invalid_argument("Direção inválida.");
+            throw invalid_argument("Direcao invalida.");
     }
 
     // Verificar se a nova posição é válida
@@ -81,7 +81,7 @@ void Deserto::moverCaravana(shared_ptr<Caravana> caravana, int direcao) {
         // Atualizar a posição da caravana
         caravana->setPosicao(novaLinha, novaColuna);
     } else {
-        throw runtime_error("Movimento inválido! A posição está ocupada ou fora dos limites.");
+        throw runtime_error("Movimento invalido! A posicao esta ocupada ou fora dos limites.");
     }
 }
 
@@ -91,7 +91,7 @@ void Deserto::adicionarCaravana(shared_ptr<Caravana> caravana, int linha, int co
         caravanas.push_back(caravana);
         caravana->setPosicao(linha, coluna);
     } else {
-        throw invalid_argument("Posição inválida para adicionar a caravana.");
+        throw invalid_argument("Posicao invalida para adicionar a caravana.");
     }
 }
 
@@ -103,7 +103,7 @@ void Deserto::adicionarCidade(shared_ptr<Cidade> cidade) {
         cidades.push_back(cidade);
         mapa[linha][coluna] = CIDADE;
     } else {
-        throw invalid_argument("Posição inválida para adicionar a cidade.");
+        throw invalid_argument("Posicao invalida para adicionar a cidade.");
     }
 }
 
@@ -129,6 +129,6 @@ void Deserto::setMontanha(int linha, int coluna) {
     if (posicaoValida(linha, coluna)) {
         mapa[linha][coluna] = MONTANHA;
     } else {
-        throw invalid_argument("Posição inválida para configurar montanha.");
+        throw invalid_argument("Posicao invalida para configurar montanha.");
     }
 }

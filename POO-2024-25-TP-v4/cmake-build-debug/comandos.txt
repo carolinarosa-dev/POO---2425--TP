@@ -1,14 +1,14 @@
 prox 1
 comprac a C
 precos
-cidade 
-caravana <C> 
-compra <N> <M> 
+cidade a
+caravana C
+compra <N> <M>
 vende <N>
-move <N> <X> 
-auto <N> 
+move <N> <X>
+auto <N>
 stop <N>
-barbaro <l> <c> 
+barbaro <l> <c>
 areia <l> <c> <r> 
 moedas 10
 tripul <N> <T>

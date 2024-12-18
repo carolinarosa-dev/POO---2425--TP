@@ -33,7 +33,7 @@ CaravanaMilitar::~CaravanaMilitar() {}
 
 void CaravanaMilitar::mover(char direcao) {
     // Implementar lógica de movimentação específica para Caravana Militar
-    std::cout << "Movendo Caravana Militar na direção " << direcao << std::endl;
+    std::cout << "Movendo Caravana Militar na direcao " << direcao << std::endl;
 }
 
 void CaravanaMilitar::aplicarEfeitoItem(int tipoItem) {
@@ -42,7 +42,7 @@ void CaravanaMilitar::aplicarEfeitoItem(int tipoItem) {
 }
 void CaravanaMilitar::esconder() {
     // Implementar lógica para esconder a caravana
-    std::cout << "Caravana Secreta está se escondendo." << std::endl;
+    std::cout << "Caravana Secreta esta se escondendo." << std::endl;
 }
 
 string CaravanaMilitar::exibirDetalhes() const {

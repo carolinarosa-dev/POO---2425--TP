@@ -159,8 +159,8 @@ string Caravana::exibirDetalhes() const {
 
 string Caravana::exibirDetalhes() const {
    ostringstream oss;
-    oss << "Caravana ID: " << id << ", Tipo: " << (tipo == Tipo::COMERCIO ? "Comércio" : "Bárbara")
-        << ", Tripulantes: " << tripulantes << ", Carga: " << carga << ", Água: " << agua
+    oss << "Caravana ID: " << id << ", Tipo: " << (tipo == Tipo::COMERCIO ? "Comercio" : "Barbara")
+        << ", Tripulantes: " << tripulantes << ", Carga: " << carga << ", Agua: " << agua
         << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {
         oss << mercadoria << " ";
