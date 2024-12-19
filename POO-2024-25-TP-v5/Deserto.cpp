@@ -39,47 +39,7 @@ bool Deserto::posicaoValida(int linha, int coluna) const {
     return linha >= 0 && linha < numLinhas && coluna >= 0 && coluna < numColunas && mapa[linha][coluna] != MONTANHA;
 }
 
-void Deserto::moverCaravana(shared_ptr<Caravana> caravana, int direcao) {
-    if (!caravana) {
-        throw invalid_argument("Caravana invalida.");
-    }
-    // Obter a posição atual da caravana
-    auto [linhaAtual, colunaAtual] = caravana->getPosicao();
-    int novaLinha = linhaAtual;
-    int novaColuna = colunaAtual;
-    // Movimento esférico
-    switch (direcao) {
-        case 0: novaLinha = (linhaAtual - 1 + numLinhas) % numLinhas; break; // Cima
-        case 1: novaLinha = (linhaAtual + 1) % numLinhas; break; // Baixo
-        case 2: novaColuna = (colunaAtual - 1 + numColunas) % numColunas; break; // Esquerda
-        case 3: novaColuna = (colunaAtual + 1) % numColunas; break; // Direita
-        case 4: // Diagonal Cima-Esquerda
-            novaLinha = (linhaAtual - 1 + numLinhas) % numLinhas;
-            novaColuna = (colunaAtual - 1 + numColunas) % numColunas;
-            break;
-        case 5: // Diagonal Cima-Direita
-            novaLinha = (linhaAtual - 1 + numLinhas) % numLinhas;
-            novaColuna = (colunaAtual + 1) % numColunas;
-            break;
-        case 6: // Diagonal Baixo-Esquerda
-            novaLinha = (linhaAtual + 1) % numLinhas;
-            novaColuna = (colunaAtual - 1 + numColunas) % numColunas;
-            break;
-        case 7: // Diagonal Baixo-Direita
-            novaLinha = (linhaAtual + 1) % numLinhas;
-            novaColuna = (colunaAtual + 1) % numColunas;
-            break;
-        default:
-            throw invalid_argument("Direcao invalida.");
-    }
-    // Verificar se a nova posição é válida
-    if (posicaoValida(novaLinha, novaColuna)) {
-        // Atualizar a posição da caravana
-        caravana->setPosicao(novaLinha, novaColuna);
-    } else {
-        throw runtime_error("Movimento invalido! A posicao esta ocupada ou fora dos limites.");
-    }
-}
+
 
 // Adiciona uma caravana ao deserto (em uma posição válida)
 void Deserto::adicionarCaravana(shared_ptr<Caravana> caravana, int linha, int coluna) {

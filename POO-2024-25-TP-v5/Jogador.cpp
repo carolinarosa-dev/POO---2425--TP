@@ -20,7 +20,9 @@ void Jogador::comprarCaravana(std::shared_ptr<Caravana> caravana, int precoCarav
     if (moedas >= precoCaravana) {
         caravana->setId(caravanas.size()+1);
         caravanas.push_back(caravana);
+        cout << "moedas antes " << moedas << endl;
         moedas -= precoCaravana;
+        cout << "moedas depois" << moedas << endl;
     } else {
         throw runtime_error("Moedas insuficientes para comprar uma caravana!");
     }

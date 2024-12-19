@@ -201,8 +201,8 @@ CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stream_iterator.h \
  C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.h \
- C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.h \
  C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.h \
+ C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.h \
  C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.h \
  C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \

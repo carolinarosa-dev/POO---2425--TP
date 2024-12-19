@@ -3,6 +3,15 @@
 //
 
 #include "CaravanaComercio.h"
+CaravanaComercio::CaravanaComercio()
+        : Caravana(0,Tipo::COMERCIO, 0, 0) {
+    tripulantes = 20;
+    carga = 0;
+    agua = 200;
+    capacidadeCarga = 40;
+    capacidadeAgua = 200;
+    consumoAgua = 2;
+}
 
 CaravanaComercio::CaravanaComercio(int id,int linha, int coluna)
         : Caravana(id,Tipo::COMERCIO, linha, coluna) {
@@ -14,22 +23,12 @@ CaravanaComercio::CaravanaComercio(int id,int linha, int coluna)
     consumoAgua = 2;
 }
 
-CaravanaComercio::CaravanaComercio()
-        : Caravana(0,Tipo::COMERCIO, 0, 0) {
-    tripulantes = 20;
-    carga = 0;
-    agua = 200;
-    capacidadeCarga = 40;
-    capacidadeAgua = 200;
-    consumoAgua = 2;
-}
-
 CaravanaComercio::~CaravanaComercio() {}
 
-void CaravanaComercio::mover(char direcao){
-    cout << "Movendo Caravana de Comercio na direcao " << direcao << endl;
-    // Implementar lógica de movimentação específica para caravana de comércio
-}
+//void CaravanaComercio::mover(char direcao){
+//    cout << "Movendo Caravana de Comercio na direcao " << direcao << endl;
+//    // Implementar lógica de movimentação específica para caravana de comércio
+//}
 
 void CaravanaComercio::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica específica de aplicação de efeito de item
@@ -37,7 +36,7 @@ void CaravanaComercio::aplicarEfeitoItem(int tipoItem) {
 }
 void CaravanaComercio::esconder() {
     // Implementar lógica para esconder a caravana
-    std::cout << "Caravana Secreta esta se escondendo." << std::endl;
+    std::cout << "Caravana Secreta esta a esconder-se." << std::endl;
 }
 
 //string CaravanaComercio::exibirDetalhes() const {

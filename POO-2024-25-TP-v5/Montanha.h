@@ -9,6 +9,8 @@
 
 class Montanha : public Deserto {
     int linha, coluna;
+    //vector<shared_ptr<Montanha>montanhas>;
+
 public:
     Montanha(int linha, int coluna);
     void configurarMontanhas(const vector<pair<int, int>>& posicoes);

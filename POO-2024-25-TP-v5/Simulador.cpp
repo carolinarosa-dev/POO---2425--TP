@@ -9,10 +9,11 @@
 #include "Jogador.h"
 #include "Deserto.h"
 
+
 Simulador::Simulador(int linhas, int colunas, Buffer *buffer)
    /*     : jogador(0), buffer(buffer) {
     this->deserto = new Deserto(linhas, colunas);*/
-    : jogador(std::make_shared<Jogador>(100)), buffer(buffer) {
+    : linhas(linhas), colunas(colunas), jogador(std::make_shared<Jogador>(0)), buffer(buffer) {
         this->deserto = new Deserto(linhas, colunas);
     }
  // Inicializa o jogador com 100 moedas
@@ -30,7 +31,7 @@ void Simulador::adicionaCaravanaJogador(char cidadeLetra, char tipoCaravana, int
             tipo = Caravana::SECRETA;
             break;
         default:
-            throw std::invalid_argument("Tipo inválido de caravana!");
+            throw std::invalid_argument("Tipo invalido de caravana!");
     }
     std::shared_ptr<Cidade> cidadeEscolhida = nullptr;
     for (const auto &cidade: cidades) {
@@ -40,23 +41,23 @@ void Simulador::adicionaCaravanaJogador(char cidadeLetra, char tipoCaravana, int
         }
     }
     if (!cidadeEscolhida) {
-        throw std::invalid_argument("Cidade não encontrada!");
+        throw std::invalid_argument("Cidade nao encontrada!");
     }
     if (cidadeEscolhida->possuiCaravana(tipo)) {
         auto novaCaravana = cidadeEscolhida->removerCaravana(tipo);
         jogador->comprarCaravana(novaCaravana, precoCaravana);
         //cidadeEscolhida->adicionarCaravana(novaCaravana);
-
-        std::cout << "Caravana de tipo " << tipoCaravana << "e ID: " << novaCaravana->getId() << " comprada na cidade "
+        novaCaravana->setEmCidade(true);
+        std::cout << "Caravana de tipo " << tipoCaravana << " e ID: " << novaCaravana->getId() << " comprada na cidade "
                   << cidadeLetra << "." << std::endl;
     } else {
-        std::cout << "Cidade " << cidadeLetra << "não mais possui caravana deste tipo." << std::endl;
+        std::cout << "Cidade " << cidadeLetra << "nao  pode adiciona mais caravana deste tipo." << std::endl;
     }
 }
 
 void Simulador::adicionaCaravanaJogador(std::shared_ptr<Caravana> caravana) {
     if (jogador->getCaravanas().size() >= 9) {
-        throw std::runtime_error("Número máximo de caravanas atingido.");
+        throw std::runtime_error("Numero maximo de caravanas atingido.");
     }
     jogador->adicionarCaravana(caravana);
 
@@ -111,10 +112,6 @@ bool Simulador::terminarSimulacao() const {
     return jogador->getMoedas() <= 0 && !jogador->temCaravanas();
 }
 
-/*Jogador& Simulador::getJogador(){
-    return jogador;
-}*/
-
 std::shared_ptr<Jogador> Simulador::getJogador() {
     return jogador;
 }
@@ -149,7 +146,8 @@ const vector<shared_ptr<Cidade>> &Simulador::getCidades() const {
     return cidades;
 }
 
-void Simulador::comprarMercadoria(int idCaravana, int quantidadeMercadoria) {
+void Simulador::comprarMercadoria(int idCaravana, int quantidadeMercadoria, int precoCompraMercadoria){
+
     auto caravanas = jogador->getCaravanas();
     std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
 
@@ -159,7 +157,6 @@ void Simulador::comprarMercadoria(int idCaravana, int quantidadeMercadoria) {
             break;
         }
     }
-
     if (caravanaEncontrada) {
         if (caravanaEncontrada->estaEmCidade()) {
             int custoTotal = quantidadeMercadoria * precoCompraMercadoria;
@@ -182,7 +179,8 @@ void Simulador::comprarMercadoria(int idCaravana, int quantidadeMercadoria) {
     }
 }
 
-void Simulador::venderMercadoria(int idCaravana) {
+void Simulador::venderMercadoria(int idCaravana, int precoVendaMercadoria) {
+
     auto caravanas = jogador->getCaravanas();
     std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
 
@@ -192,12 +190,12 @@ void Simulador::venderMercadoria(int idCaravana) {
             break;
         }
     }
-
     if (caravanaEncontrada) {
         if (caravanaEncontrada->estaEmCidade()) {
             int quantidadeMercadoria = caravanaEncontrada->getCarga();
             int valorVenda = quantidadeMercadoria * precoVendaMercadoria;
             jogador->adicionarMoedas(valorVenda);
+
             caravanaEncontrada->removerCarga(quantidadeMercadoria);
             std::cout << "Vendida toda a mercadoria da caravana " << idCaravana << " por " << valorVenda << " moedas." << std::endl;
         } else {
@@ -208,7 +206,11 @@ void Simulador::venderMercadoria(int idCaravana) {
     }
 }
 
-void Simulador::moverCaravana(int idCaravana, const std::string &direcao) {
+bool Simulador::posicaoValida(int linha, int coluna, char** mapa) const {
+    return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas && mapa[linha][coluna] != '+';
+}
+
+void Simulador::moverCaravana(int idCaravana, const std::string &direcao, char** mapa) {
     auto caravanas = jogador->getCaravanas();
     std::shared_ptr<Caravana> caravanaEncontrada = nullptr;
 
@@ -218,6 +220,9 @@ void Simulador::moverCaravana(int idCaravana, const std::string &direcao) {
             break;
         }
     }
+    int linhaAtual, colunaAtual;
+    std::tie(linhaAtual, colunaAtual) = caravanaEncontrada->getPosicao();
+    int novaLinha = linhaAtual, novaColuna = colunaAtual;
     if (caravanaEncontrada) {
         int direcaoNumerica;
         if (direcao == "D") direcaoNumerica = 3;
@@ -230,7 +235,37 @@ void Simulador::moverCaravana(int idCaravana, const std::string &direcao) {
         else if (direcao == "BD") direcaoNumerica = 7;
         else throw std::invalid_argument("Direçao invalida.");
 
-        deserto->moverCaravana(caravanaEncontrada, direcaoNumerica);
+        switch (direcaoNumerica) {
+            case 0: novaLinha = (linhaAtual - 1 + linhas) % linhas; break; // Cima
+            case 1: novaLinha = (linhaAtual + 1) % linhas; break; // Baixo
+            case 2: novaColuna = (colunaAtual - 1 + colunas) % colunas; break; // Esquerda
+            case 3: novaColuna = (colunaAtual + 1) % colunas; break; // Direita
+            case 4: // Diagonal Cima-Esquerda
+                novaLinha = (linhaAtual - 1 + linhas) % linhas;
+                novaColuna = (colunaAtual - 1 + colunas) % colunas;
+                break;
+            case 5: // Diagonal Cima-Direita
+                novaLinha = (linhaAtual - 1 + linhas) % linhas;
+                novaColuna = (colunaAtual + 1) % colunas;
+                break;
+            case 6: // Diagonal Baixo-Esquerda
+                novaLinha = (linhaAtual + 1) % linhas;
+                novaColuna = (colunaAtual - 1 + colunas) % colunas;
+                break;
+            case 7: // Diagonal Baixo-Direita
+                novaLinha = (linhaAtual + 1) % linhas;
+                novaColuna = (colunaAtual + 1) % colunas;
+                break;
+            default:
+                throw invalid_argument("Direcao invalida.");
+        }
+        // Verificar se a nova posição é válida
+        if (posicaoValida(novaLinha, novaColuna, mapa)) {
+            // Atualizar a posição da caravana
+            caravanaEncontrada->setPosicao(novaLinha, novaColuna);
+        } else {
+            throw runtime_error("Movimento invalido! A posicao esta ocupada ou fora dos limites.");
+        }
     } else {
         throw std::runtime_error("Caravana com ID nao encontrada.");
     }

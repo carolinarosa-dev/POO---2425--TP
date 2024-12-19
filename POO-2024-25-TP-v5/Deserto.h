@@ -27,7 +27,7 @@ public:
     void configurarMapa(const vector<vector<TipoPosicao>>& configuracao);
     string exibirMapa() const;
     bool posicaoValida(int linha, int coluna) const;
-    void moverCaravana(shared_ptr<Caravana> caravana, int direcao);
+
     void adicionarCaravana(shared_ptr<Caravana> caravana, int linha, int coluna);
     void adicionarCidade(shared_ptr<Cidade> cidade);
     void provocarTempestade(int linhaCentro, int colunaCentro, int raio);

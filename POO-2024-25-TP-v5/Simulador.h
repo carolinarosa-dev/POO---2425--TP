@@ -17,13 +17,10 @@
 #include <iterator>
 
 #include "Buffer.h"
-#include "Caravana.h"
 #include "Comandos.h"
-#include "Jogador.h"
-//#include "Deserto.h"
-//#include "CaravanaBarbara.h"
 
-
+//#include "Caravana.h"
+class Caravana;
 class Deserto;
 class Cidade;
 class CaravanaBarbara;
@@ -48,6 +45,8 @@ public:
     void adicionarCidade(shared_ptr<Cidade> cidade);
     void provocarTempestade(int linhaCentro, int colunaCentro, int raio);
     void moverCaravana(int idCaravana, int direcao);
+    bool posicaoValida(int linha, int coluna, char** mapa) const;
+
     void verificarCombate();
     bool terminarSimulacao() const;
     Simulador(int linhas, int colunas, Buffer *buffer);
@@ -55,9 +54,10 @@ public:
    // Jogador& getJogador();
     void criarCaravanaBarbara(int linha, int coluna);
 
-    void comprarMercadoria(int idCaravana, int quantidadeMercadoria);
-    void venderMercadoria(int idCaravana);
-    void moverCaravana(int idCaravana, const std::string &direcao);
+    void comprarMercadoria(int idCaravana, int quantidadeMercadoria, int precoCompraMercadoria);
+    void venderMercadoria(int idCaravana, int precoVendaMercadoria);
+
+    void moverCaravana(int idCaravana, const std::string &direcao, char** mapa);
     void ativarAutoGestao(int idCaravana);
     void desativarAutoGestao(int idCaravana);
 
@@ -77,10 +77,13 @@ public:
     void imprimirEstado() const;
 
     const vector<shared_ptr<Cidade>> &getCidades() const;
+
 private:
     int moedasJogador;                     // Moedas do jogador
     int instantes;                  // Número de instantes decorridos
     int combatesVencidos;           // Número de combates vencidos
+    int linhas;
+    int colunas;
     Deserto *deserto;               // Mapa do deserto - aloca o mapa e o local da referencia na memoria
     vector<shared_ptr<Cidade>> cidades;//DONO
     vector<shared_ptr<CaravanaBarbara>> caravanasBarbaras;
@@ -88,8 +91,9 @@ private:
     //Jogador jogador;
     std::shared_ptr<Jogador> jogador;
     vector<std::shared_ptr<Caravana>> caravanas; // Declaração da variável caravanas
-    int precoCompraMercadoria;
-    int precoVendaMercadoria;
+    //Comandos comandos;
+
+
 };
 
 

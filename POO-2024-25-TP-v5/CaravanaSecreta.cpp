@@ -16,16 +16,6 @@ Habilidade Especial: Pode se esconder por um turno, tornando-se invisível para 
 
 #include "CaravanaSecreta.h"
 
-/*
-CaravanaSecreta::CaravanaSecreta(int id, int linha, int coluna)
-        : Caravana(id,SECRETA, linha, coluna) {
-
-    tripulantes = 10;
-    capacidadeAgua = 100;
-    consumoAgua = 1;
-
-}*/
-
 CaravanaSecreta::CaravanaSecreta(int id,int linha, int coluna)
         : Caravana(id,Tipo::SECRETA, linha, coluna) {
     tripulantes = 10;
@@ -36,10 +26,10 @@ CaravanaSecreta::CaravanaSecreta(int id,int linha, int coluna)
 CaravanaSecreta::~CaravanaSecreta() {}
 
 
-void CaravanaSecreta::mover(char direcao) {
+/*void CaravanaSecreta::mover(char direcao) {
     // Implementar lógica de movimentação específica para Caravana Secreta
     std::cout << "Movendo Caravana Secreta na direcao " << direcao << std::endl;
-}
+}*/
 
 void CaravanaSecreta::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica de aplicação de efeito de item específica para Caravana Secreta
@@ -47,7 +37,7 @@ void CaravanaSecreta::aplicarEfeitoItem(int tipoItem) {
 }
 void CaravanaSecreta::esconder() {
     // Implementar lógica para esconder a caravana
-    std::cout << "Caravana Secreta esta se escondendo." << std::endl;
+    std::cout << "Caravana Secreta esta a esconder-se." << std::endl;
 }
 //string CaravanaSecreta::exibirDetalhes() const {
 //    ostringstream oss;

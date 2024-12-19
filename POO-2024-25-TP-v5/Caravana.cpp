@@ -37,14 +37,19 @@ void Caravana::setId(int newId){
     id = newId;
 }
 
+pair<int, int> Caravana::getPosicaoAnterior() const {
+
+    return {linhaAnterior, colunaAnterior};
+}
 
 pair<int, int> Caravana::getPosicao() const {
 
     return {linha, coluna};
 }
 
-
 void Caravana:: setPosicao(int novaLinha, int novaColuna) {
+    linhaAnterior = linha;
+    colunaAnterior = coluna;
     linha = novaLinha;
     coluna = novaColuna;
 }
@@ -73,10 +78,6 @@ void Caravana::adicionarCarga(int quantidade) {
 
 int Caravana::getAgua() const {
     return agua;
-}
-
-void Caravana::mover(char direcao) {
-    // Implementar lógica de movimentação básica
 }
 
 void Caravana::adicionarTripulantes(int quantidade) {
@@ -111,19 +112,6 @@ void Caravana::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica básica de aplicação de efeito de item
 }
 
-// Compra mercadorias
-void Caravana::comprarMercadoria(const std::string& mercadoria) {
-    mercadorias.push_back(mercadoria);
-}
-
-// Vende mercadorias
-void Caravana::venderMercadoria(const std::string& mercadoria) {
-    auto it = std::find(mercadorias.begin(), mercadorias.end(), mercadoria);
-    if (it != mercadorias.end()) {
-        mercadorias.erase(it);
-    }
-}
-
 bool Caravana::estaDestruida() const {
     return tripulantes <= 0;
 }
@@ -141,17 +129,6 @@ void Caravana::adicionarAgua(int quantidade) {
 }
 
 // Exibe detalhes da caravana
-/*
-string Caravana::exibirDetalhes() const {
-    ostringstream  oss;
-    oss << "Caravana ID: " << id << ", Tripulantes: " << tripulantes << ", Mercadorias: ";
-    for (const auto& mercadoria : mercadorias) {
-        oss << mercadoria << " ";
-    }
-    oss << endl;
-    return oss.str();
-}*/
-
 string Caravana::exibirDetalhes() const {
    ostringstream oss;
     string type;
@@ -168,7 +145,7 @@ string Caravana::exibirDetalhes() const {
         default:
             throw std::invalid_argument("Tipo invalido de caravana!");
     }
-    oss << "Caravana ID: " << id << ", Tipo: " << type
+    oss << "Caravana ID: " << proximoId << ", Tipo: " << type
         << ", Tripulantes: " << tripulantes << ", Carga: " << carga << ", Agua: " << agua
         << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {

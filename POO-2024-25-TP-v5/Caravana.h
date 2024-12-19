@@ -36,6 +36,7 @@ public:
     int getId() const;
 
     pair<int, int> getPosicao() const;
+    pair<int, int> getPosicaoAnterior() const;
 
     void setPosicao(int novaLinha, int novaColuna);
 
@@ -45,8 +46,6 @@ public:
 
     int getAgua() const;
 
-    virtual void mover(char direcao);
-
     void adicionarTripulantes(int quantidade);
 
     void removerTripulantes(int quantidade);
@@ -54,10 +53,6 @@ public:
     void adicionarCarga(int quantidade);
 
     void removerCarga(int quantidade);
-
-    void venderMercadoria(const std::string &mercadoria);
-
-    void comprarMercadoria(const std::string &mercadoria);
 
     void reabastecerAgua();
 
@@ -85,6 +80,7 @@ protected:
     Tipo tipo;
     int id;
     int linha, coluna;
+    int linhaAnterior, colunaAnterior;
     int tripulantes;
     int carga;
     int agua;

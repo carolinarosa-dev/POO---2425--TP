@@ -17,6 +17,7 @@
 #include "Caravana.h"
 class Cidade;
 class Simulador;
+class Montanha;
 using namespace std;
 
 class Comandos {
@@ -25,16 +26,17 @@ private:
 
     Buffer* bufferAtual;
     map<string, Buffer*> buffersSalvos;
-    vector<string> mapa;
-
+    char** mapa;
     vector<shared_ptr<Cidade>> cidades;
+    shared_ptr<Montanha>montanha;
+    shared_ptr<Simulador> simulador;
+    std::map<std::string, int> atributosConfiguraveis;
+
     int linhas=10, colunas=20;
     int moedas, instantesEntreNovosItens, duracaoItem, maxItens;
-    int precoVendaMercadoria=0, precoCompraMercadoria=0, precoCaravana;
+    int precoCaravana, precoCompraMercadoria, precoVendaMercadoria;
     int instantesEntreNovosBarbaros, duracaoBarbaros;
     int fase; // 1 para Fase 1, 2 para Fase 2
-    shared_ptr<Simulador> simulador;
-
 
 public:
 
@@ -42,11 +44,12 @@ public:
     ~Comandos();
     Comandos(); // Construtor
     void limparDados();
-    void lerConfiguracao(const string &nomeFicheiro);
+
     void processaMapa();
+    bool validarArgumentos(const string &cmd, istringstream &iss);
     void executarComando(const string &comando); // Método para execução de comandos
     void mostrarConfig() const;
-    //void processarComandos();
+
     int calcularPontuacao() const;
     void barbaro(istringstream &iss);
 
@@ -56,7 +59,7 @@ public:
 void adicionarCaravana(Caravana* caravana);*/
 
     // Comandos da Fase 1
-    void config(istringstream &iss);
+    void lerConfiguracao(const string &nomeFicheiro);
     void sair();
 
     // Comandos da Fase 2
@@ -69,6 +72,9 @@ void adicionarCaravana(Caravana* caravana);*/
     void lists();
     void dels(istringstream& iss);
     void adicionaMoedas(istringstream& iss);
+    void limparMapa();
+    void mostrarMapa() const;
+    void atualizaMapa();
     string listarPrecos();
     void mostrarDetalhesCaravana(istringstream& iss);
     void listarCaravanasCidade(std::istringstream &iss);

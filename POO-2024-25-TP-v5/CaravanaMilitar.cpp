@@ -4,21 +4,9 @@
 
 #include "CaravanaMilitar.h"
 
-/*
-CaravanaMilitar::CaravanaMilitar(int id, int linha, int coluna) : Caravana(id, MILITAR, linha, coluna) {
-    tripulantes = 40;
-    carga = 0;
-    agua = 400;
-    capacidadeCarga = 5;
-    capacidadeAgua = 400;
-    consumoAgua = 3;
 
-}
-
-*/
-
-CaravanaMilitar::CaravanaMilitar(int id,int linha, int coluna)
-        : Caravana(id,Tipo::MILITAR, linha, coluna) {
+CaravanaMilitar::CaravanaMilitar(int id, int linha, int coluna)
+ : Caravana(id, MILITAR, linha, coluna) {
     tripulantes = 40;
     carga = 0;
     agua = 400;
@@ -31,10 +19,10 @@ CaravanaMilitar::~CaravanaMilitar() {}
 
 
 
-void CaravanaMilitar::mover(char direcao) {
+/*void CaravanaMilitar::mover(char direcao) {
     // Implementar lógica de movimentação específica para Caravana Militar
     std::cout << "Movendo Caravana Militar na direcao " << direcao << std::endl;
-}
+}*/
 
 void CaravanaMilitar::aplicarEfeitoItem(int tipoItem) {
     // Implementar lógica de aplicação de efeito de item específica para Caravana Militar
@@ -42,7 +30,7 @@ void CaravanaMilitar::aplicarEfeitoItem(int tipoItem) {
 }
 void CaravanaMilitar::esconder() {
     // Implementar lógica para esconder a caravana
-    std::cout << "Caravana Secreta esta se escondendo." << std::endl;
+    std::cout << "Caravana Secreta esta a esconder-se." << std::endl;
 }
 
 //string CaravanaMilitar::exibirDetalhes() const {

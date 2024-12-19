@@ -18,4 +18,4 @@ preço_venda_mercadoria 2
 preço_compra_mercadoria 1
 preço_caravana 100
 instantes_entre_novos_barbaros 40
-duração_barbaros 60
+duracao_barbaros 60

@@ -12,23 +12,6 @@
 
 class Caravana;
 
-
-
-/*class Jogador {
-    private:
-        int moedas;
-        std::vector<shared_ptr<Caravana>> caravanas;//DONO
-
-    public:
-        Jogador(int moedasIniciais);
-        void comprarCaravana(char tipo);
-        void adicionarMoedas(int quantidade);
-        int getMoedas();
-        bool temCaravanas();
-    };*/
-
-//#include "Caravana.h"
-
 using namespace std;
 
 class Jogador {
