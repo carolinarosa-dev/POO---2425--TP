@@ -1,0 +1,19 @@
+prox 1
+comprac a C
+precos
+cidade a
+caravana 1
+compra 5 10
+vende 5
+move 1 C
+auto 1
+stop 1
+barbaro 1 1
+areia 0 0 4
+moedas 100
+tripul 5 10
+saves buff1
+loads buff1
+lists 
+dels buff1
+terminar 
