@@ -3,9 +3,10 @@
 //
 
 #include "Buffer.h"
+#include "Comandos.h"
 
-
-Buffer::Buffer(int linhas, int colunas) : linhas(linhas), colunas(colunas), cursorLinha(0), cursorColuna(0) {
+Buffer::Buffer(int linhas, int colunas)
+    : linhas(linhas), colunas(colunas), cursorLinha(0), cursorColuna(0){
     // Alocação dinâmica de memória
     buffer = new char*[linhas];
     for (int i = 0; i < linhas; ++i) {
@@ -31,6 +32,7 @@ void Buffer::esvaziar() {
     }
     cursorLinha = 0;
     cursorColuna = 0;
+
 }
 
 void Buffer::transcreverParaConsola() {
