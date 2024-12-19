@@ -160,6 +160,7 @@ void Comandos::processaMapa() {
         }
     }
 }
+/*
 bool Comandos::validarArgumentos(const string &cmd, istringstream &iss) {
     std::vector<std::string> argumentos;
     std::string arg;
@@ -197,14 +198,15 @@ bool Comandos::validarArgumentos(const string &cmd, istringstream &iss) {
 
     return true; // Se nenhuma validação falhar, retorna verdadeiro
 }
+ */
 void Comandos::executarComando(const string &comando) {
     istringstream iss(comando);
     string cmd;
     iss >> cmd;
     try {
-        if (!validarArgumentos(cmd, iss)) {
+        /*if (!validarArgumentos(cmd, iss)) {
             return; // Termina a execução caso os parâmetros sejam inválidos
-        }
+        }*/
         if (cmd == "config") {
             std::string nomeFicheiro;
             iss >> nomeFicheiro;
