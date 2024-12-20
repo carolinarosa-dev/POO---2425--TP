@@ -14,8 +14,8 @@ void Utils::limparDados() {
 
 bool Utils::validarArgumentos(const std::string &cmd) {
     std::vector<std::string> argumentos;
-    istringstream iss(comando);
-    string cmd, arg;
+    std::istringstream iss(comando);
+    std::string cmd, arg;
     iss >> cmd;
 
     while (iss >> arg) {
@@ -52,10 +52,13 @@ bool Utils::validarArgumentos(const std::string &cmd) {
 
     return true; // Se nenhuma validação falhar, retorna verdadeiro
 }
+bool Utils::posicaoValida(int linha, int coluna, char **mapa) const {
+    return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas && mapa[linha][coluna] != '+';
+}
 
 void Utils::executarComando(const std::string &comando) {
-    istringstream iss(comando);
-    string cmd;
+    std::istringstream iss(comando);
+    std::string cmd;
     iss >> cmd;
     try {
         if (!validarArgumentos(comando)) {
@@ -72,7 +75,7 @@ void Utils::executarComando(const std::string &comando) {
             bool sucesso = false;
             while (!sucesso) {
                 try {
-                    lerConfiguracao(nomeFicheiro);
+                    comandos.config(nomeFicheiro);
                     sucesso = true;
                 } catch (const std::runtime_error &e) {
                     // Caso o ficheiro não seja encontrado ou outro erro ocorra
@@ -229,5 +232,7 @@ int Utils::calcularPontuacao() const {
     int pontuacao = moedas;
     return pontuacao;
 }
+
+
 
 
