@@ -16,6 +16,10 @@ public:
     void aplicarEfeitoItem(int tipoItem) ;
     void esconder();
     //string exibirDetalhes() const;
+    virtual string getDesignacaoTipo()const override{
+        return "caravana secreta";
+    }
+
 };
 
 #endif //POO_2024_25_TP_CARAVANASECRETA_H

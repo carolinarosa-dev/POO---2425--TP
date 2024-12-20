@@ -16,6 +16,9 @@ public:
     void aplicarEfeitoItem(int tipoItem) override;
     void esconder();
     //string exibirDetalhes() const;
+    virtual string getDesignacaoTipo()const override{
+        return "caravana comercio ";
+    }
 
 };
 

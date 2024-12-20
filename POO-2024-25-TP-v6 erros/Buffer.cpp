@@ -56,6 +56,7 @@ void Buffer::moverCursor(int linha, int coluna) {
 }
 
 void Buffer::imprimir(char c) {
+    //nao necessita de validar novamente..
     if (cursorLinha >= 0 && cursorLinha < linhas && cursorColuna >= 0 && cursorColuna < colunas) {
         buffer[cursorLinha][cursorColuna] = c;
         cursorColuna++;
@@ -63,6 +64,7 @@ void Buffer::imprimir(char c) {
             cursorColuna = 0;
             cursorLinha++;
         }
+        //falta testar as colunas ^
     }
 }
 

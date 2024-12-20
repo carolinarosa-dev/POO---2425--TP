@@ -32,7 +32,7 @@ public:
     virtual ~Caravana();
 
     Tipo getTipo() const;
-
+virtual string getDesignacaoTipo()const=0;//
     int getId() const;
 
     pair<int, int> getPosicao() const;

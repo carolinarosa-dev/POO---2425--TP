@@ -41,7 +41,7 @@ private:
     int linha, coluna;
     int tripulantes;
     std::vector<string> mercadorias;
-    vector<shared_ptr<Caravana>> caravanasNaCidade;
+    vector<shared_ptr<Caravana>> caravanasNaCidade;//passar a unique pq nao e partilhada
 
     //fazer verificaçoes dos ponteiros
 

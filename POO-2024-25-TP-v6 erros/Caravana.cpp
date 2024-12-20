@@ -131,21 +131,7 @@ void Caravana::adicionarAgua(int quantidade) {
 // Exibe detalhes da caravana
 string Caravana::exibirDetalhes() const {
    ostringstream oss;
-    string type;
-    switch (tipo) {
-        case Tipo::COMERCIO:
-            type = "Comercio";
-            break;
-        case Tipo::MILITAR:
-            type = "Militar";
-            break;
-        case Tipo::SECRETA:
-            type = "Secreta";
-            break;
-        default:
-            throw std::invalid_argument("Tipo invalido de caravana!");
-    }
-    oss << "Caravana ID: " << proximoId << ", Tipo: " << type
+    oss << "Caravana ID: " << proximoId << ", Tipo: " << getDesignacaoTipo()
         << ", Tripulantes: " << tripulantes << ", Carga: " << carga << ", Agua: " << agua
         << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {

@@ -160,9 +160,12 @@ void Comandos::processaMapa() {
         }
     }
 }
-bool Comandos::validarArgumentos(const string &cmd, istringstream &iss) {
+bool Comandos::validarArgumentos(const string &comando) {
     std::vector<std::string> argumentos;
-    std::string arg;
+    istringstream iss(comando);
+    string cmd, arg;
+    iss >> cmd;
+
     while (iss >> arg) {
         argumentos.push_back(arg);
     }
@@ -173,7 +176,7 @@ bool Comandos::validarArgumentos(const string &cmd, istringstream &iss) {
             std::cerr << "Erro: O comando '" << cmd << "' nao aceita argumentos." << std::endl;
             return false;
         }
-    } else if (cmd == "config" || cmd == "prox" || cmd == "cidade" || cmd == "caravana" || cmd == "vende" ||
+    } else if (cmd == "config" || cmd == "exec" ||cmd == "prox" || cmd == "cidade" || cmd == "caravana" || cmd == "vende" ||
                cmd == "auto" || cmd == "stop" || cmd == "moedas" || cmd == "saves" || cmd == "loads" || cmd == "dels") {
         if (argumentos.size() != 1) {
             std::cerr << "Erro: O comando '" << cmd << "' requer exatamente 1 argumento." << std::endl;
@@ -202,7 +205,7 @@ void Comandos::executarComando(const string &comando) {
     string cmd;
     iss >> cmd;
     try {
-        if (!validarArgumentos(cmd, iss)) {
+        if (!validarArgumentos(comando)) {
             return; // Termina a execução caso os parâmetros sejam inválidos
         }
         if (cmd == "config") {

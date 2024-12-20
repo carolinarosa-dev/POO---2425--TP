@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2024.2.3\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -72,267 +72,267 @@ CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.
 CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/main.cpp
 CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\main.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\main.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\main.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\main.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\main.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\main.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/main.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\main.cpp > CMakeFiles\POO_2024_25_TP.dir\main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\main.cpp > CMakeFiles\POO_2024_25_TP.dir\main.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/main.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\main.cpp -o CMakeFiles\POO_2024_25_TP.dir\main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\main.cpp -o CMakeFiles\POO_2024_25_TP.dir\main.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Buffer.cpp
 CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.cpp > CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.cpp > CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Buffer.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.cpp -o CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Buffer.cpp -o CMakeFiles\POO_2024_25_TP.dir\Buffer.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Caravana.cpp
 CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.cpp > CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.cpp > CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Caravana.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.cpp -o CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Caravana.cpp -o CMakeFiles\POO_2024_25_TP.dir\Caravana.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/CaravanaBarbara.cpp
 CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/CaravanaBarbara.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaBarbara.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaBarbara.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/CaravanaComercio.cpp
 CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/CaravanaComercio.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaComercio.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaComercio.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/CaravanaMilitar.cpp
 CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaMilitar.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaMilitar.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaMilitar.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaMilitar.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/CaravanaMilitar.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaMilitar.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaMilitar.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaMilitar.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/CaravanaSecreta.cpp
 CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaSecreta.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaSecreta.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaSecreta.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaSecreta.cpp > CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/CaravanaSecreta.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaSecreta.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaravanaSecreta.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaravanaSecreta.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Cidade.cpp
 CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Cidade.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Cidade.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Cidade.cpp > CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Cidade.cpp > CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Cidade.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Cidade.cpp -o CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Cidade.cpp -o CMakeFiles\POO_2024_25_TP.dir\Cidade.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Comandos.cpp
 CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.cpp > CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.cpp > CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.cpp -o CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Comandos.cpp -o CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Deserto.cpp
 CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Deserto.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Deserto.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Deserto.cpp > CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Deserto.cpp > CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Deserto.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Deserto.cpp -o CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Deserto.cpp -o CMakeFiles\POO_2024_25_TP.dir\Deserto.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Item.cpp
 CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Item.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Item.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Item.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Item.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Item.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Item.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Item.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Item.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Item.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Item.cpp > CMakeFiles\POO_2024_25_TP.dir\Item.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Item.cpp > CMakeFiles\POO_2024_25_TP.dir\Item.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Item.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Item.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Item.cpp -o CMakeFiles\POO_2024_25_TP.dir\Item.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Item.cpp -o CMakeFiles\POO_2024_25_TP.dir\Item.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Jogador.cpp
 CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.cpp > CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.cpp > CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Jogador.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.cpp -o CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jogador.cpp -o CMakeFiles\POO_2024_25_TP.dir\Jogador.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Simulador.cpp
 CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.cpp > CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.cpp > CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Simulador.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.cpp -o CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Simulador.cpp -o CMakeFiles\POO_2024_25_TP.dir\Simulador.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Montanha.cpp
 CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Montanha.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Montanha.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Montanha.cpp > CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Montanha.cpp > CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Montanha.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Montanha.cpp -o CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Montanha.cpp -o CMakeFiles\POO_2024_25_TP.dir\Montanha.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/CaixaPandora.cpp
 CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaixaPandora.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaixaPandora.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaixaPandora.cpp > CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaixaPandora.cpp > CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/CaixaPandora.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaixaPandora.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\CaixaPandora.cpp -o CMakeFiles\POO_2024_25_TP.dir\CaixaPandora.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/ArcaTesouro.cpp
 CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\ArcaTesouro.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\ArcaTesouro.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\ArcaTesouro.cpp > CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\ArcaTesouro.cpp > CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/ArcaTesouro.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\ArcaTesouro.cpp -o CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\ArcaTesouro.cpp -o CMakeFiles\POO_2024_25_TP.dir\ArcaTesouro.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Jaula.cpp
 CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jaula.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jaula.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jaula.cpp > CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jaula.cpp > CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Jaula.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jaula.cpp -o CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Jaula.cpp -o CMakeFiles\POO_2024_25_TP.dir\Jaula.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Mina.cpp
 CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Mina.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Mina.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Mina.cpp > CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Mina.cpp > CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Mina.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Mina.cpp -o CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Mina.cpp -o CMakeFiles\POO_2024_25_TP.dir\Mina.cpp.s
 
 CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v5/Surpresa.cpp
 CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Surpresa.cpp
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Surpresa.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Surpresa.cpp > CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Surpresa.cpp > CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.i
 
 CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Surpresa.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Surpresa.cpp -o CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v5\Surpresa.cpp -o CMakeFiles\POO_2024_25_TP.dir\Surpresa.cpp.s
 
 # Object files for target POO_2024_25_TP
 POO_2024_25_TP_OBJECTS = \

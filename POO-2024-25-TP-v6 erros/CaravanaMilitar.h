@@ -17,6 +17,14 @@ public:
     void aplicarEfeitoItem(int tipoItem) ;
     void esconder();
     //string exibirDetalhes() const;
+
+    virtual string getDesignacaoTipo()const override{
+        return "caravana militar ";
+    }
+
+
 };
+
+
 
 #endif //POO_2024_25_TP_CARAVANAMILITAR_H

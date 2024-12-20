@@ -24,9 +24,13 @@ public:
     void apanharItens(const std::string& item);
     void enfrentarTempestade();
     std::string turno(int caravanaLinha = -1, int caravanaColuna = -1);
-
+    virtual string getDesignacaoTipo()const override{
+        return "caravana barbara ";
+    }
 private:
     int turnosAteDesaparecer;
+
+
 };
 
 

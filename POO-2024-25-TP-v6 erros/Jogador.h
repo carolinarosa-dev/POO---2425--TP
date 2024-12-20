@@ -17,6 +17,7 @@ using namespace std;
 class Jogador {
 private:
     int moedas;
+    int combatesVencidos;           // Número de combates vencidos
     vector<shared_ptr<Caravana>> caravanas; // DONO
 
 public:
@@ -27,6 +28,13 @@ public:
     bool temCaravanas() const;
     void listarCaravanas() const;
     const vector<shared_ptr<Caravana>>& getCaravanas() const;
+//fazer um metodo para procura a caravana  e devolve o weak_ptr
+//    for (const auto& caravana : caravanas) {
+//        if (caravana->getId() == idCaravana) {
+//            caravanaEncontrada = caravana;
+//            break;
+//        }
+//    }
     void adicionarCaravana(std::shared_ptr<Caravana> caravana);
 };
 

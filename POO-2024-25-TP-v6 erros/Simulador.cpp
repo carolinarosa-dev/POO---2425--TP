@@ -220,10 +220,10 @@ void Simulador::moverCaravana(int idCaravana, const std::string &direcao, char**
             break;
         }
     }
+    if (caravanaEncontrada) {
     int linhaAtual, colunaAtual;
     std::tie(linhaAtual, colunaAtual) = caravanaEncontrada->getPosicao();
     int novaLinha = linhaAtual, novaColuna = colunaAtual;
-    if (caravanaEncontrada) {
         int direcaoNumerica;
         if (direcao == "D") direcaoNumerica = 3;
         else if (direcao == "E") direcaoNumerica = 2;

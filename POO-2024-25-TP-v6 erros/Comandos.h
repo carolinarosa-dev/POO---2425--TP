@@ -26,7 +26,7 @@ private:
 
     Buffer* bufferAtual;
     map<string, Buffer*> buffersSalvos;
-    char** mapa;
+    char** mapa; //DESTRUIR
     vector<shared_ptr<Cidade>> cidades;
     shared_ptr<Montanha>montanha;
     shared_ptr<Simulador> simulador;
@@ -46,7 +46,7 @@ public:
     void limparDados();
 
     void processaMapa();
-    bool validarArgumentos(const string &cmd, istringstream &iss);
+    bool validarArgumentos(const string &cmd);
     void executarComando(const string &comando); // Método para execução de comandos
     void mostrarConfig() const;
 

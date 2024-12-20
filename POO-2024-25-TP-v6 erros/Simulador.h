@@ -79,9 +79,8 @@ public:
     const vector<shared_ptr<Cidade>> &getCidades() const;
 
 private:
-    int moedasJogador;                     // Moedas do jogador
+
     int instantes;                  // Número de instantes decorridos
-    int combatesVencidos;           // Número de combates vencidos
     int linhas;
     int colunas;
     Deserto *deserto;               // Mapa do deserto - aloca o mapa e o local da referencia na memoria
