@@ -7,6 +7,9 @@
 #include <string>
 #include <sstream>
 
+#include "Utils.h"
+#include "Jogador.h"
+
 class Comandos {
 
 public:
@@ -56,7 +59,9 @@ public:
 
     std::string cmd_terminar() const;
 
-
+private:
+    Utils utils;
+    Jogador jogador;
 };
 
 #endif //POO_2024_25_TP_COMANDOS_H

@@ -11,7 +11,7 @@ void Comandos::cmd_config(const std::string &nomeFicheiro){
     if (!ficheiro.is_open()) {
         throw std::runtime_error("Erro ao abrir o ficheiro: " + nomeFicheiro);
     }
-    limparDados();
+    utils.limparDados();
     std::string linha;
     try {
         // Ler dimensões
@@ -34,13 +34,15 @@ void Comandos::cmd_config(const std::string &nomeFicheiro){
                 mapa[i][j] = linha[j];
             }
         }
-        processaMapa();
+        utils.processaMapa();
         // Ler parâmetros configuráveis
         while (ficheiro >> linha) {
             if (linha == "moedas") {
-                ficheiro >> moedas;
-                atributosConfiguraveis["moedas"] = moedas;
-                simulador->getJogador()->adicionarMoedas(moedas);
+                ficheiro >> jogador.moedas;
+                //atributosConfiguraveis["moedas"] = moedas;
+                atributosConfiguraveis["moedas"] = jogador.getMoedas();
+                //simulador->getJogador()->adicionarMoedas(moedas);
+                simulador->getJogador()->adicionarMoedas();
             } else if (linha == "instantes_entre_novos_itens") {
                 ficheiro >> instantesEntreNovosItens;
                 atributosConfiguraveis["instantesEntreNovosItens"] = instantesEntreNovosItens;
@@ -69,7 +71,7 @@ void Comandos::cmd_config(const std::string &nomeFicheiro){
         }
         ficheiro.close();
         std::cout << "Configuracao lida com sucesso!" << std::endl;
-        mostrarConfig();
+        utils.mostrarConfig();
     } catch (const std::exception &e) {
         throw std::runtime_error("Erro ao processar o ficheiro: " + std::string(e.what()));
     }
@@ -96,7 +98,7 @@ std::string Comandos::cmd_exec(std::istringstream &iss) const {
     }
     std::string linha;
     while (getline(ficheiro, linha)) {
-        executarComando(linha);
+        utils->executarComando(linha);
     }
     ficheiro.close();
     oss << "Comandos do ficheiro " << nomeFicheiro << " executados com sucesso!" << std::endl;
@@ -114,11 +116,15 @@ std::string Comandos::cmd_prox(std::istringstream &iss) const {
     }
     for (int i = 0; i < n; ++i) {
         // adicionar a lógica para atualizar o estado da simulação a cada instante
-        oss << "Avancando instante " << (i + 1) << " de " << n << std::endl;
-        oss << "\n\n\n\n\nAtualizar o estado da simulação chamando Simulacao::atualizarEstado\n\n\n\";
+        oss << "Avancando instante " << (i + 1) << " de " << n;
+
+
+
+         //"Atualizar o estado da simulação chamando Simulacao::atualizarEstado\n\n\n\";
         // simulador.atualizarEstado(); // 'simulacao' é uma instância da classe Simulacao
         // Exibir o mapa e outras informações relevantes
-        mostrarConfig();
+
+        //mostrarConfig();
     }
     return oss.str();
 }
@@ -214,7 +220,7 @@ std::string Comandos::cmd_move(std::istringstream &iss) const {
     } catch (const std::exception &e) {
         oss << "Erro ao mover a caravana: " << e.what() << std::endl;
     }
-    atualizaMapa();
+    utils->atualizaMapa();
     return oss.str();
 }
 
