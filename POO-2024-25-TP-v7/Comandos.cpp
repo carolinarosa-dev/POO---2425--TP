@@ -3,10 +3,76 @@
 
 #include <fstream> //ficheiro
 
-std::string Comandos::cmd_config(const std::string &nomeFicheiro) const {
-    std::ostringstream oss;
-
-    return oss.str();
+void Comandos::cmd_config(const std::string &nomeFicheiro){
+    if (!std::filesystem::exists(nomeFicheiro)) {
+        throw std::runtime_error("O ficheiro \"" + nomeFicheiro + "\" nao existe. Verifique o nome e tente novamente.");
+    }
+    std::ifstream ficheiro(nomeFicheiro);
+    if (!ficheiro.is_open()) {
+        throw std::runtime_error("Erro ao abrir o ficheiro: " + nomeFicheiro);
+    }
+    limparDados();
+    std::string linha;
+    try {
+        // Ler dimensões
+        ficheiro >> linha >> linhas;
+        ficheiro >> linha >> colunas;
+        ficheiro.ignore(); // Ignorar o newline após a leitura das dimensões
+        // Ler o mapa do deserto
+        bufferAtual = new Buffer(linhas, colunas);
+        mapa = new char*[linhas];
+        for(int i = 0; i<linhas; i++){
+            mapa[i] = new char[colunas];
+        }
+        simulador = std::make_shared<Simulador>(linhas, colunas, bufferAtual);
+        for (int i = 0; i < linhas; ++i) {
+            std::getline(ficheiro, linha);
+            if (linha.length() != colunas) {
+                throw std::runtime_error("Erro: o tamanho da linha do mapa nao corresponde ao numero de colunas.");
+            }
+            for (int j = 0; j< linha.length(); j++){
+                mapa[i][j] = linha[j];
+            }
+        }
+        processaMapa();
+        // Ler parâmetros configuráveis
+        while (ficheiro >> linha) {
+            if (linha == "moedas") {
+                ficheiro >> moedas;
+                atributosConfiguraveis["moedas"] = moedas;
+                simulador->getJogador()->adicionarMoedas(moedas);
+            } else if (linha == "instantes_entre_novos_itens") {
+                ficheiro >> instantesEntreNovosItens;
+                atributosConfiguraveis["instantesEntreNovosItens"] = instantesEntreNovosItens;
+            }else if (linha == "duração_item") {
+                ficheiro >> duracaoItem;
+                atributosConfiguraveis["duracaoItem"] = duracaoItem;
+            }else if (linha == "max_itens") {
+                ficheiro >> maxItens;
+                atributosConfiguraveis["maxItens"] = maxItens;
+            }else if (linha == "preço_venda_mercadoria") {
+                ficheiro >> precoVendaMercadoria;
+                atributosConfiguraveis["precoVendaMercadoria"] = precoVendaMercadoria;
+            }else if (linha == "preço_compra_mercadoria") {
+                ficheiro >> precoCompraMercadoria;
+                atributosConfiguraveis["precoCompraMercadoria"] = precoCompraMercadoria;
+            }else if (linha == "preço_caravana") {
+                ficheiro >> precoCaravana;
+                atributosConfiguraveis["precoCaravana"] = precoCaravana;
+            }else if (linha == "instantes_entre_novos_barbaros") {
+                ficheiro >> instantesEntreNovosBarbaros;
+                atributosConfiguraveis["instantesEntreNovosBarbaros"] = instantesEntreNovosBarbaros;
+            }else if (linha == "duracao_barbaros") {
+                ficheiro >> duracaoBarbaros;
+                atributosConfiguraveis["duracaoBarbaros"] = duracaoBarbaros;
+            }
+        }
+        ficheiro.close();
+        std::cout << "Configuracao lida com sucesso!" << std::endl;
+        mostrarConfig();
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Erro ao processar o ficheiro: " + std::string(e.what()));
+    }
 }
 
 std::string Comandos::cmd_sair() const {
@@ -66,7 +132,7 @@ void Comandos::cmd_comprac(std::istringstream &iss, int precoCaravana) {
     iss >> cidadeNome >> tipoCaravana;
     // Chama a função do simulador para adicionar a caravana
     simulador->adicionaCaravanaJogador(cidadeNome, tipoCaravana, precoCaravana);
-    ;
+
 }
 
 std::string Comandos::cmd_precos() const {

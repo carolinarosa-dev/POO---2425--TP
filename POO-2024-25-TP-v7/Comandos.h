@@ -11,7 +11,7 @@ class Comandos {
 
 public:
     // Comandos da Fase 1
-    std::string cmd_config(const std::string &nomeFicheiro) const;
+    void cmd_config(const std::string &nomeFicheiro) const;
 
     std::string cmd_sair() const;
 
