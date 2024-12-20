@@ -4,7 +4,7 @@ project(POO_2024_25_TP)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(POO_2024_25_TP main.cpp
-        #ArcaTesouro.h       ArcaTesouro.cpp
+#        ArcaTesouro.h       ArcaTesouro.cpp
         Buffer.h            Buffer.cpp
 #        CaixaPandora.h      CaixaPandora.cpp
         Caravana.h          Caravana.cpp
