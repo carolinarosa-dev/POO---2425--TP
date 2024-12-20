@@ -43,48 +43,8 @@ public:
     Comandos(int linhas, int colunas);
     ~Comandos();
     Comandos(); // Construtor
-    void limparDados();
+    
 
-    void processaMapa();
-    bool validarArgumentos(const string &cmd);
-    void executarComando(const string &comando); // Método para execução de comandos
-    void mostrarConfig() const;
-
-    int calcularPontuacao() const;
-    void barbaro(istringstream &iss);
-
-//Acho que é no simulador
-// Métodos para adicionar cidades e caravanas
-/*void adicionarCidade(Cidade cidade);
-void adicionarCaravana(Caravana* caravana);*/
-
-    // Comandos da Fase 1
-    void lerConfiguracao(const string &nomeFicheiro);
-    void sair();
-
-    // Comandos da Fase 2
-    void exec(istringstream &iss);
-    void prox(istringstream &iss);
-    void comprac(std::istringstream& iss, int precoCaravana);// implementar a "logica" no simulador
-    void terminar();
-    void saves(istringstream& iss);
-    void loads(istringstream& iss);
-    void lists();
-    void dels(istringstream& iss);
-    void adicionaMoedas(istringstream& iss);
-    void limparMapa();
-    void mostrarMapa() const;
-    void atualizaMapa();
-    string listarPrecos();
-    void mostrarDetalhesCaravana(istringstream& iss);
-    void listarCaravanasCidade(std::istringstream &iss);
-    void tripul(istringstream& iss);
-    void areia(istringstream &iss);
-    void compra(istringstream &iss);
-    void vende(istringstream &iss);
-    void move(istringstream &iss);
-    void autoGestao(istringstream &iss);
-    void stop(istringstream &iss);
 
 
 

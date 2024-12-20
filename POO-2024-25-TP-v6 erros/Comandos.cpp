@@ -33,29 +33,7 @@ Comandos::Comandos() : linhas(0), colunas(0), moedas(0),
     simulador = nullptr;
 }
 
-void Comandos::limparDados() {
-    linhas = colunas = moedas = 0;
-    instantesEntreNovosItens = duracaoItem = maxItens = 0;
-    precoCaravana = 0;
-    instantesEntreNovosBarbaros = duracaoBarbaros = 0;
-    limparMapa();
-}
-void Comandos::limparMapa(){
-    for(int i = 0; i < linhas; i++){
-        for(int j = 0; i < colunas; i++){
-            mapa[i][j] = '.';
-        }
-    }
-}
 
-void Comandos::mostrarMapa() const{
-    for(int i = 0; i < linhas; i++){
-        for(int j = 0; j < colunas; j++){
-            cout << mapa[i][j];
-        }
-        cout << endl;
-    }
-}
 void Comandos::lerConfiguracao(const std::string &nomeFicheiro) {
     if (!std::filesystem::exists(nomeFicheiro)) {
         throw std::runtime_error("O ficheiro \"" + nomeFicheiro + "\" nao existe. Verifique o nome e tente novamente.");
@@ -128,78 +106,7 @@ void Comandos::lerConfiguracao(const std::string &nomeFicheiro) {
     }
 }
 
-void Comandos::processaMapa() {
-    for (int linha = 0; linha < linhas; ++linha) {
-        for (int coluna = 0; coluna < colunas; ++coluna) {
-            char caractere = mapa[linha][coluna];
 
-            if (isalpha(caractere)) { // Se for uma letra (cidade)
-                auto novaCidade = std::make_shared<Cidade>(caractere, linha, coluna);
-                if (!novaCidade) {
-                    cerr << "Erro ao criar a cidade '" << caractere << "'.\n";
-                    continue;  // Avançar para o próximo caractere
-                }
-                novaCidade->adicionarCaravana(make_shared<CaravanaComercio>(Caravana::getProximoId()+10,linha,coluna));
-                novaCidade->adicionarCaravana(make_shared<CaravanaMilitar>(Caravana::getProximoId()+10,linha,coluna));
-                novaCidade->adicionarCaravana(make_shared<CaravanaSecreta>(Caravana::getProximoId()+10,linha,coluna));
-                simulador->adicionarCidade(novaCidade);
-
-            } else if (isdigit(caractere) && caractere != '0') { // Se for um número (caravana)
-                int id = caractere - '0'; //converte o caractere para o inteiro correspondente
-                simulador->adicionaCaravanaJogador(make_shared<CaravanaMilitar>(id,linha, coluna)); //por enquanto adiciona apenas militares aquelas já presentes no mapa, mas podemos fazer um random
-            } else if (caractere == '+'){ // Se for uma montanha
-                //montanha->adicionaMontanha();
-            } else if (caractere == '.') { // uma posição vazia
-                //cout << "Posição vazia (" << linha << ", " << coluna << ")\n";
-            } else if (caractere == '!') { // caravana barbara
-                simulador->adicionaCaravanaBarbara(make_shared<CaravanaBarbara>(Caravana::getProximoId(), linha, coluna));
-            }else {
-                cerr << "Caractere desconhecido '" << caractere << "' na posição ("
-                     << linha << ", " << coluna << ")\n";
-            }
-        }
-    }
-}
-bool Comandos::validarArgumentos(const string &comando) {
-    std::vector<std::string> argumentos;
-    istringstream iss(comando);
-    string cmd, arg;
-    iss >> cmd;
-
-    while (iss >> arg) {
-        argumentos.push_back(arg);
-    }
-
-    // Validar o número de argumentos com base no comando
-    if (cmd == "sair" || cmd == "precos" || cmd == "lists" || cmd == "terminar") {
-        if (!argumentos.empty()) {
-            std::cerr << "Erro: O comando '" << cmd << "' nao aceita argumentos." << std::endl;
-            return false;
-        }
-    } else if (cmd == "config" || cmd == "exec" ||cmd == "prox" || cmd == "cidade" || cmd == "caravana" || cmd == "vende" ||
-               cmd == "auto" || cmd == "stop" || cmd == "moedas" || cmd == "saves" || cmd == "loads" || cmd == "dels") {
-        if (argumentos.size() != 1) {
-            std::cerr << "Erro: O comando '" << cmd << "' requer exatamente 1 argumento." << std::endl;
-            return false;
-        }
-    } else if (cmd == "comprac" || cmd == "compra" || cmd == "move" || cmd == "barbaro" || cmd == "tripul") {
-        if (argumentos.size() != 2) {
-            std::cerr << "Erro: O comando '" << cmd << "' requer exatamente 2 argumentos." << std::endl;
-            return false;
-        }
-    } else if (cmd == "areia") {
-        if (argumentos.size() != 3) {
-            std::cerr << "Erro: O comando 'areia' requer exatamente 3 argumentos." << std::endl;
-            return false;
-        }
-    } else {
-        // Comando desconhecido
-        std::cerr << "Erro: Comando desconhecido '" << cmd << "'." << std::endl;
-        return false;
-    }
-
-    return true; // Se nenhuma validação falhar, retorna verdadeiro
-}
 void Comandos::executarComando(const string &comando) {
     istringstream iss(comando);
     string cmd;

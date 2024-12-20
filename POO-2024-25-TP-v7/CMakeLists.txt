@@ -22,7 +22,6 @@ add_executable(POO_2024_25_TP main.cpp
  #       Mina.h              Mina.cpp
         Montanha.h          Montanha.cpp
         Simulador.h         Simulador.cpp
-        Utils.cpp
-        Utils.h
+        Utils.cpp           Utils.h
         #Surpresa.h          Surpresa.cpp
 )
