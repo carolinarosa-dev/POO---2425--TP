@@ -1,7 +1,10 @@
 
 #include "Comandos.h"
+//#include "Utils.h"
+//#include "Jogador.h"
 
 #include <fstream> //ficheiro
+
 
 void Comandos::cmd_config(const std::string &nomeFicheiro){
     if (!std::filesystem::exists(nomeFicheiro)) {
@@ -137,7 +140,7 @@ void Comandos::cmd_comprac(std::istringstream &iss, int precoCaravana) {
     // Lê a cidade, o número da caravana e o tipo da caravana
     iss >> cidadeNome >> tipoCaravana;
     // Chama a função do simulador para adicionar a caravana
-    simulador->adicionaCaravanaJogador(cidadeNome, tipoCaravana, precoCaravana);
+    simulador.jogadorCompraCaravana(cidadeNome, tipoCaravana, precoCaravana);
 
 }
 
@@ -283,7 +286,7 @@ std::string Comandos::cmd_moedas(std::istringstream &iss) const {
     int n;
     iss >> n;
     jogador.moedas += n;
-    oss << "Moedas atualizadas: " << jogador.moedas << std::endl;
+    oss << "Moedas atualizadas: " << jogador.getMoedas() << std::endl;
     return oss.str();
 }
 
@@ -368,8 +371,8 @@ std::string Comandos::cmd_dels(std::istringstream &iss) const {
     std::string nome;
     iss >> nome;
     if (nome.empty()) {
-        std::cerr << "Nome nao especificado!" << std::endl;
-        return;
+        oss << "Nome nao especificado!" << std::endl;
+        return oss.str();
     }
     auto it = buffersSalvos.find(nome);
     if (it != buffersSalvos.end()) {
@@ -385,7 +388,7 @@ std::string Comandos::cmd_dels(std::istringstream &iss) const {
 std::string Comandos::cmd_terminar() const {
     std::ostringstream oss;
     // Calcular e exibir a pontuação
-    int pontuacao = calcularPontuacao();
+    int pontuacao = utils.calcularPontuacao();
     oss << "Simulacao terminada!\n"
         << "Pontuacao final: " << pontuacao << std::endl;
 

@@ -7,12 +7,17 @@
 #include <string>
 #include <sstream>
 
+#include "Simulador.h"
 #include "Utils.h"
 #include "Jogador.h"
+
+//class Utils;
+//class Jogador;
 
 class Comandos {
 
 public:
+    Comandos();
     // Comandos da Fase 1
     void cmd_config(const std::string &nomeFicheiro) const;
 
@@ -62,6 +67,7 @@ public:
 private:
     Utils utils;
     Jogador jogador;
+    Simulador simulador;
 };
 
 #endif //POO_2024_25_TP_COMANDOS_H
