@@ -1,7 +1,13 @@
 
+#ifndef JOGADOR_H
+#define JOGADOR_H
+
 #include <iostream>
 #include <string>
 #include <sstream>
+
+#include <vector>
+#include <memory>
 
 #include "Caravana.h"
 
@@ -11,6 +17,7 @@ private:
     int combatesVencidos;           // Número de combates vencidos
 
 public:
+    Jogador();
     Jogador(int moedasIniciais);
 
     int getMoedas() const;
@@ -19,8 +26,10 @@ public:
     bool temCaravanas() const;
     std::string listarCaravanas() const;
 
-//    void comprarCaravana(std::shared_ptr<Caravana>, int precoCaravana);
+    void comprarCaravana(std::shared_ptr<Caravana>, int precoCaravana);
 
-//    const vector<shared_ptr<Caravana>>& getCaravanas() const;
-//    void adicionarCaravana(std::shared_ptr<Caravana> caravana);
+    const std::vector<std::shared_ptr<Caravana>>& getCaravanas() const;
+    void adicionarCaravana(std::shared_ptr<Caravana> caravana);
 };
+
+#endif //POO_2024_25_TP_JOGADOR
