@@ -32,7 +32,6 @@ public:
     int getColuna() const;
     void listarMercadorias() const;
 
-    void adicionarCaravana(shared_ptr<Caravana> caravana);//conhece do dono jogador
     std::shared_ptr<Caravana> removerCaravana(Caravana::Tipo tipo);
     bool possuiCaravana(Caravana::Tipo tipo);
 
