@@ -5,7 +5,7 @@
 #include "Utils.h"
 
 void Utils::limparDados() {
-    linhas = colunas = moedas = 0;
+    linhas = colunas = jogador.moedas = 0;
     instantesEntreNovosItens = duracaoItem = maxItens = 0;
     precoCaravana = 0;
     instantesEntreNovosBarbaros = duracaoBarbaros = 0;
@@ -56,89 +56,93 @@ bool Utils::posicaoValida(int linha, int coluna, char **mapa) const {
     return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas && mapa[linha][coluna] != '+';
 }
 
-void Utils::executarComando(const std::string &comando) {
+std::string Utils::executarComando(const std::string &comando)const {
+    std::ostringstream oss;
     std::istringstream iss(comando);
     std::string cmd;
     iss >> cmd;
     try {
         if (!validarArgumentos(comando)) {
-            return; // Termina a execução caso os parâmetros sejam inválidos
+            oss << "Parametros invalidos\n";
+            return oss.str(); // Termina a execução caso os parâmetros sejam inválidos
         }
         if (cmd == "config") {
             std::string nomeFicheiro;
             iss >> nomeFicheiro;
             // Verifica se o nome do ficheiro foi fornecido
             if (nomeFicheiro.empty()) {
-                std::cerr << "Erro: O comando 'config' requer o nome de um ficheiro como parametro." << std::endl;
-                return;
+               oss << "Erro: O comando 'config' requer o nome de um ficheiro como parametro." << std::endl;
+                return oss.str();
             }
             bool sucesso = false;
             while (!sucesso) {
                 try {
-                    comandos.config(nomeFicheiro);
+                    comandos.cmd_config(nomeFicheiro);
                     sucesso = true;
                 } catch (const std::runtime_error &e) {
                     // Caso o ficheiro não seja encontrado ou outro erro ocorra
-                    std::cerr << e.what() << std::endl;
-                    std::cout << "Ficheiro nao encontrado\n";
-                    std::cout << "Digite novamente apenas o nome do ficheiro:";
+                    oss << e.what()
+                        << "Ficheiro nao encontrado\n"
+                        << "Digite novamente apenas o nome do ficheiro:";
                     std::getline(std::cin, nomeFicheiro);
                 }
             }
         } else if (cmd == "sair") {
-            sair();
+            comandos.cmd_sair();
         } else if (cmd == "exec") {
-            exec(iss);
+            comandos.cmd_exec(iss);
         } else if (cmd == "prox") {
-            prox(iss);
+            comandos.cmd_prox(iss);
         } else if (cmd == "comprac") {
-            comprac(iss, precoCaravana);
+            comandos.cmd_comprac(iss, precoCaravana);
         } else if (cmd == "precos") {
-            std::string precos = listarPrecos();
+            std::string precos = comandos.cmd_precos();
             std::cout << precos;
         } else if (cmd == "cidade") {
-            listarCaravanasCidade(iss);
+            comandos.cmd_cidade(iss);
         } else if (cmd == "caravana") {
-            mostrarDetalhesCaravana(iss);
+            comandos.cmd_caravana(iss);
         } else if (cmd == "compra") {
-            compra(iss);
+            comandos.cmd_compra(iss);
         } else if (cmd == "vende") {
-            vende(iss);
+            comandos.cmd_vende(iss);
         } else if (cmd == "move") {
-            move(iss);
+            comandos.cmd_move(iss);
         } else if (cmd == "auto") {
-            autoGestao(iss);
+            comandos.cmd_auto(iss);
         } else if (cmd == "stop") {
-            stop(iss);
+            comandos.cmd_stop(iss);
         } else if (cmd == "barbaro") {
-            barbaro(iss);
+            comandos.cmd_barbaro(iss);
         } else if (cmd == "moedas") {
-            adicionaMoedas(iss);
+            comandos.cmd_moedas(iss);
         } else if (cmd == "areia") {
-            areia(iss);
+            comandos.cmd_areia(iss);
         } else if (cmd == "tripul") {
-            tripul(iss);
+            comandos.cmd_tripul(iss);
         } else if (cmd == "saves") {
-            saves(iss);
+            comandos.cmd_saves(iss);
         } else if (cmd == "loads") {
-            loads(iss);
+            comandos.cmd_loads(iss);
         } else if (cmd == "lists") {
-            lists();
+            comandos.cmd_lists();
         } else if (cmd == "dels") {
-            dels(iss);
+            comandos.cmd_dels(iss);
         } else if (cmd == "terminar") {
-            terminar();
+            comandos.cmd_terminar();
         } else if (cmd == "showMoedas"){
-            cout << simulador->getJogador()->getMoedas() <<endl;
+            oss<< simulador->getJogador()->getMoedas() << std::endl;
         }
         else {
-            std::cout << "Comando desconhecido: " << cmd << std::endl;
+            oss << "Comando desconhecido: " << cmd << std::endl;
         }
     }
         // Trata outros tipos de exceções
     catch (const std::exception &e) {
-        std::cerr << "Erro: " << e.what() << std::endl;
+        oss << "Erro: " << e.what() << std::endl;
+        return oss.str();
     }
+    return oss.str();
 }
 
 void Utils::limparMapa() {
@@ -161,20 +165,20 @@ std::string Utils::processaMapa() const{
                     oss << "Erro ao criar a cidade '" << caractere << "'.\n";
                     continue;  // Avançar para o próximo caractere
                 }
-                novaCidade->adicionarCaravana(make_shared<CaravanaComercio>(Caravana::getProximoId()+10,linha,coluna));
-                novaCidade->adicionarCaravana(make_shared<CaravanaMilitar>(Caravana::getProximoId()+10,linha,coluna));
-                novaCidade->adicionarCaravana(make_shared<CaravanaSecreta>(Caravana::getProximoId()+10,linha,coluna));
+                novaCidade->adicionarCaravana(std::make_shared<CaravanaComercio>(Caravana::getId(),linha,coluna));
+                novaCidade->adicionarCaravana(std::make_shared<CaravanaMilitar>(Caravana::getId(),linha,coluna));
+                novaCidade->adicionarCaravana(std::make_shared<CaravanaSecreta>(Caravana::getId(),linha,coluna));
                 simulador->adicionarCidade(novaCidade);
 
             } else if (isdigit(caractere) && caractere != '0') { // Se for um número (caravana)
                 int id = caractere - '0'; //converte o caractere para o inteiro correspondente
-                simulador->adicionaCaravanaJogador(make_shared<CaravanaMilitar>(id,linha, coluna)); //por enquanto adiciona apenas militares aquelas já presentes no mapa, mas podemos fazer um random
+                simulador->adicionaCaravanaJogador(std::make_shared<CaravanaMilitar>(id,linha, coluna)); //adiciona apenas militares aquelas já presentes no mapa, no enunciado nao especifica
             } else if (caractere == '+'){ // Se for uma montanha
                 //montanha->adicionaMontanha();
             } else if (caractere == '.') { // uma posição vazia
                 //cout << "Posição vazia (" << linha << ", " << coluna << ")\n";
             } else if (caractere == '!') { // caravana barbara
-                simulador->adicionaCaravanaBarbara(make_shared<CaravanaBarbara>(Caravana::getProximoId(), linha, coluna));
+                simulador->adicionaCaravanaBarbara(std::make_shared<CaravanaBarbara>(Caravana::getId(), linha, coluna));
             }else {
                 oss << "Caractere desconhecido '" << caractere << "' na posição ("
                      << linha << ", " << coluna << ")\n";
@@ -194,16 +198,15 @@ void Utils::atualizaMapa() {
             mapa[linha][coluna] = static_cast<char>(c->getId()+'0');
         }
     }
-
 }
 
 std::string Utils::mostrarMapa() const {
     std::ostringstream oss;
     for(int i = 0; i < linhas; i++){
         for(int j = 0; j < colunas; j++){
-            cout << mapa[i][j];
+            oss << mapa[i][j];
         }
-        cout << endl;
+        oss << std::endl;
     }
     return oss.str();
 }
@@ -213,7 +216,7 @@ std::string Utils::mostrarConfig() const {
     oss << "Linhas: " << linhas << std::endl
         << "Colunas: " << colunas << std::endl
         << "Mapa do deserto:" << std::endl;
-        oss <<"\n\n\n------REMOVER ESTA LINHA MOSTRACONFIG---colocar o output para o buffer------\n\n\n"    mostrarMapa();
+        oss <<"\n\n\n------REMOVER ESTA LINHA MOSTRACONFIG---colocar o output para o buffer------\n\n\n";mostrarMapa();
         oss << "Moedas: " << atributosConfiguraveis.at("moedas") << std::endl
         << "Instantes entre novos itens: " << atributosConfiguraveis.at("instantesEntreNovosItens") << std::endl
         << "Duracao do item: " << atributosConfiguraveis.at("duracaoItem") << std::endl
@@ -224,12 +227,12 @@ std::string Utils::mostrarConfig() const {
         << "Instantes entre novos barbaros: " << atributosConfiguraveis.at("instantesEntreNovosBarbaros") << std::endl
         << "Duracao dos barbaros: " << atributosConfiguraveis.at("duracaoBarbaros") << std::endl;
     return oss.str();
-
 }
 
 int Utils::calcularPontuacao() const {
     // Exemplo de cálculo de pontuação (ajuste conforme necessário)
-    int pontuacao = moedas;
+    //int pontuacao = moedas;
+    int pontuacao = jogador.getMoedas();
     return pontuacao;
 }
 

@@ -10,9 +10,21 @@
 #include <sstream>
 #include <vector>
 
+
+#include "Comandos.h"
+#include "Jogador.h"
+
+#include "Simulador.h"
+#include "CaravanaComercio.h"
+#include "CaravanaMilitar.h"
+#include "CaravanaSecreta.h"
+
+
 class Utils {
 
 public:
+    Utils();
+
     void limparDados();
 
     //Validacoes
@@ -21,7 +33,7 @@ public:
 
 
 
-    void executarComando(const std::string &comando); // Método para execução de comandos
+    std::string executarComando(const std::string &comando) const; // Método para execução de comandos
 
     void limparMapa();
     std::string processaMapa() const;
@@ -33,7 +45,10 @@ public:
 
     int calcularPontuacao() const;
 
-
+private:
+    Comandos comandos;
+    Jogador jogador;
+    Simulador simulador;
 
 };
 
