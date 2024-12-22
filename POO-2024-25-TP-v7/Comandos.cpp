@@ -3,10 +3,9 @@
 //#include "Utils.h"
 //#include "Jogador.h"
 
-#include <fstream> //ficheiro
+#include <filesystem>
 
-
-void Comandos::cmd_config(const std::string &nomeFicheiro){
+void Comandos::cmd_config(const std::string &nomeFicheiro)const{
     if (!std::filesystem::exists(nomeFicheiro)) {
         throw std::runtime_error("O ficheiro \"" + nomeFicheiro + "\" nao existe. Verifique o nome e tente novamente.");
     }
@@ -18,19 +17,19 @@ void Comandos::cmd_config(const std::string &nomeFicheiro){
     std::string linha;
     try {
         // Ler dimensões
-        ficheiro >> linha >> linhas;
-        ficheiro >> linha >> colunas;
+        ficheiro >> linha >> linha;
+        ficheiro >> linha >> coluna;
         ficheiro.ignore(); // Ignorar o newline após a leitura das dimensões
         // Ler o mapa do deserto
-        bufferAtual = new Buffer(linhas, colunas);
-        mapa = new char*[linhas];
-        for(int i = 0; i<linhas; i++){
-            mapa[i] = new char[colunas];
+        bufferAtual = new Buffer(linha, coluna);
+        mapa = new char*[linha];
+        for(int i = 0; i < linha; i++){
+            mapa[i] = new char[coluna];
         }
-        simulador = std::make_shared<Simulador>(linhas, colunas, bufferAtual);
-        for (int i = 0; i < linhas; ++i) {
+        simulador = std::make_shared<Simulador>(linha, coluna, bufferAtual);
+        for (int i = 0; i < linha; ++i) {
             std::getline(ficheiro, linha);
-            if (linha.length() != colunas) {
+            if (linha.length() != coluna) {
                 throw std::runtime_error("Erro: o tamanho da linha do mapa nao corresponde ao numero de colunas.");
             }
             for (int j = 0; j< linha.length(); j++){
@@ -43,33 +42,33 @@ void Comandos::cmd_config(const std::string &nomeFicheiro){
             if (linha == "moedas") {
                 ficheiro >> jogador.moedas;
                 //atributosConfiguraveis["moedas"] = moedas;
-                atributosConfiguraveis["moedas"] = jogador.getMoedas();
+                utils.atributosConfiguraveis["moedas"] = jogador.getMoedas();
                 //simulador->getJogador()->adicionarMoedas(moedas);
                 simulador->getJogador()->adicionarMoedas();
             } else if (linha == "instantes_entre_novos_itens") {
-                ficheiro >> instantesEntreNovosItens;
-                atributosConfiguraveis["instantesEntreNovosItens"] = instantesEntreNovosItens;
+                ficheiro >> utils.instantesEntreNovosItens;
+                utils.atributosConfiguraveis["instantesEntreNovosItens"] = utils.instantesEntreNovosItens;
             }else if (linha == "duração_item") {
-                ficheiro >> duracaoItem;
-                atributosConfiguraveis["duracaoItem"] = duracaoItem;
+                ficheiro >> utils.duracaoItem;
+                utils.atributosConfiguraveis["duracaoItem"] = utils.duracaoItem;
             }else if (linha == "max_itens") {
-                ficheiro >> maxItens;
-                atributosConfiguraveis["maxItens"] = maxItens;
+                ficheiro >> utils.maxItens;
+                utils.atributosConfiguraveis["maxItens"] = utils.maxItens;
             }else if (linha == "preço_venda_mercadoria") {
-                ficheiro >> precoVendaMercadoria;
-                atributosConfiguraveis["precoVendaMercadoria"] = precoVendaMercadoria;
+                ficheiro >> utils.precoVendaMercadoria;
+                utils.atributosConfiguraveis["precoVendaMercadoria"] = utils.precoVendaMercadoria;
             }else if (linha == "preço_compra_mercadoria") {
-                ficheiro >> precoCompraMercadoria;
-                atributosConfiguraveis["precoCompraMercadoria"] = precoCompraMercadoria;
+                ficheiro >> utils.precoCompraMercadoria;
+                utils.atributosConfiguraveis["precoCompraMercadoria"] = utils.precoCompraMercadoria;
             }else if (linha == "preço_caravana") {
-                ficheiro >> precoCaravana;
-                atributosConfiguraveis["precoCaravana"] = precoCaravana;
+                ficheiro >> utils.precoCaravana;
+                utils.atributosConfiguraveis["precoCaravana"] = utils.precoCaravana;
             }else if (linha == "instantes_entre_novos_barbaros") {
-                ficheiro >> instantesEntreNovosBarbaros;
-                atributosConfiguraveis["instantesEntreNovosBarbaros"] = instantesEntreNovosBarbaros;
+                ficheiro >> utils.instantesEntreNovosBarbaros;
+                utils.atributosConfiguraveis["instantesEntreNovosBarbaros"] = utils.instantesEntreNovosBarbaros;
             }else if (linha == "duracao_barbaros") {
-                ficheiro >> duracaoBarbaros;
-                atributosConfiguraveis["duracaoBarbaros"] = duracaoBarbaros;
+                ficheiro >> utils.duracaoBarbaros;
+                utils.atributosConfiguraveis["duracaoBarbaros"] = utils.duracaoBarbaros;
             }
         }
         ficheiro.close();
@@ -147,8 +146,8 @@ void Comandos::cmd_comprac(std::istringstream &iss, int precoCaravana) {
 std::string Comandos::cmd_precos() const {
     std::ostringstream oss;
     oss << "Precos das mercadorias:"
-        << "\nPreco de venda: " << atributosConfiguraveis.at("precoVendaMercadoria") << " moedas"
-        << "\nPreco de compra: " << atributosConfiguraveis.at("precoCompraMercadoria") << " moedas" << std::endl;
+        << "\nPreco de venda: " << utils.atributosConfiguraveis.at("precoVendaMercadoria") << " moedas"
+        << "\nPreco de compra: " << utils.atributosConfiguraveis.at("precoCompraMercadoria") << " moedas" << std::endl;
     return oss.str();
 }
 
@@ -190,7 +189,7 @@ std::string Comandos::cmd_compra(std::istringstream &iss) const {
     iss >> idCaravana >> quantidadeMercadoria;
 
     try {
-        simulador->comprarMercadoria(idCaravana, quantidadeMercadoria, atributosConfiguraveis.at("precoCompraMercadoria"));
+        simulador->comprarMercadoria(idCaravana, quantidadeMercadoria, utils.atributosConfiguraveis.at("precoCompraMercadoria"));
     } catch (const std::exception &e) {
         oss << "Erro ao comprar mercadorias: " << e.what() << std::endl;
     }
@@ -203,7 +202,7 @@ std::string Comandos::cmd_vende(std::istringstream &iss) const {
     iss >> idCaravana;
 
     try {
-        simulador->venderMercadoria(idCaravana, precoVendaMercadoria);
+        simulador->venderMercadoria(idCaravana, utils.precoVendaMercadoria);
         oss<< "Vendida toda a mercadoria da caravana " << idCaravana << "." << std::endl;
     } catch (const std::exception &e) {
         oss << "Erro ao vender mercadorias: " << e.what() << std::endl;
@@ -377,7 +376,7 @@ std::string Comandos::cmd_dels(std::istringstream &iss) const {
     auto it = buffersSalvos.find(nome);
     if (it != buffersSalvos.end()) {
         delete it->second;
-        buffersSalvos.erase(it);
+        buffersSalvos->erase(it);
         oss << "Buffer com o nome " << nome << " apagado." << std::endl;
     } else {
         oss << "Nenhum buffer salvo com o nome: " << nome << std::endl;

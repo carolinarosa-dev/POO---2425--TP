@@ -6,10 +6,12 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <filesystem>
 
-#include "Simulador.h"
 #include "Utils.h"
+#include "Buffer.h"
 #include "Jogador.h"
+#include "Simulador.h"
 
 //class Utils;
 //class Jogador;
@@ -66,8 +68,14 @@ public:
 
 private:
     Utils utils;
+    Buffer* bufferAtual;
+    std::map<std::string, Buffer*> buffersSalvos;
     Jogador jogador;
     Simulador simulador;
+
+
+    int linha, coluna;
+    //std::string nomeFeicheiro;
 };
 
 #endif //POO_2024_25_TP_COMANDOS_H

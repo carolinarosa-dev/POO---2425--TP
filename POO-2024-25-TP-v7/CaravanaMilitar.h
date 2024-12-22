@@ -5,13 +5,12 @@
 #include "Caravana.h"
 
 class CaravanaMilitar : public Caravana {
+
 public:
     CaravanaMilitar(int id, int linha, int coluna);
 
-
-    void aplicarEfeitoItem(int tipoItem) ;
-
     virtual std::string getDesignacaoTipo()const override;
+
     ~CaravanaMilitar() override;
 };
 

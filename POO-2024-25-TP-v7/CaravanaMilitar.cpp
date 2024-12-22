@@ -12,12 +12,6 @@ CaravanaMilitar::CaravanaMilitar(int id, int linha, int coluna)
 }
 
 
-void CaravanaMilitar::aplicarEfeitoItem(int tipoItem) {
-    // Implementar lógica de aplicação de efeito de item específica para Caravana Militar
-    std::cout << "Aplicando efeito do item " << tipoItem << " na Caravana Militar" << std::endl;
-    //Caravana::aplicarEfeitoItem(tipoItem);
-}
-
 std::string CaravanaMilitar::getDesignacaoTipo() const {
         return "caravana militar ";
 }

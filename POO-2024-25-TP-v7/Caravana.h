@@ -7,6 +7,8 @@
 #include <algorithm> // Para std::max
 #include <vector>
 
+#include "Utils.h"
+
 class Caravana{
 public:
     enum Tipo {
@@ -65,6 +67,7 @@ protected:
 
     Tipo tipo;
     static int id;
+    //Utils posCaravana;
     int linha, coluna;
     int linhaAnterior, colunaAnterior;
     int tripulantes;
@@ -73,9 +76,11 @@ protected:
     int capacidadeCarga;
     int capacidadeAgua;
     int consumoAgua;
-    std::vector<std::string> mercadorias;
+
     bool emCidade;
     bool autoGestao;
+
+    std::vector<std::string> mercadorias;
 
 };
 #endif //POO_2024_25_TP_CARAVANA_H

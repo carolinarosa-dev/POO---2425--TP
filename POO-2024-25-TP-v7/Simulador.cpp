@@ -1,16 +1,13 @@
 
 #include "Simulador.h"
 
-//Simulador::Simulador(int linhas, int colunas, int moedasIniciais) {}
-
-Simulador::Simulador(int linhas, int colunas, Buffer *buffer)
-    : linhas(linhas), colunas(colunas), jogador(std::make_shared<Jogador>(0)), buffer(buffer) {
-    this->deserto = new Deserto(linhas, colunas);
-}
-
 bool Simulador::terminarSimulacao() const {
     //return jogador->getMoedas() <= 0 && !jogador->temCaravanas();
     return jogador.getMoedas() <= 0 && !jogador.temCaravanas();
+}
+//deserto
+void Simulador::adicionarMontanha(double latitude, double longitude)  {
+    montanhas.push_back(Montanha(latitude, longitude));
 }
 
 //cidade
@@ -54,8 +51,8 @@ void Simulador::adicionaCaravanaJogador(std::shared_ptr<Caravana> caravana) {
     if (jogador.getCaravanas().size() >= 9) {
         throw std::runtime_error("Numero maximo de caravanas atingido.");
     }
-    //jogador->adicionarCaravana(caravana);
-    jogador.adicionarCaravana(caravana);
+    //jogador->adicionarCaravanaJogador(caravana);
+    jogador.adicionarCaravanaJogador(std::move(caravana));
 }
 
 std::string Simulador::jogadorCompraCaravana(char cidadeLetra, char tipoCaravana, int precoCaravana) const{
@@ -108,10 +105,6 @@ void Simulador::mostrarDescricaoCaravana(int idCaravana) const {
 
 }
 
-void Simulador::moverCaravana(int idCaravana, int direcao) {
-
-}
-
 void Simulador::moverCaravana(int idCaravana, const std::string &direcao, char **mapa) {
     //auto caravanas = jogador->getCaravanas();
     auto caravanas = jogador.getCaravanas();
@@ -139,31 +132,31 @@ void Simulador::moverCaravana(int idCaravana, const std::string &direcao, char *
         else throw std::invalid_argument("Direçao invalida.");
 
         switch (direcaoNumerica) {
-            case 0: novaLinha = (linhaAtual - 1 + linhas) % linhas; break; // Cima
-            case 1: novaLinha = (linhaAtual + 1) % linhas; break; // Baixo
-            case 2: novaColuna = (colunaAtual - 1 + colunas) % colunas; break; // Esquerda
-            case 3: novaColuna = (colunaAtual + 1) % colunas; break; // Direita
+            case 0: novaLinha = (linhaAtual - 1 + utils.posCaravana.first) %  utils.posCaravana.first; break; // Cima
+            case 1: novaLinha = (linhaAtual + 1) %  utils.posCaravana.first; break; // Baixo
+            case 2: novaColuna = (colunaAtual - 1 + utils.posCaravana.second) % utils.posCaravana.second; break; // Esquerda
+            case 3: novaColuna = (colunaAtual + 1) % utils.posCaravana.second; break; // Direita
             case 4: // Diagonal Cima-Esquerda
-                novaLinha = (linhaAtual - 1 + linhas) % linhas;
-                novaColuna = (colunaAtual - 1 + colunas) % colunas;
+                novaLinha = (linhaAtual - 1 +  utils.posCaravana.first) %  utils.posCaravana.first;
+                novaColuna = (colunaAtual - 1 + utils.posCaravana.second) % utils.posCaravana.second;
                 break;
             case 5: // Diagonal Cima-Direita
-                novaLinha = (linhaAtual - 1 + linhas) % linhas;
-                novaColuna = (colunaAtual + 1) % colunas;
+                novaLinha = (linhaAtual - 1 +  utils.posCaravana.first) %  utils.posCaravana.first;
+                novaColuna = (colunaAtual + 1) % utils.posCaravana.second;
                 break;
             case 6: // Diagonal Baixo-Esquerda
-                novaLinha = (linhaAtual + 1) % linhas;
-                novaColuna = (colunaAtual - 1 + colunas) % colunas;
+                novaLinha = (linhaAtual + 1) % utils.posCaravana.first;
+                novaColuna = (colunaAtual - 1 + utils.posCaravana.second) % utils.posCaravana.second;
                 break;
             case 7: // Diagonal Baixo-Direita
-                novaLinha = (linhaAtual + 1) % linhas;
-                novaColuna = (colunaAtual + 1) % colunas;
+                novaLinha = (linhaAtual + 1) % utils.posCaravana.first;
+                novaColuna = (colunaAtual + 1) % utils.posCaravana.second;
                 break;
             default:
                 throw std::invalid_argument("Direcao invalida.");
         }
         // Verificar se a nova posição é válida
-        if (posicaoValida(novaLinha, novaColuna, mapa)) {
+        if (utils.posicaoValida(novaLinha, novaColuna, mapa)) {
             // Atualizar a posição da caravana
             caravanaEncontrada->setPosicao(novaLinha, novaColuna);
         } else {
@@ -273,5 +266,7 @@ void Simulador::venderMercadoria(int idCaravana, int precoVendaMercadoria) {
         throw std::runtime_error("Caravana com ID nao encontrada.");
     }
 }
+
+
 
 

@@ -14,7 +14,6 @@
 class CaravanaBarbara : public Caravana {
 public:
     CaravanaBarbara(int id, int linha, int coluna);
-    ~CaravanaBarbara() override;
 
     void moverAleatoriamente();
     void moverParaCaravana(int caravanaLinha, int caravanaColuna);
@@ -22,9 +21,8 @@ public:
     void apanharItens(const std::string& item);
     void enfrentarTempestade();
     std::string turno(int caravanaLinha = -1, int caravanaColuna = -1);
-    virtual std::string getDesignacaoTipo()const override{
-        return "caravana barbara ";
-    }
+    virtual std::string getDesignacaoTipo()const override;
+    ~CaravanaBarbara() override;
 private:
     int turnosAteDesaparecer;
 

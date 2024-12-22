@@ -3,7 +3,7 @@
 
 int Caravana::id = 1;
 
-Caravana::Caravana(int linha, int coluna) {
+Caravana::Caravana(int linha, int coluna): posCaravana(linha, coluna) {
 
 }
 

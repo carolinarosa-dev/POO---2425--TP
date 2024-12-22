@@ -12,7 +12,7 @@ CaravanaComercio::CaravanaComercio()
 }
 
 CaravanaComercio::CaravanaComercio(int id, int linha, int coluna)
-    : Caravana(id,Tipo::COMERCIO, linha, coluna) {
+    : Caravana(id,Tipo::COMERCIO, posCaravana(linha, coluna)) {
         tripulantes = 20;
         carga = 0;
         agua = 200;
@@ -27,10 +27,4 @@ std::string CaravanaComercio::getDesignacaoTipo() const {
 
 CaravanaComercio::~CaravanaComercio() {
 
-}
-
-void CaravanaComercio::aplicarEfeitoItem(int tipoItem) {
-    // Implementar lógica específica de aplicação de efeito de item
-    std::cout << "Aplicando efeito do item " << tipoItem << " na Caravana de Comercio" << std::endl;
-    //Caravana::aplicarEfeitoItem(tipoItem);
 }

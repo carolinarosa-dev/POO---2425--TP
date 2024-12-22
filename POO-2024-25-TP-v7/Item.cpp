@@ -16,14 +16,6 @@ Item::Tipo Item::getTipo() const {
     return tipo;
 }
 
-int Item::getLinha() const {
-    return linha;
-}
-
-int Item::getColuna() const {
-    return coluna;
-}
-
 int Item::getDuracao() const {
     return duracao;
 }

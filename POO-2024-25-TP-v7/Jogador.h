@@ -12,24 +12,27 @@
 #include "Caravana.h"
 
 class Jogador {
-private:
-    int moedas;
-    int combatesVencidos;           // Número de combates vencidos
 
 public:
-    Jogador();
     Jogador(int moedasIniciais);
 
     int getMoedas() const;
     void adicionarMoedas(int quantidade);
 
     bool temCaravanas() const;
-    std::string listarCaravanas() const;
+    void adicionaCaravanaJogador(std::unique_ptr<Caravana> caravanas);
+    std::string getCaravanasJogador() const;
 
-    void comprarCaravana(std::shared_ptr<Caravana>, int precoCaravana);
+    void comprarCaravana(std::shared_ptr<Caravana>caravanaJogador, int precoCaravana);
 
     const std::vector<std::shared_ptr<Caravana>>& getCaravanas() const;
-    void adicionarCaravana(std::shared_ptr<Caravana> caravana);
+
+
+private:
+    int moedas;
+    int combatesVencidos;
+
+    std::vector<std::unique_ptr<Caravana>> caravanasJogador;
 };
 
 #endif //POO_2024_25_TP_JOGADOR

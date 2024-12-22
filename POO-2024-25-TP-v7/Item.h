@@ -10,29 +10,23 @@
 #include "Caravana.h"
 
 /*
+public:
+    Tipo getTipo() const;
+    int getDuracao() const;
+    void decrementarDuracao();
+*/
+
 class Item {
 public:
     enum Tipo { CAIXA_PANDORA, ARCA_TESOURO, JAULA, MINA, SURPRESA };
-
     Item(Tipo tipo, int linha, int coluna, int duracao);
-    Tipo getTipo() const;
-    int getLinha() const;
-    int getColuna() const;
-    int getDuracao() const;
-    void decrementarDuracao();
+    virtual ~Item() = default;
+    virtual void aplicarEfeito(std::shared_ptr<Caravana> caravana) = 0;
 
 private:
     Tipo tipo;
     int linha, coluna;
     int duracao;
-};
-*/
-
-
-class Item {
-public:
-    virtual ~Item() = default;
-    virtual void aplicarEfeito(std::shared_ptr<Caravana> caravana) = 0;
 };
 
 

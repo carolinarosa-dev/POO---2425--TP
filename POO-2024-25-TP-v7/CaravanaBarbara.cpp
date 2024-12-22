@@ -2,9 +2,10 @@
 #include "CaravanaBarbara.h"
 
 CaravanaBarbara::CaravanaBarbara(int id,int linha, int coluna)
-        : Caravana(id, BARBARA, linha, coluna), turnosAteDesaparecer(60) {
+        : Caravana(id, BARBARA, posCaravana(linha, coluna), turnosAteDesaparecer(60) {
     tripulantes = 40;
 }
+
 
 void CaravanaBarbara::moverAleatoriamente() {
     int direcao = rand() % 4;
@@ -57,6 +58,11 @@ std::string CaravanaBarbara::turno(int caravanaLinha, int caravanaColuna) {
     return "Caravana em movimento";
 }
 
+std::string CaravanaBarbara::getDesignacaoTipo() const {
+    return "caravana barbara ";
+}
 CaravanaBarbara::~CaravanaBarbara() {
     // Destructor implementation
 }
+
+

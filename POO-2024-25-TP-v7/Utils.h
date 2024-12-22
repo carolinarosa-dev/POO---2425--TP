@@ -9,7 +9,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
-
+#include <map>
 
 #include "Comandos.h"
 #include "Jogador.h"
@@ -49,6 +49,27 @@ private:
     Comandos comandos;
     Jogador jogador;
     Simulador simulador;
+
+    int linha, coluna;
+
+    //configuraveis
+    int instantesEntreNovosItens;
+    int duracaoItem;
+    int maxItens;
+    int precoVendaMercadoria;
+    int precoCompraMercadoria;
+    int precoCaravana;
+    int instantesEntreNovosBarbaros;
+    int duracaoBarbaros;
+
+    // Criar entidades com suas coordenadas
+    std::pair<int, int> posDeserto;   // Coordenadas da Deserto
+    std::pair<int, int> posMontanha;   // Coordenadas da Montanha
+    std::pair<int, int> posCidade;     // Coordenadas da Cidade
+    std::pair<int, int> posItem ;       // Coordenadas de um Item
+    std::pair<int, int> posCaravana;   // Coordenadas da Caravana
+    std::map<std::string, int> atributosConfiguraveis;
+
 
 };
 

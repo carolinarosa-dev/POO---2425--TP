@@ -16,14 +16,12 @@ Habilidade Especial: Pode se esconder por um turno, tornando-se invisível para 
 #include "Caravana.h"
 
 class CaravanaSecreta : public Caravana {
-public:
 
+public:
     CaravanaSecreta(int id, int linha, int coluna);
 
-    void aplicarEfeitoItem(int tipoItem) ;
-    void esconder();
-
     virtual std::string getDesignacaoTipo()const override;
+
     ~CaravanaSecreta() override;
 };
 

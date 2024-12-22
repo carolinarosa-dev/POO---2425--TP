@@ -5,7 +5,7 @@
 #include "Utils.h"
 
 void Utils::limparDados() {
-    linhas = colunas = jogador.moedas = 0;
+    linha = coluna = jogador.moedas = 0;
     instantesEntreNovosItens = duracaoItem = maxItens = 0;
     precoCaravana = 0;
     instantesEntreNovosBarbaros = duracaoBarbaros = 0;
@@ -53,7 +53,7 @@ bool Utils::validarArgumentos(const std::string &cmd) {
     return true; // Se nenhuma validação falhar, retorna verdadeiro
 }
 bool Utils::posicaoValida(int linha, int coluna, char **mapa) const {
-    return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas && mapa[linha][coluna] != '+';
+    return linha >= 0 && linha < linha && coluna >= 0 && coluna < coluna && mapa[linha][coluna] != '+';
 }
 
 std::string Utils::executarComando(const std::string &comando)const {
@@ -146,8 +146,8 @@ std::string Utils::executarComando(const std::string &comando)const {
 }
 
 void Utils::limparMapa() {
-    for(int i = 0; i < linhas; i++){
-        for(int j = 0; i < colunas; i++){
+    for(int i = 0; i < linha; i++){
+        for(int j = 0; i < coluna; i++){
             mapa[i][j] = '.';
         }
     }
@@ -155,8 +155,8 @@ void Utils::limparMapa() {
 
 std::string Utils::processaMapa() const{
     std::ostringstream oss;
-    for (int linha = 0; linha < linhas; ++linha) {
-        for (int coluna = 0; coluna < colunas; ++coluna) {
+    for (int linha = 0; linha < linha; ++linha) {
+        for (int coluna = 0; coluna < coluna; ++coluna) {
             char caractere = mapa[linha][coluna];
 
             if (isalpha(caractere)) { // Se for uma letra (cidade)
@@ -202,8 +202,8 @@ void Utils::atualizaMapa() {
 
 std::string Utils::mostrarMapa() const {
     std::ostringstream oss;
-    for(int i = 0; i < linhas; i++){
-        for(int j = 0; j < colunas; j++){
+    for(int i = 0; i < linha; i++){
+        for(int j = 0; j < coluna; j++){
             oss << mapa[i][j];
         }
         oss << std::endl;
@@ -213,8 +213,8 @@ std::string Utils::mostrarMapa() const {
 
 std::string Utils::mostrarConfig() const {
     std::ostringstream oss;
-    oss << "Linhas: " << linhas << std::endl
-        << "Colunas: " << colunas << std::endl
+    oss << "Linhas: " << linha << std::endl
+        << "Colunas: " << coluna << std::endl
         << "Mapa do deserto:" << std::endl;
         oss <<"\n\n\n------REMOVER ESTA LINHA MOSTRACONFIG---colocar o output para o buffer------\n\n\n";mostrarMapa();
         oss << "Moedas: " << atributosConfiguraveis.at("moedas") << std::endl
