@@ -96,10 +96,24 @@ CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\Comandos.cpp -o CMakeFiles\POO_2024_25_TP.dir\Comandos.cpp.s
 
+CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
+CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v8/Interface.cpp
+CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Interface.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Interface.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\Interface.cpp
+
+CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\Interface.cpp > CMakeFiles\POO_2024_25_TP.dir\Interface.cpp.i
+
+CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\Interface.cpp -o CMakeFiles\POO_2024_25_TP.dir\Interface.cpp.s
+
 CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/flags.make
 CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v8/Utils.cpp
 CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj: CMakeFiles/POO_2024_25_TP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj -MF CMakeFiles\POO_2024_25_TP.dir\Utils.cpp.obj.d -o CMakeFiles\POO_2024_25_TP.dir\Utils.cpp.obj -c C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\Utils.cpp
 
 CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.i: cmake_force
@@ -114,6 +128,7 @@ CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.s: cmake_force
 POO_2024_25_TP_OBJECTS = \
 "CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj" \
 "CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj" \
+"CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.obj" \
 "CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj"
 
 # External object files for target POO_2024_25_TP
@@ -121,12 +136,13 @@ POO_2024_25_TP_EXTERNAL_OBJECTS =
 
 POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/main.cpp.obj
 POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/Comandos.cpp.obj
+POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/Interface.cpp.obj
 POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/Utils.cpp.obj
 POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/build.make
 POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/linkLibs.rsp
 POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/objects1.rsp
 POO_2024_25_TP.exe: CMakeFiles/POO_2024_25_TP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable POO_2024_25_TP.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\Tinoco\Desktop\POO---2425--TP\POO-2024-25-TP-v8\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable POO_2024_25_TP.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\POO_2024_25_TP.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

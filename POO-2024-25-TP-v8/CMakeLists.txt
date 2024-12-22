@@ -15,7 +15,7 @@ add_executable(POO_2024_25_TP main.cpp
 #        Cidade.h            Cidade.cpp
         Comandos.h          Comandos.cpp
 #        Deserto.h           Deserto.cpp
-#        Interface.cpp       Interface.h
+        Interface.cpp       Interface.h
 # #       Item.h              Item.cpp
 # #       Jaula.h             Jaula.cpp
 #        Jogador.h           Jogador.cpp
