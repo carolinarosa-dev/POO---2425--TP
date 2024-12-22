@@ -8,16 +8,18 @@
 #include "Comandos.h"
 
 #include "Simulador.h"
-#include "Comandos.h"
+
+#include <iostream>
+#include <sstream>
 
 class Interface {
 private:
-    Simulador& simulador;
-    Comandos& comandos;
-
+    //Simulador& simulador;
+    Comandos comandos;
+    Utils utils;
 public:
-    Interface(Simulador& sim, Comandos& cmd) : simulador(sim), comandos(cmd) {}
-    void executar(); // Gerencia a interação com o usuário
+   Interface(Comandos& cmd, Utils& utl);
+   void executar(); // Gerencia a interação com o usuário
 };
 
 
