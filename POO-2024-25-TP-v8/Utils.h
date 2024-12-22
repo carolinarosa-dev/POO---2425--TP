@@ -30,12 +30,12 @@ public:
     void limparDados();
 
     //Validacoes
-    bool validarArgumentos(const std::string &cmd);
+    bool validarArgumentos(const std::string &comando, std::string& mensagem) const;
     bool posicaoValida(int linha, int coluna, char** mapa) const;
 
 
 
-    std::string executarComando(const std::string &comando) const; // Método para execução de comandos
+    bool executarComando(const std::string &comando, std::string &mensagem) const; // Método para execução de comandos
 
     void limparMapa();
     std::string processaMapa() const;
@@ -47,14 +47,29 @@ public:
 
     int calcularPontuacao() const;
 
-//    int instantesEntreNovosItens;
-//    int duracaoItem;
-//    int maxItens;
-    int getPrecoVendaMercadoria() const;
-    int getPrecoCompraMercadoria() const;
-//    int precoCaravana;
-//    int instantesEntreNovosBarbaros;
-//    int duracaoBarbaros;
+    void setAtributosConfiguraveis(std::map<std::string, int>& atributos, const std::string& chave, int novoValor);
+    int getAtributoConfiguraveis(const std::map<std::string, int>& atributos, const std::string& chave);
+
+
+
+
+////    int instantesEntreNovosItens;
+////    int duracaoItem;
+////    int maxItens;
+//    int getPrecoVendaMercadoria() const;
+//    int getPrecoCompraMercadoria() const;
+////    int precoCaravana;
+////    int instantesEntreNovosBarbaros;
+////    int duracaoBarbaros;
+//
+//    void setInstantesEntreNovosItens(int instantesEntreNovosIntens);
+//    void setDuracaoItem(int duracaoItem);
+//    void setMaxItens(int maxItens);
+//    void setPrecoVendaMercadoria(int PrecoVendaMercadoria);
+//    void setPrecoCompraMercadoria(int PrecoCompraMercadoria);
+//    void setPrecoCaravana(int PrecoCaravana);
+//    void setInstantesEntreNovosBarbaros(int instantesEntreNovosBarbaros);
+//    void setDuracaoBarbaros(int duracaoBarbaros);
 
     ~Utils();
 private:

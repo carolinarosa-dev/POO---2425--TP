@@ -5,6 +5,8 @@
 #include "Utils.h"
 #include "Comandos.h"
 
+Utils::Utils() {}
+
 void Utils::limparDados() {
     linha = coluna =0;
 //    jogador.moedas = 0;
@@ -14,8 +16,8 @@ void Utils::limparDados() {
     limparMapa();
 }
 
-bool Utils::validarArgumentos(const std::string &cmd) {
-/*    std::vector<std::string> argumentos;
+bool Utils::validarArgumentos(const std::string &comando, std::string  &mensagem) const{
+    std::vector<std::string> argumentos;
     std::istringstream iss(comando);
     std::string cmd, arg;
     iss >> cmd;
@@ -27,33 +29,32 @@ bool Utils::validarArgumentos(const std::string &cmd) {
     // Validar o número de argumentos com base no comando
     if (cmd == "sair" || cmd == "precos" || cmd == "lists" || cmd == "terminar") {
         if (!argumentos.empty()) {
-            std::cerr << "Erro: O comando '" << cmd << "' nao aceita argumentos." << std::endl;
+            mensagem =  "Erro: O comando '" + cmd + "' nao aceita argumentos.\n";
             return false;
         }
     } else if (cmd == "config" || cmd == "exec" ||cmd == "prox" || cmd == "cidade" || cmd == "caravana" || cmd == "vende" ||
                cmd == "auto" || cmd == "stop" || cmd == "moedas" || cmd == "saves" || cmd == "loads" || cmd == "dels") {
         if (argumentos.size() != 1) {
-            std::cerr << "Erro: O comando '" << cmd << "' requer exatamente 1 argumento." << std::endl;
+            mensagem = "Erro: O comando '" + cmd + "' requer exatamente 1 argumento.\n";
             return false;
         }
     } else if (cmd == "comprac" || cmd == "compra" || cmd == "move" || cmd == "barbaro" || cmd == "tripul") {
         if (argumentos.size() != 2) {
-            std::cerr << "Erro: O comando '" << cmd << "' requer exatamente 2 argumentos." << std::endl;
+            mensagem = "Erro: O comando '" + cmd + "' requer exatamente 2 argumentos.\n";
             return false;
         }
     } else if (cmd == "areia") {
         if (argumentos.size() != 3) {
-            std::cerr << "Erro: O comando 'areia' requer exatamente 3 argumentos." << std::endl;
+            mensagem = "Erro: O comando 'areia' requer exatamente 3 argumentos.\n";
             return false;
         }
     } else {
-        // Comando desconhecido
-        std::cerr << "Erro: Comando desconhecido '" << cmd << "'." << std::endl;
+        mensagem = "Erro: Comando desconhecido '" + cmd + "'.\n";
         return false;
     }
-*/
-    return true; // Se nenhuma validação falhar, retorna verdadeiro
+    return true;
 }
+
 bool Utils::posicaoValida(int linha, int coluna, char **mapa) const {
     //return linha >= 0 && linha < linha && coluna >= 0 && coluna < coluna && mapa[linha][coluna] != '+';
 //
@@ -71,23 +72,22 @@ bool Utils::posicaoValida(int linha, int coluna, char **mapa) const {
     return true;
 }
 
-std::string Utils::executarComando(const std::string &comando)const {
-    std::ostringstream oss;
+bool Utils::executarComando(const std::string &comando, std::string &mensagem)const {
     std::istringstream iss(comando);
     std::string cmd;
     iss >> cmd;
     try {
-//        if (!validarArgumentos(comando)) {
-//            oss << "Parametros invalidos\n";
-//            return oss.str(); // Termina a execução caso os parâmetros sejam inválidos
-//        }
+        if (!validarArgumentos(comando, mensagem)) {
+            std::cout << mensagem;
+            return false;
+        }
         if (cmd == "config") {
             std::string nomeFicheiro;
             iss >> nomeFicheiro;
             // Verifica se o nome do ficheiro foi fornecido
             if (nomeFicheiro.empty()) {
-               oss << "Erro: O comando 'config' requer o nome de um ficheiro como parametro." << std::endl;
-                return oss.str();
+                mensagem = "Erro: O comando 'config' requer o nome de um ficheiro como parametro.\n";
+                //return false;
             }
             bool sucesso = false;
             while (!sucesso) {
@@ -96,9 +96,7 @@ std::string Utils::executarComando(const std::string &comando)const {
                     sucesso = true;
                 } catch (const std::runtime_error &e) {
                     // Caso o ficheiro não seja encontrado ou outro erro ocorra
-                    oss << e.what()
-                        << "Ficheiro nao encontrado\n"
-                        << "Digite novamente apenas o nome do ficheiro:";
+                    mensagem = std::string(e.what()) + "Ficheiro nao encontrado\nDigite novamente apenas o nome do ficheiro:\n";
                     std::getline(std::cin, nomeFicheiro);
                 }
             }
@@ -145,32 +143,29 @@ std::string Utils::executarComando(const std::string &comando)const {
             comandos->cmd_dels(iss);
         } else if (cmd == "terminar") {
             comandos->cmd_terminar();
-        } else if (cmd == "showMoedas"){
-//            oss<< simulador->getJogador()->getMoedas() << std::endl;
-        }
-        else {
-            oss << "Comando desconhecido: " << cmd << std::endl;
+        } else {
+            mensagem = "Comando desconhecido: ";
         }
     }
         // Trata outros tipos de exceções
     catch (const std::exception &e) {
-        oss << "Erro: " << e.what() << std::endl;
-        return oss.str();
+        mensagem = e.what();
+        return false;
     }
-    return oss.str();
+    return true;
 }
 
-/*void Utils::limparMapa() {
-    for(int i = 0; i < linha; i++){
+void Utils::limparMapa() {
+/*    for(int i = 0; i < linha; i++){
         for(int j = 0; i < coluna; i++){
             mapa[i][j] = '.';
         }
     }
-}*/
+*/}
 
-/*std::string Utils::processaMapa() const{
+std::string Utils::processaMapa() const{
     std::ostringstream oss;
-    for (int linha = 0; linha < linha; ++linha) {
+/*    for (int linha = 0; linha < linha; ++linha) {
         for (int coluna = 0; coluna < coluna; ++coluna) {
             char caractere = mapa[linha][coluna];
 
@@ -200,39 +195,40 @@ std::string Utils::executarComando(const std::string &comando)const {
             }
         }
     }
+ */
     return oss.str();
-}*/
-/*
+}
+
 void Utils::atualizaMapa() {
-    int linha, coluna, linhaAnt, colunaAnt;
-    for(auto &c : simulador->getJogador()->getCaravanas()){
-        std::tie(linha, coluna) = c->getPosicao();
-        std::tie(linhaAnt, colunaAnt) = c->getPosicaoAnterior();
-        if(mapa[linha][coluna]+'0' != c->getId()){
-            mapa[linhaAnt][colunaAnt] = '.';
-            mapa[linha][coluna] = static_cast<char>(c->getId()+'0');
-        }
-    }
+    /* int linha, coluna, linhaAnt, colunaAnt;
+     for(auto &c : simulador->getJogador()->getCaravanas()){
+         std::tie(linha, coluna) = c->getPosicao();
+         std::tie(linhaAnt, colunaAnt) = c->getPosicaoAnterior();
+         if(mapa[linha][coluna]+'0' != c->getId()){
+             mapa[linhaAnt][colunaAnt] = '.';
+             mapa[linha][coluna] = static_cast<char>(c->getId()+'0');
+         }
+     }*/
 }
 
 std::string Utils::mostrarMapa() const {
     std::ostringstream oss;
-    for(int i = 0; i < linha; i++){
-        for(int j = 0; j < coluna; j++){
-            oss << mapa[i][j];
-        }
-        oss << std::endl;
-    }
-    return oss.str();
-}*/
+    /*  for(int i = 0; i < linha; i++){
+          for(int j = 0; j < coluna; j++){
+              oss << mapa[i][j];
+          }
+          oss << std::endl;
+      }
+  */    return oss.str();
+}
 
 std::string Utils::mostrarConfig() const {
     std::ostringstream oss;
     oss << "Linhas: " << linha << std::endl
         << "Colunas: " << coluna << std::endl
         << "Mapa do deserto:" << std::endl;
-        oss <<"\n\n\n------REMOVER ESTA LINHA MOSTRACONFIG---colocar o output para o buffer------\n\n\n";mostrarMapa();
-        oss << "Moedas: " << atributosConfiguraveis.at("moedas") << std::endl
+    oss <<"\n\n\n------REMOVER ESTA LINHA MOSTRACONFIG---colocar o output para o buffer------\n\n\n";mostrarMapa();
+    oss << "Moedas: " << atributosConfiguraveis.at("moedas") << std::endl
         << "Instantes entre novos itens: " << atributosConfiguraveis.at("instantesEntreNovosItens") << std::endl
         << "Duracao do item: " << atributosConfiguraveis.at("duracaoItem") << std::endl
         << "Maximo de itens: " << atributosConfiguraveis.at("maxItens") << std::endl
@@ -254,6 +250,8 @@ int Utils::calcularPontuacao() const {
     return 0;
 }
 
+
+/*
 int Utils::getPrecoVendaMercadoria() const {
     return precoVendaMercadoria;
 }
@@ -262,9 +260,64 @@ int Utils::getPrecoCompraMercadoria() const {
     return precoCompraMercadoria;
 }
 
+
+void Utils::setInstantesEntreNovosItens(int instantesEntreNovosIntens) {
+    this->instantesEntreNovosItens = instantesEntreNovosIntens;
+}
+
+void Utils::setDuracaoItem(int duracaoItem) {
+    this->duracaoItem = duracaoItem;
+}
+
+void Utils::setMaxItens(int maxItens) {
+    this.d
+}
+
+void Utils::setPrecoVendaMercadoria(int PrecoVendaMercadoria) {
+
+}
+
+void Utils::setPrecoCompraMercadoria(int PrecoCompraMercadoria) {
+
+}
+
+void Utils::setPrecoCaravana(int PrecoCaravana) {
+
+}
+
+void Utils::setInstantesEntreNovosBarbaros(int instantesEntreNovosBarbaros) {
+
+}
+
+void Utils::setDuracaoBarbaros(int duracaoBarbaros) {
+
+}
+*/
+
+void Utils::setAtributosConfiguraveis(std::map<std::string, int> &atributos, const std::string &chave, int novoValor) {
+// Verifica se a chave já existe no mapa
+    if (atributos.find(chave) != atributos.end()) {
+        atributos[chave] = novoValor;
+        std::cout << "Atributo '" << chave << "' alterado para " << novoValor << ".\n";
+    } else {
+        std::cout << "Atributo '" << chave << "' não encontrado.\n";
+    }
+}
+int Utils::getAtributoConfiguraveis(const std::map<std::string, int> &atributos, const std::string &chave) {
+    auto it = atributos.find(chave);
+    if (it != atributos.end()) {
+        return it->second;  // Retorna o valor associado à chave
+    } else {
+        std::cout << "Atributo '" << chave << "' não encontrado.\n";
+        return -1;  // Retorna -1 ou algum valor de erro se a chave não for encontrada
+    }
+}
+
 Utils::~Utils() {
     delete comandos;
 }
+
+
 
 
 
