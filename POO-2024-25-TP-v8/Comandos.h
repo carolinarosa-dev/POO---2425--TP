@@ -73,10 +73,7 @@ private:
 //    std::map<std::string, Buffer*> buffersSalvos;
 //    Jogador jogador;
 //    Simulador simulador;
-
-
-    int linha, coluna;
-    //std::string nomeFeicheiro;
+    int linhas, colunas;
 };
 
 #endif //POO_2024_25_TP_COMANDOS_H
