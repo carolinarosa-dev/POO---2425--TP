@@ -16,8 +16,6 @@
 
     #include "Simulador.h"
     #include "Caravana.h"
-
-#include "Deserto.h"
     class Cidade;
     class Simulador;
     class Montanha;
