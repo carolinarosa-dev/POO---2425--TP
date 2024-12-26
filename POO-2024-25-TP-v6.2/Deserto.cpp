@@ -26,6 +26,8 @@ string Deserto::exibirMapa() const {
                 oss << "M ";
             else if (mapa[i][j] == CIDADE)
                 oss << "C ";
+            else if (mapa[i][j] == ITEM)
+                oss << "@ ";
             else
                 oss << ". ";
         }
@@ -86,5 +88,49 @@ void Deserto::setMontanha(int linha, int coluna) {
         mapa[linha][coluna] = MONTANHA;
     } else {
         throw invalid_argument("Posicao invalida para configurar montanha.");
+    }
+}
+
+void Deserto::adicionarItem(std::shared_ptr<Item> item) {
+    if (posicaoValida(item->getLinha(), item->getColuna())) {
+        itens.push_back(item);
+        mapa[item->getLinha()][item->getColuna()] = ITEM;
+    } else {
+        throw std::invalid_argument("Posicao invalida para adicionar item.");
+    }
+}
+
+void Deserto::verificarItens(std::shared_ptr<Jogador> jogador) {
+    for (auto& caravana : caravanas) {
+        auto [linha, coluna] = caravana->getPosicao();
+        for (int i = -1; i <= 1; ++i) {
+            for (int j = -1; j <= 1; ++j) {
+                if (i == 0 && j == 0) continue;
+                int novaLinha = (linha + i + numLinhas) % numLinhas;
+                int novaColuna = (coluna + j + numColunas) % numColunas;
+                if (mapa[novaLinha][novaColuna] == ITEM) {
+                    for (auto it = itens.begin(); it != itens.end(); ++it) {
+                        if ((*it)->getLinha() == novaLinha && (*it)->getColuna() == novaColuna) {
+                            (*it)->aplicarEfeito(caravana, jogador);
+                            itens.erase(it);
+                            mapa[novaLinha][novaColuna] = VAZIO;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void Deserto::atualizarItens() {
+    for (auto it = itens.begin(); it != itens.end();) {
+        (*it)->diminuirDuracao();
+        if ((*it)->getDuracao() <= 0) {
+            mapa[(*it)->getLinha()][(*it)->getColuna()] = VAZIO;
+            it = itens.erase(it);
+        } else {
+            ++it;
+        }
     }
 }

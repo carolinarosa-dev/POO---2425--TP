@@ -105,8 +105,31 @@ void Simulador::moverCaravana(int idCaravana, int direcao) {
 }
 
 void Simulador::verificarCombate() {
-    // Implementar lógica de verificação e resolução de combates
-}
+    //lógica de verificação e resolução de combates
+        for (auto& caravana : caravanasJogador) {
+            for (auto& caravanaBarbara : caravanasBarbaras) {
+                if (caravana->estaAdjacente(*caravanaBarbara)) {
+                    caravana->combater(*caravanaBarbara);
+
+                    if (caravana->tripulantes <= 0) {
+                        // Lidar com a destruição da caravana do jogador
+                        caravanaBarbara->transferirAgua(*caravana);
+                        // Remove a destruiçao da caravana do jogador da lista
+                        caravanasJogador.erase(std::remove(caravanasJogador.begin(), caravanasJogador.end(), caravana), caravanasJogador.end());
+                        break; // Exit the loop as the caravan is destroyed
+                    }
+
+                    if (caravanaBarbara->tripulantes <= 0) {
+                        // Lidar com a destruição da caravana bárbara
+                        caravana->transferirAgua(*caravanaBarbara);
+                        // Remove a destruiçao da caravana barbara da lista
+                        caravanasBarbaras.erase(std::remove(caravanasBarbaras.begin(), caravanasBarbaras.end(), caravanaBarbara), caravanasBarbaras.end());
+                    }
+                }
+            }
+        }
+    }
+
 
 bool Simulador::terminarSimulacao() const {
     return jogador->getMoedas() <= 0 && !jogador->temCaravanas();
@@ -303,5 +326,6 @@ void Simulador::desativarAutoGestao(int idCaravana) {
         throw std::runtime_error("Caravana com ID nao encontrada.");
     }
 }
+
 
 Simulador::~Simulador(){}

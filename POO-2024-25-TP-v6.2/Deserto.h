@@ -20,7 +20,7 @@ using namespace std;
 
 class Deserto {
 public:
-    enum TipoPosicao { VAZIO, MONTANHA, CIDADE };
+    enum TipoPosicao { VAZIO, MONTANHA, CIDADE,ITEM };
 
     Deserto(int linhas, int colunas);
 
@@ -31,7 +31,8 @@ public:
     void adicionarCaravana(shared_ptr<Caravana> caravana, int linha, int coluna);
     void adicionarCidade(shared_ptr<Cidade> cidade);
     void provocarTempestade(int linhaCentro, int colunaCentro, int raio);
-    void adicionarItem(shared_ptr<Item> item, int linha, int coluna);
+    void adicionarItem(shared_ptr<Item> item);
+    void verificarItens(std::shared_ptr<Jogador> jogador);
     void atualizarItens();
 
 

@@ -4,17 +4,14 @@
 
 #include "Item.h"
 
-//Para a classe base Item, não precisa de um arquivo Item.cpp porque a classe é abstrata e não contém implementações de métodos que precisam ser definidos fora da classe. As classes derivadas (CaixaDePandora, ArcaDoTesouro, Jaula, Mina, Surpresa) já têm seus próprios arquivos .cpp onde os métodos específicos são implementados.
+Item::Item(int linha, int coluna, int duracao)
+        : linha(linha), coluna(coluna), duracao(duracao) {}
 
-/*
+Item::~Item() {}
 
 
-Item::Item(Tipo tipo, int linha, int coluna, int duracao)
-        : tipo(tipo), linha(linha), coluna(coluna), duracao(duracao) {}
+void Item::aplicarEfeito(std::shared_ptr<Caravana> caravana, std::shared_ptr<Jogador> jogador){}
 
-Item::Tipo Item::getTipo() const {
-    return tipo;
-}
 
 int Item::getLinha() const {
     return linha;
@@ -28,9 +25,6 @@ int Item::getDuracao() const {
     return duracao;
 }
 
-void Item::decrementarDuracao() {
-    if (duracao > 0) {
-        duracao--;
-    }
+void Item::diminuirDuracao() {
+    duracao--;
 }
-*/

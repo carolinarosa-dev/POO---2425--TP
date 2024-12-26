@@ -10,7 +10,8 @@
 
 class Mina : public Item {
 public:
-    void aplicarEfeito(std::shared_ptr<Caravana> caravana) override;
+    Mina(int linha, int coluna, int duracao);
+    void aplicarEfeito(std::shared_ptr<Caravana> caravana,shared_ptr<Jogador> jogador) override;
 };
 
 

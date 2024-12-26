@@ -9,7 +9,8 @@
 
 class Jaula : public Item {
 public:
-    void aplicarEfeito(std::shared_ptr<Caravana> caravana) override;
+    Jaula(int linha, int coluna, int duracao);
+    void aplicarEfeito(shared_ptr<Caravana> caravana,shared_ptr<Jogador> jogador) override;
 };
 
 

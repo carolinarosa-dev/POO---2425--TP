@@ -4,9 +4,12 @@
 
 #include "Jaula.h"
 
-void Jaula::aplicarEfeito(std::shared_ptr<Caravana> caravana) {
-    int tripulantes = caravana->getTripulantes();
-   // int capacidade = caravana->getCapacidadeTripulantes();
-  //  int novosTripulantes = std::min(capacidade - tripulantes, 10);
-  //  caravana->adicionarTripulantes(novosTripulantes);
-}
+    Jaula::Jaula(int linha, int coluna, int duracao)
+        : Item(linha, coluna, duracao) {}
+
+    void Jaula::aplicarEfeito(std::shared_ptr<Caravana> caravana,shared_ptr<Jogador> jogador)  {
+        caravana->adicionarTripulantes(5); // Exemplo de quantidade de prisioneiros
+    }
+
+
+

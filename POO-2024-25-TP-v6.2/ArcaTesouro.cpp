@@ -5,9 +5,11 @@
 
 #include "ArcaTesouro.h"
 
-ArcaTesouro::ArcaTesouro(Jogador& jogador) : jogador(jogador) {}
+ArcaTesouro::ArcaTesouro(int linha, int coluna, int duracao)
+        : Item(linha, coluna, duracao) {}
 
-void ArcaTesouro::aplicarEfeito(std::shared_ptr<Caravana> caravana) {
-    int moedas = jogador.getMoedas();
-    jogador.adicionarMoedas(moedas * 0.1);
+
+
+void ArcaTesouro::aplicarEfeito(std::shared_ptr<Caravana> caravana, std::shared_ptr<Jogador> jogador) {
+jogador->adicionarMoedas(static_cast<int>(jogador->getMoedas() * 0.1));
 }

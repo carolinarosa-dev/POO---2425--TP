@@ -8,22 +8,23 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug"/>
+				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="POO_2024_25_TP">
-				<Option output="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/POO_2024_25_TP.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug"/>
+				<Option output="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/POO_2024_25_TP.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/include"/>
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
@@ -33,19 +34,20 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 POO_2024_25_TP"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 POO_2024_25_TP"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="POO_2024_25_TP/fast">
-				<Option output="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/POO_2024_25_TP.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug"/>
+				<Option output="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/POO_2024_25_TP.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/include"/>
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
@@ -55,145 +57,94 @@
 					<Add directory="C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 POO_2024_25_TP/fast"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 POO_2024_25_TP/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug"/>
+				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug"/>
+				<Option working_dir="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/ArcaTesouro.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/main.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/ArcaTesouro.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Buffer.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Buffer.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Caravanas/Caravana.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Buffer.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Caravanas/CaravanaBarbara.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaixaPandora.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Caravanas/CaravanaComercio.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaixaPandora.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Caravanas/CaravanaMilitar.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Caravana.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Caravanas/CaravanaSecreta.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Caravana.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Comandos.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaBarbara.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Interface.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaBarbara.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Itens/ArcaTesouro.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaComercio.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Itens/CaixaPandora.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaComercio.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Itens/Item.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaMilitar.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Itens/Jaula.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaMilitar.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Itens/Mina.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaSecreta.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Itens/Surpresa.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CaravanaSecreta.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Jogador.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Cidade.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Mapa/Cidade.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Cidade.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Mapa/Deserto.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Comandos.cpp">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Mapa/Montanha.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Comandos.h">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/src/Simulador.cpp">
 			<Option target="POO_2024_25_TP"/>
 		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Deserto.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Deserto.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Item.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Item.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Jaula.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Jaula.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Jogador.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Jogador.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Mina.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Mina.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Montanha.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Montanha.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Simulador.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Simulador.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Surpresa.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/Surpresa.h">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/main.cpp">
-			<Option target="POO_2024_25_TP"/>
-		</Unit>
-		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v4/CMakeLists.txt">
+		<Unit filename="D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -139,9 +139,9 @@ void Comandos::processaMapa() {
                     cerr << "Erro ao criar a cidade '" << caractere << "'.\n";
                     continue;  // Avançar para o próximo caractere
                 }
-                novaCidade->adicionarCaravana(make_shared<CaravanaComercio>(Caravana::getProximoId()+10,linha,coluna));
-                novaCidade->adicionarCaravana(make_shared<CaravanaMilitar>(Caravana::getProximoId()+10,linha,coluna));
-                novaCidade->adicionarCaravana(make_shared<CaravanaSecreta>(Caravana::getProximoId()+10,linha,coluna));
+                novaCidade->adicionarCaravana(make_shared<CaravanaComercio>(Caravana::getProximoId(),linha,coluna));
+                novaCidade->adicionarCaravana(make_shared<CaravanaMilitar>(Caravana::getProximoId(),linha,coluna));
+                novaCidade->adicionarCaravana(make_shared<CaravanaSecreta>(Caravana::getProximoId(),linha,coluna));
                 simulador->adicionarCidade(novaCidade);
 
             } else if (isdigit(caractere) && caractere != '0') { // Se for um número (caravana)

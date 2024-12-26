@@ -10,8 +10,12 @@
 
 class CaixaPandora : public Item {
 public:
-    void aplicarEfeito(std::shared_ptr<Caravana> caravana) override;
+    CaixaPandora(int linha, int coluna, int duracao);
+    void aplicarEfeito(std::shared_ptr<Caravana> caravana,shared_ptr<Jogador> jogador) override;
 };
+
+
+
 
 
 #endif //POO_2024_25_TP_CAIXAPANDORA_H

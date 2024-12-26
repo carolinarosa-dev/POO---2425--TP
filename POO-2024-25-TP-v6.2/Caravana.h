@@ -23,75 +23,60 @@ public:
     enum Tipo {
         COMERCIO, MILITAR, SECRETA, BARBARA
     };
+    int tripulantes;
 
-   // Caravana();
     Caravana(int id,Tipo tipo,  int linha, int coluna);
-   static int getProximoId();
-
-
+    static int getProximoId();
     virtual ~Caravana();
-
     Tipo getTipo() const;
-virtual string getDesignacaoTipo()const=0;//
+    virtual string getDesignacaoTipo()const=0;//
     int getId() const;
-
     pair<int, int> getPosicao() const;
     pair<int, int> getPosicaoAnterior() const;
-
     void setPosicao(int novaLinha, int novaColuna);
-
     int getTripulantes() const;
-
     int getCarga() const;
-
     int getAgua() const;
-
     void adicionarTripulantes(int quantidade);
-
     void removerTripulantes(int quantidade);
-
     void adicionarCarga(int quantidade);
-
     void removerCarga(int quantidade);
-
     void reabastecerAgua();
-
     void consumirAgua();
-
     virtual void aplicarEfeitoItem(int tipoItem);
-
     bool estaDestruida() const;
-
     void perderTripulantes(int quantidade);
-
     void adicionarAgua(int quantidade);
-
     virtual string exibirDetalhes() const;
-
     bool estaEmCidade() const;
-
     void setEmCidade(bool estado);
     int getCapacidadeCarga() const;
     void setAutoGestao(bool estado);
     void setId(int newId);
+    bool estaAdjacente(const Caravana& outra) const;
+    void transferirAgua(Caravana& vencedora);
+    void combater(Caravana& outra);
+
+
 
 
 protected:
+
+    int agua;
+    int capacidadeAgua;
+    int linha, coluna;
     Tipo tipo;
     int id;
-    int linha, coluna;
     int linhaAnterior, colunaAnterior;
-    int tripulantes;
     int carga;
-    int agua;
     int capacidadeCarga;
-    int capacidadeAgua;
     int consumoAgua;
     vector<string> mercadorias;
     bool emCidade;
     bool autoGestao;
 private:
-    static int proximoId; // Variável estática para gerar IDs único
+    static  int proximoId; // Variável estática para gerar IDs único
+
 
 };
 

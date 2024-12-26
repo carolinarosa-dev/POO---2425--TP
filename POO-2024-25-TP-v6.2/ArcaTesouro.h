@@ -10,12 +10,14 @@
 
 class ArcaTesouro : public Item {
 public:
-    ArcaTesouro(Jogador& jogador);
-    void aplicarEfeito(std::shared_ptr<Caravana> caravana) override;
+    ArcaTesouro(int linha, int coluna, int duracao);
+    void aplicarEfeito(std::shared_ptr<Caravana> caravana, std::shared_ptr<Jogador> jogador);
 
-private:
-    Jogador& jogador;
+
 };
+
+
+
 
 
 #endif //POO_2024_25_TP_ARCATESOURO_H

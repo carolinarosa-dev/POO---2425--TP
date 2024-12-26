@@ -3,13 +3,7 @@
 //
 
 #include "Caravana.h"
-/*
-Caravana::Caravana():id(0){
 
-}
-Caravana::Caravana(int id, Tipo tipo, int linha, int coluna)
-        : id(id),tipo(tipo),linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {}
-*/
 
 int Caravana::proximoId = 1;
 
@@ -109,8 +103,24 @@ void Caravana::consumirAgua() {
 }
 
 void Caravana::aplicarEfeitoItem(int tipoItem) {
-    // Implementar lógica básica de aplicação de efeito de item
-}
+        switch (tipoItem) {
+            case 0: // Caixa de Pandora
+                perderTripulantes(static_cast<int>(tripulantes * 0.2));
+                break;
+            case 1: // Arca do Tesouro
+                // Implementar lógica para adicionar moedas ao jogador
+                break;
+            case 2: // Jaula
+                adicionarTripulantes(5); // Exemplo de quantidade de prisioneiros
+                break;
+            case 3: // Mina
+                tripulantes = 0; // Destrói a caravana
+                break;
+            case 4: // Surpresa
+                // Implementar lógica de surpresa
+                break;
+        }
+    }
 
 bool Caravana::estaDestruida() const {
     return tripulantes <= 0;
@@ -128,10 +138,12 @@ void Caravana::adicionarAgua(int quantidade) {
     agua = std::min(capacidadeAgua, agua + quantidade);
 }
 
+
+
 // Exibe detalhes da caravana
 string Caravana::exibirDetalhes() const {
    ostringstream oss;
-    oss << "Caravana ID: " << proximoId << ", Tipo: " << getDesignacaoTipo()
+    oss << "Caravana ID: " << id << ", Tipo: " << getDesignacaoTipo()
         << ", Tripulantes: " << tripulantes << ", Carga: " << carga << ", Agua: " << agua
         << ", Mercadorias: ";
     for (const auto& mercadoria : mercadorias) {
@@ -141,6 +153,52 @@ string Caravana::exibirDetalhes() const {
     return oss.str();
 }
 
+
+bool Caravana::estaAdjacente(const Caravana& outra) const {
+    int distancia = abs(linha - outra.linha) + abs(coluna - outra.coluna);
+    return distancia == 1;
+}
+
+void Caravana::transferirAgua(Caravana& vencedora) {
+    int aguaTransferida = std::min(agua, vencedora.capacidadeAgua - vencedora.agua);
+    vencedora.agua += aguaTransferida;
+    agua -= aguaTransferida;
+}
+
+void Caravana::combater(Caravana& outra) {
+    int numeroCaravana1 = rand() % (tripulantes + 1);
+    int numeroCaravana2 = rand() % (outra.tripulantes + 1);
+
+    if (numeroCaravana1 > numeroCaravana2) {
+        int perdaVencedor = static_cast<int>(tripulantes * 0.2);
+        int perdaPerdedor = 2 * perdaVencedor;
+
+        tripulantes -= perdaVencedor;
+        outra.tripulantes -= perdaPerdedor;
+
+        if (outra.tripulantes <= 0) {
+            outra.tripulantes = 0;
+            outra.transferirAgua(*this);
+        }
+    } else {
+        int perdaVencedor = static_cast<int>(outra.tripulantes * 0.2);
+        int perdaPerdedor = 2 * perdaVencedor;
+
+        outra.tripulantes -= perdaVencedor;
+        tripulantes -= perdaPerdedor;
+
+        if (tripulantes <= 0) {
+            tripulantes = 0;
+            transferirAgua(outra);
+        }
+    }
+
+    tripulantes = std::max(0, tripulantes);
+    outra.tripulantes = std::max(0, outra.tripulantes);
+}
+
 Caravana::~Caravana() {
 
 }
+
+

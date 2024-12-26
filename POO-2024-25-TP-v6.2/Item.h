@@ -9,30 +9,21 @@
 #include <memory>
 #include "Caravana.h"
 
-/*
-class Item {
-public:
-    enum Tipo { CAIXA_PANDORA, ARCA_TESOURO, JAULA, MINA, SURPRESA };
 
-    Item(Tipo tipo, int linha, int coluna, int duracao);
-    Tipo getTipo() const;
+
+class Item {
+protected:
+    int linha, coluna;
+    int duracao; // Duração em instantes que o item permanece no deserto
+
+public:
+    Item(int linha, int coluna, int duracao);
+    virtual ~Item();
+    virtual void aplicarEfeito(std::shared_ptr<Caravana> caravana,shared_ptr<Jogador> jogador) = 0;
     int getLinha() const;
     int getColuna() const;
     int getDuracao() const;
-    void decrementarDuracao();
-
-private:
-    Tipo tipo;
-    int linha, coluna;
-    int duracao;
-};
-*/
-
-
-class Item {
-public:
-    virtual ~Item() = default;
-    virtual void aplicarEfeito(std::shared_ptr<Caravana> caravana) = 0;
+    void diminuirDuracao();
 };
 
 

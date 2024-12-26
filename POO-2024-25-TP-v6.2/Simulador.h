@@ -63,6 +63,7 @@ public:
 
 
 
+
     void mostrarDescricaoCaravana(int idCaravana) const;
 
     ~Simulador();
@@ -91,6 +92,8 @@ private:
     std::shared_ptr<Jogador> jogador;
     vector<std::shared_ptr<Caravana>> caravanas; // Declaração da variável caravanas
     //Comandos comandos;
+    std::vector<std::shared_ptr<Caravana>> caravanasJogador;
+
 
 
 };

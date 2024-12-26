@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v8.3
+# Install script for directory: D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Tinoco/Desktop/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/ISEC_LEI_2324/202420225/POO/POO---2425--TP/POO-2024-25-TP-v8.3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

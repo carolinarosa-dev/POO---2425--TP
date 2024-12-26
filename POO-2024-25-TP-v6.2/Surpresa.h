@@ -10,7 +10,8 @@
 
 class Surpresa : public Item {
 public:
-    void aplicarEfeito(std::shared_ptr<Caravana> caravana) override;
+    Surpresa(int linha, int coluna, int duracao);
+    void aplicarEfeito(shared_ptr<Caravana> caravana,shared_ptr<Jogador> jogador) override;
 };
 
 
