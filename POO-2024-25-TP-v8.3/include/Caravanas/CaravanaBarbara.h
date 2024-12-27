@@ -2,13 +2,14 @@
 #ifndef POO_2024_25_TP_CARAVANABARBARA_H
 #define POO_2024_25_TP_CARAVANABARBARA_H
 
-#include "Caravana.h"
+#include "../include/Caravanas/Caravana.h"
 
 
 class CaravanaBarbara : public Caravana {
 public:
 //    CaravanaBarbara(int id, Tipo tipo, int linha, int coluna, int turnosAteDesaparecer);
     CaravanaBarbara(Tipo tipo, int linha, int coluna);
+    CaravanaBarbara(int linha, int coluna);
     ~CaravanaBarbara() override;
 
     void moverAleatoriamente();
@@ -20,8 +21,6 @@ public:
     virtual std::string getDesignacaoTipo()const override;
 private:
     int turnosAteDesaparecer;
-
-
 };
 
 #endif //POO_2024_25_TP_CARAVANABARBARA_H

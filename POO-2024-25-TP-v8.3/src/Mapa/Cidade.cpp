@@ -12,8 +12,9 @@ Cidade::Cidade(char nome, int linha, int coluna)
 }
 
 char Cidade::getNome() const {
-    return nome;
+        return nome;
 }
+
 std::pair<int, int> Cidade::getPosicaoCidade() const {
     return {linha, coluna};
 }

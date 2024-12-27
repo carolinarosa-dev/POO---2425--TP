@@ -24,7 +24,7 @@ public:
 
     // Comandos da Fase 1
 //    void cmd_config(const std::string &nomeFicheiro, int linhas, int colunas, Simulador simulador) const;
-    void cmd_config(const std::string &nomeFicheiro, int linhas, int colunas);
+    void cmd_config(const std::string &nomeFicheiro);
 
     std::string cmd_sair();
 
@@ -39,7 +39,7 @@ public:
 
     std::string cmd_cidade(std::istringstream &iss);
 
-    std::string cmd_caravana(std::istringstream &iss);
+    void cmd_caravana(std::istringstream &iss);
 
     std::string cmd_compra(std::istringstream &iss);
 
@@ -70,12 +70,9 @@ public:
     std::string cmd_terminar();
 
     //Mapa
-    void setMapaFicheiro(const std::string& linha);
-    std::vector<std::string>& getMapaFicheiro(); //fica const?
-    void imprimirMapa();                        //fica const?
+    void processaMapa();
 
-
-    void lerFicheiro(std::ifstream& ficheiro, int& linhas, int& colunas);
+    void lerFicheiro(std::ifstream& ficheiro);
     bool validarArgumentos(const std::string &comando, std::string& mensagem);
     bool executarComando(const std::string &comando, std::string &mensagem);
 
@@ -83,17 +80,8 @@ public:
     void limpaDados();
     void atualizaMapa();
     int calcularPontuacao();
+
 //    configuraveis
-    void setMoedas(int valor);
-    void setInstantesEntreNovosItens (int valor);
-    void setDuracaoItem (int valor);
-    void setMaxItens (int valor);
-    void setPrecoVendaMercadoria (int valor);
-    void setPrecoCompraMercadoria (int valor);
-    void setPrecoCaravana (int valor);
-    void setInstantesEntreNovosBarbaros (int valor);
-    void setDuracaoBarbaros (int valor);
-    void setAtributosConfiguraveis(const std::string chave, int valor);
     std::map<std::string, int> getAtributosConfiguraveis() const;
     void imprimirAtributosConfiguraveis() const;
 
@@ -101,21 +89,14 @@ public:
     ~Comandos();
 private:
     Simulador* simulador;
-    int linha, coluna;
 //    mapa
     std::vector<std::string> mapaFicheiro;
 //    configuraveis
     std::map<std::string, int> atributosConfiguraveis;
 
-    int moedas;
-    int instantes_entre_novos_itens;
-    int duracao_item;
-    int max_itens;
-    int preco_venda_mercadoria;
-    int preco_compra_mercadoria;
-    int preco_caravana;
-    int instantes_entre_novos_barbaros;
-    int duracao_barbaros;
+    int moedas, instantesEntreNovosItens, duracaoItem, maxItens;
+    int precoCaravana, precoCompraMercadoria, precoVendaMercadoria;
+    int instantesEntreNovosBarbaros, duracaoBarbaros;
 
 };
 

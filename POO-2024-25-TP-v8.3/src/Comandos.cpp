@@ -1,17 +1,22 @@
 
 #include "../include/Comandos.h"
-
+#include "Mapa/Cidade.h"
+#include "Caravanas/CaravanaComercio.h"
+#include "Caravanas/CaravanaMilitar.h"
+#include "Caravanas/CaravanaSecreta.h"
+#include "Caravanas/CaravanaBarbara.h"
+#include "Jogador.h"
 #include <iostream>
 #include <filesystem>
 #include <fstream>
 
 Comandos::Comandos(): simulador(nullptr){}
 
-void Comandos::cmd_config(const std::string &nomeFicheiro, int linhas, int colunas){
+void Comandos::cmd_config(const std::string &nomeFicheiro){
     std::ifstream ficheiro(nomeFicheiro);
 
        // Ler as configurações do ficheiro para o mapa
-    lerFicheiro(ficheiro, linhas, colunas);
+    lerFicheiro(ficheiro);
     std::cout << "Configuracao carregada com sucesso!" << std::endl;
 }
 
@@ -78,18 +83,13 @@ void Comandos::cmd_comprac(std::istringstream &iss){
     char tipoCaravana;
     // Lê a cidade e o tipo da caravana
     iss >> cidadeNome >> tipoCaravana;
-    moedas = atributosConfiguraveis.at("moedas");
-    preco_caravana = atributosConfiguraveis.at("preco_carvana");
 
-    std::cout << "moedas" << moedas;
-    std::cout << "preco_caravana" << preco_caravana;
-
-    if (moedas >= preco_caravana) {
-        simulador->jogadorCompraCaravana(cidadeNome, tipoCaravana, preco_caravana);
+    if (moedas >= precoCaravana) {
+        simulador->jogadorCompraCaravana(cidadeNome, tipoCaravana, precoCaravana);
+    } else {
+        std::cout << "Moedas insuficientes para comprar uma caravana!";
     }
-//    else {
-//        throw runtime_error("Moedas insuficientes para comprar uma caravana!");
-//    }
+
 }
 
 std::string Comandos::cmd_precos(){
@@ -103,74 +103,33 @@ std::string Comandos::cmd_precos(){
 }
 
 std::string Comandos::cmd_cidade(std::istringstream &iss){
-/*    char letraCidade;
-    iss >> letraCidade;
-    std::shared_ptr<Cidade> cidadeEscolhida = nullptr;
-    for (const auto& cidade : simulador->getCidade()) {
-        if (cidade->getNome() == letraCidade) {
-            cidadeEscolhida = cidade;
-            break;
-        }
-    }
-    if (!cidadeEscolhida) {
-        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' nao encontrada!");
-    }
-    std::string detalhesCaravanas = cidadeEscolhida->listarCaravanas();
-    std::cout << detalhesCaravanas;char letraCidade;
-    iss >> letraCidade;
-    std::shared_ptr<Cidade> cidadeEscolhida = nullptr;
-    for (const auto& cidade : simulador->getCidade()) {
-        if (cidade->getNome() == letraCidade) {
-            cidadeEscolhida = cidade;
-            break;
-        }
-    }
-    if (!cidadeEscolhida) {
-        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' nao encontrada!");
-    }
-    std::string detalhesCaravanas = cidadeEscolhida->listarCaravanas();
-    std::cout << detalhesCaravanas;*/
-
-
-/*  char letraCidade;
+    char letraCidade;
     iss >> letraCidade;
 
-// Ponteiro único para a cidade escolhida
-    std::unique_ptr<Cidade> cidadeEscolhida = nullptr;
 
-// Itera pelas cidades do simulador
-    for (const auto& cidade : simulador->getCidade()) {
-        if (cidade->getNome() == letraCidade) {
-            // Cria um novo std::unique_ptr apontando para a cidade correspondente
-            cidadeEscolhida = std::make_unique<Cidade>(*cidade); // Copia a cidade
-            break;
-        }
-    }
+    //std::unique_ptr<Cidade> cidadeEscolhida = simulador->encontrarCidade(letraCidade);
 
-// Verifica se a cidade foi encontrada
-    if (!cidadeEscolhida) {
-        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' nao encontrada!");
-    }
+//    if (!cidadeEscolhida) {
+//        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' nao encontrada!");
+//    }
+//
+//    // Agora que encontramos a cidade, listamos as caravanas que estão lá
+    std::string detalhesCaravanas;// = cidadeEscolhida->listarCaravanas();  // Supondo que o metodo `listarCaravanas` exista
+//    std::cout << detalhesCaravanas << std::endl;  // Exibe as caravanas da cidade
 
-// Usa o ponteiro único para acessar os detalhes da cidade
-    std::string detalhesCaravanas = cidadeEscolhida->listarCaravanas();
-    std::cout << detalhesCaravanas;
-*/
+    // Armazena a resposta no stringstream
     std::ostringstream oss;
-    return oss.str();
+    oss << detalhesCaravanas;
+    return oss.str();  // Retorna as caravanas da cidade como uma string
 }
 
-std::string Comandos::cmd_caravana(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_caravana(std::istringstream &iss){
+    //std::ostringstream oss;
     int numCaravana;
     iss >> numCaravana;
-//    auto caravana = simulador->getCaravana(numCaravana);
-//    if (caravana){
-//        oss << caravana->exibirDetalhes();
-//    }else{
-//        oss << "Caravana nao encontrada"<< std::endl;
-//    }
-    return oss.str();
+    auto caravana = simulador->getJogador()->exibirDetalheCaravana(numCaravana);
+
+    std::cout << caravana;
 }
 
 std::string Comandos::cmd_compra(std::istringstream &iss){
@@ -179,7 +138,7 @@ std::string Comandos::cmd_compra(std::istringstream &iss){
     iss >> idCaravana >> quantidadeMercadoria;
 
     try {
-//        simulador->comprarMercadoria(idCaravana, quantidadeMercadoria, utils.atributosConfiguraveis.at("precoCompraMercadoria"));
+        simulador->comprarMercadoria(idCaravana, quantidadeMercadoria, atributosConfiguraveis.at("preco_compra_mercadoria"));
     } catch (const std::exception &e) {
         oss << "Erro ao comprar mercadorias: " << e.what() << std::endl;
     }
@@ -192,7 +151,7 @@ std::string Comandos::cmd_vende(std::istringstream &iss){
     iss >> idCaravana;
 
     try {
-//        simulador->venderMercadoria(idCaravana, utils.precoVendaMercadoria);
+       simulador->venderMercadoria(idCaravana, atributosConfiguraveis.at("preco_venda_mercadoria"));
         oss<< "Vendida toda a mercadoria da caravana " << idCaravana << "." << std::endl;
     } catch (const std::exception &e) {
         oss << "Erro ao vender mercadorias: " << e.what() << std::endl;
@@ -387,57 +346,105 @@ std::string Comandos::cmd_terminar(){
     return oss.str();
 }
 
-void Comandos::setMapaFicheiro(const std::string &linha)  {
-    mapaFicheiro.push_back(linha);
-}
-std::vector<std::string>& Comandos::getMapaFicheiro(){
-    return mapaFicheiro;
-}
-void Comandos::imprimirMapa(){
-    std::cout << "Mapa do deserto:" << std::endl;
-    for (auto& linha : getMapaFicheiro()) {
-        std::cout << linha << std::endl;
+
+
+void Comandos::processaMapa() {
+    for (int linha = 0; linha < simulador->getLinhas(); ++linha) {
+        for (int coluna = 0; coluna < simulador->getColunas(); ++coluna) {
+            char caractere = simulador->getCaractere(linha,coluna);
+
+            if (isalpha(caractere)) { // Se for uma letra (cidade)
+                auto novaCidade = std::make_unique<Cidade>(caractere, linha, coluna);
+                if (!novaCidade) {
+                    std::cerr << "Erro ao criar a cidade '" << caractere << "'.\n";
+                    continue;  // Avançar para o próximo caractere
+                }
+                novaCidade->adicionaCaravanasCidade(std::make_unique<CaravanaComercio>(Caravana::getContador(),linha,coluna,Caravana::COMERCIO));
+                novaCidade->adicionaCaravanasCidade(std::make_unique<CaravanaMilitar>(Caravana::getContador(),linha,coluna,Caravana::MILITAR));
+                novaCidade->adicionaCaravanasCidade(std::make_unique<CaravanaSecreta>(Caravana::getContador(),linha,coluna,Caravana::SECRETA));
+
+                simulador->adicionarCidade(std::move(novaCidade));
+
+            } else if (isdigit(caractere) && caractere != '0') { // Se for um número (caravana)
+                int id = caractere - '0'; //converte o caractere para o inteiro correspondente
+                simulador->adicionaCaravanaJogador(std::make_unique<CaravanaMilitar>(id,linha, coluna,Caravana::MILITAR)); //por enquanto adiciona apenas militares aquelas já presentes no mapa, mas podemos fazer um random
+            } else if (caractere == '+'){ // Se for uma montanha
+                //montanha->adicionaMontanha();
+            } else if (caractere == '.') { // uma posição vazia
+                //cout << "Posição vazia (" << linha << ", " << coluna << ")\n";
+            } else if (caractere == '!') { // caravana barbara
+                simulador->adicionaCaravanaBarbara(std::make_unique<CaravanaBarbara>(linha, coluna));
+            }else {
+                std::cerr << "Caractere desconhecido '" << caractere << "' na posição ("
+                     << linha << ", " << coluna << ")\n";
+            }
+        }
     }
 }
-
-void Comandos::lerFicheiro(std::ifstream &ficheiro, int &linhas, int &colunas){
+void Comandos::lerFicheiro(std::ifstream &ficheiro){
     if (!ficheiro.is_open()) {
         throw std::runtime_error("Erro: Não foi possível abrir o ficheiro.");
     }
 
     std::string palavra;
+    int linhas, colunas;
     ficheiro >> palavra >> linhas;
     ficheiro >> palavra >> colunas;
     ficheiro.ignore();
 
     // Verifica se as dimensões são válidas
-    if (linhas <= 0 || colunas <= 0) {
+    if (linhas  <= 0 || colunas <= 0) {
         throw std::runtime_error("Dimensões inválidas no ficheiro (linhas ou colunas <= 0).");
     }
 
     // Ler o mapa do deserto
     std::string linha;
-    for (int i = 0; i < linhas; ++i) {
-        if (!std::getline(ficheiro, linha)) {
-            throw std::runtime_error("Erro: não foi possível ler a linha do ficheiro");
-        }
-        if (linha.length() != colunas) {
-            throw std::runtime_error("Erro no mapa: número de colunas incorreto");
-        }
 
-        setMapaFicheiro(linha);
+    simulador = new Simulador(linhas, colunas);
+    for (int i = 0; i < simulador->getLinhas(); ++i) {
+        std::getline(ficheiro, linha);
+        if (linha.length() != simulador->getColunas()) {
+            throw std::runtime_error("Erro: o tamanho da linha do mapa nao corresponde ao numero de colunas.");
+        }
+        for (int j = 0; j< linha.length(); j++){
+            simulador->setLinhaMapa(i,j,linha[j]);
+        }
     }
-    imprimirMapa();
+
+    processaMapa();
+    simulador->imprimeMapa();
 
     // Le as configurações
     std::string linha_config;
-    while (std::getline(ficheiro, linha_config)) {
-        std::istringstream iss(linha_config);
-        std::string chave;
-        int valor;
-        // Ler chave e valor de cada linha
-        if (iss >> chave >> valor) {
-            setAtributosConfiguraveis(chave,valor);
+    while (ficheiro >> linha) {
+        if (linha == "moedas") {
+            ficheiro >> moedas;
+            atributosConfiguraveis["moedas"] = moedas;
+            simulador->getJogador()->adicionarMoedas(moedas);
+        } else if (linha == "instantes_entre_novos_itens") {
+            ficheiro >> instantesEntreNovosItens;
+            atributosConfiguraveis["instantesEntreNovosItens"] = instantesEntreNovosItens;
+        }else if (linha == "duracao_item") {
+            ficheiro >> duracaoItem;
+            atributosConfiguraveis["duracaoItem"] = duracaoItem;
+        }else if (linha == "max_itens") {
+            ficheiro >> maxItens;
+            atributosConfiguraveis["maxItens"] = maxItens;
+        }else if (linha == "preco_venda_mercadoria") {
+            ficheiro >> precoVendaMercadoria;
+            atributosConfiguraveis["precoVendaMercadoria"] = precoVendaMercadoria;
+        }else if (linha == "preco_compra_mercadoria") {
+            ficheiro >> precoCompraMercadoria;
+            atributosConfiguraveis["precoCompraMercadoria"] = precoCompraMercadoria;
+        }else if (linha == "preco_caravana") {
+            ficheiro >> precoCaravana;
+            atributosConfiguraveis["precoCaravana"] = precoCaravana;
+        }else if (linha == "instantes_entre_novos_barbaros") {
+            ficheiro >> instantesEntreNovosBarbaros;
+            atributosConfiguraveis["instantesEntreNovosBarbaros"] = instantesEntreNovosBarbaros;
+        }else if (linha == "duracao_barbaros") {
+            ficheiro >> duracaoBarbaros;
+            atributosConfiguraveis["duracaoBarbaros"] = duracaoBarbaros;
         }
     }
     imprimirAtributosConfiguraveis();
@@ -501,7 +508,7 @@ bool Comandos::executarComando(const std::string &comando, std::string &mensagem
             bool sucesso = false;
             while (!sucesso) {
                 try {
-                    cmd_config(nomeFicheiro, linha, coluna);
+                    cmd_config(nomeFicheiro);
                     sucesso = true;
                 } catch (const std::runtime_error &e) {
                     // Caso o ficheiro não seja encontrado ou outro erro ocorra
@@ -516,11 +523,7 @@ bool Comandos::executarComando(const std::string &comando, std::string &mensagem
         } else if (cmd == "prox") {
             cmd_prox(iss);
         } else if (cmd == "comprac") {
-            moedas = atributosConfiguraveis.at("moedas");
-            preco_caravana = atributosConfiguraveis.at("preco_carvana");
-            std::cout << "moedas" << moedas;
-            std::cout << "preco_caravana" << preco_caravana;
-            cmd_comprac(iss);
+              cmd_comprac(iss);
         } else if (cmd == "precos") {
             std::string precos = cmd_precos();
             std::cout << precos;
@@ -575,16 +578,10 @@ void Comandos::limparMapa() {
     }
 */}
 void Comandos::limpaDados() {
-//    linha = coluna =0;
-    setMoedas(1000);
-    setInstantesEntreNovosItens(10);
-    setDuracaoItem(20);
-    setMaxItens(5);
-    setPrecoVendaMercadoria(2);
-    setPrecoCompraMercadoria(1);
-    setPrecoCaravana(100);
-    setInstantesEntreNovosBarbaros(40);
-    setDuracaoBarbaros(60);
+    moedas = 0;
+    instantesEntreNovosItens = duracaoItem = maxItens = 0;
+    precoCaravana = 0;
+    instantesEntreNovosBarbaros = duracaoBarbaros = 0;
     limparMapa();
 }
 void Comandos::atualizaMapa() {
@@ -605,82 +602,7 @@ int Comandos::calcularPontuacao(){
     return pontuacao;
 }
 
-void Comandos::setMoedas(int valor) {
-    atributosConfiguraveis["moedas"] = valor;
-}
-void Comandos::setInstantesEntreNovosItens(int valor) {
-    atributosConfiguraveis["instantes_entre_novos_itens"] = valor;
-}
-void Comandos::setDuracaoItem(int valor) {
-    atributosConfiguraveis["duracao_item"] = valor;
-}
 
-void Comandos::setMaxItens(int valor) {
-    atributosConfiguraveis["max_itens"] = valor;
-}
-
-void Comandos::setPrecoVendaMercadoria(int valor) {
-    atributosConfiguraveis["preco_venda_mercadoria"] = valor;
-}
-
-void Comandos::setPrecoCompraMercadoria(int valor) {
-    atributosConfiguraveis["preco_compra_mercadoria"] = valor;
-}
-
-void Comandos::setPrecoCaravana(int valor) {
-    atributosConfiguraveis["preco_caravana"] = valor;
-}
-
-void Comandos::setInstantesEntreNovosBarbaros(int valor) {
-    atributosConfiguraveis["instantes_entre_novos_barbaros"] = valor;
-}
-void Comandos::setDuracaoBarbaros(int valor) {
-    atributosConfiguraveis["duracao_barbaros"] = valor;
-}
-
-void Comandos :: setAtributosConfiguraveis(const std::string chave, int valor) {
-/*
-    if (chave == "moedas") {
-        setMoedas(valor);
-    }if (chave == "instantes_entre_novos_itens") {
-        setInstantesEntreNovosItens(valor);
-    } else if (chave == "duracao_item") {
-        setDuracaoItem(valor);
-    } else if (chave == "max_itens") {
-        setMaxItens(valor);
-    } else if (chave == "preco_venda_mercadoria") {
-        setPrecoVendaMercadoria(valor);
-    } else if (chave == "preco_compra_mercadoria") {
-        setPrecoCompraMercadoria(valor);
-    } else if (chave == "preco_caravana") {
-        setPrecoCaravana(valor);
-    } else if (chave == "instantes_entre_novos_barbaros") {
-        setInstantesEntreNovosBarbaros(valor);
-    } else if (chave == "duracao_barbaros") {
-        setDuracaoBarbaros(valor);
-    } else {
-        std::cout << "Chave nao reconhecida: " << chave << std::endl;
-    }
-    */
-    static const std::map<std::string, std::function<void(int)>> configuracoes = {
-            {"moedas", [this](int v) { setMoedas(v); }},
-            {"instantes_entre_novos_itens", [this](int v) { setInstantesEntreNovosItens(v); }},
-            {"duracao_item", [this](int v) { setDuracaoItem(v); }},
-            {"max_itens", [this](int v) { setMaxItens(v); }},
-            {"preco_venda_mercadoria", [this](int v) { setPrecoVendaMercadoria(v); }},
-            {"preco_compra_mercadoria", [this](int v) { setPrecoCompraMercadoria(v); }},
-            {"preco_caravana", [this](int v) { setPrecoCaravana(v); }},
-            {"instantes_entre_novos_barbaros", [this](int v) { setInstantesEntreNovosBarbaros(v); }},
-            {"duracao_barbaros", [this](int v) { setDuracaoBarbaros(v); }},
-    };
-
-    auto it = configuracoes.find(chave);
-    if (it != configuracoes.end()) {
-        it->second(valor);  // Executa a função correspondente
-    } else {
-        std::cout << "Chave nao reconhecida: " << chave << std::endl;
-    }
-}
 std::map<std::string, int> Comandos::getAtributosConfiguraveis()const{
     return atributosConfiguraveis;
 }

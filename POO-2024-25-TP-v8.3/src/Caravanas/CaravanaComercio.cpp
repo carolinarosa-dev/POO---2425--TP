@@ -11,8 +11,9 @@ CaravanaComercio::CaravanaComercio()
     consumoAgua = 2;
 }
 
-CaravanaComercio::CaravanaComercio(Tipo tipo, int linha, int coluna)
-        : Caravana(Tipo::COMERCIO, getPosicaoCaravana().first, getPosicaoCaravana().second) {
+CaravanaComercio::CaravanaComercio(int id, int linha, int coluna, Tipo tipo)
+        : Caravana(id, linha, coluna) {
+    this->tipo = tipo;
     tripulantes = 20;
     carga = 0;
     agua = 200;

@@ -7,7 +7,7 @@
 class CaravanaMilitar : public Caravana {
 
 public:
-    CaravanaMilitar(Tipo tipo, int linha, int coluna);
+    CaravanaMilitar(int id, int linha, int coluna, Tipo tipo);
 
     virtual std::string getDesignacaoTipo()const override;
 

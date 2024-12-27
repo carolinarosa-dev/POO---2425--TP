@@ -3,15 +3,14 @@
 
 #include <sstream>
 
-int Caravana::id = 0;
+int Caravana::contador = 100;
 
-Caravana::Caravana(Tipo tipo, int linha, int coluna)
-//        : tipo(tipo), getPosicaoCaravana().frist, getPosicaoCaravana().second, tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {
-        : tipo(tipo), linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {
+Caravana::Caravana(int id, int linha, int coluna)
+        : id(id), linha(linha), coluna(coluna), tripulantes(0), carga(0), agua(0), capacidadeCarga(0), capacidadeAgua(0), consumoAgua(0) {
     if (id > 9) {
         //throw std::runtime_error("Numero maximo de caravanas atingido.");
     }
-    id++;
+    //contador++;
 }
 
 Caravana::Tipo Caravana::getTipo() const {
@@ -20,6 +19,10 @@ Caravana::Tipo Caravana::getTipo() const {
 
 int Caravana::getId() const {
     return id;
+}
+
+int Caravana::getContador(){
+    return contador++;
 }
 
 std::pair<int, int> Caravana::getPosicaoAnteriorCaravana() const {

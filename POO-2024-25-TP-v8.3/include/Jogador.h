@@ -14,8 +14,15 @@
 class Jogador {
 public:
     void comprarCaravana(std::unique_ptr<Caravana> caravanaCidade, int preco);  // Método da classe Jogador
-private:
+    void adicionarCaravana(std::unique_ptr<Caravana> caravana);
+    void adicionarMoedas(int quantidade);
+    int getMoedas()const;
+    std::string exibirDetalheCaravana(int id) const;
+    std::vector<std::unique_ptr<Caravana>>& getCaravanas();
 
+
+private:
+    int moedas;
     std::vector<std::unique_ptr<Caravana>> caravanasJogador;  // Vetor de caravanas do jogador
 
 };

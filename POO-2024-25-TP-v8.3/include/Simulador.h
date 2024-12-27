@@ -8,15 +8,16 @@
 #include "memory"
 //#include "Mapa/Cidade.h"
 
-#include "Caravanas/Caravana.h"
-
+#include "Buffer.h"
+class Caravana;
+class CaravanaBarbara;
 class Cidade;
 class Jogador;
 
 class Simulador {
 
 public:
-    Simulador();
+    Simulador(int linhas, int colunas);
     void setFase(int fase);
 
 
@@ -27,36 +28,43 @@ public:
 //    Deserto
     void adicionarMontanha(double latitude, double longitude);
 //    cidade
-//    std::vector<std::unique_ptr<Cidade>> getCidade()const;
-//    std::string adicionarCidade(std::shared_ptr<Cidade> cidade)const;
-//    const std::vector<std::shared_ptr<Cidade>> &getCidades() const;
+    void adicionarCidade(std::unique_ptr<Cidade> cidade);
     void listarCaravanasNaCidade(char cidadeLetra) const;
+    char getCaractere(int l, int c) const;
+    int getLinhas() const;
+    int getColunas() const;
+    char** getMapa() const;
+    std::unique_ptr<Cidade> encontrarCidade(char letraCidade);
+    void imprimeMapa() const;
+//    Itens
 
-    //    Itens
 //    caravanas
-//    std::string criarCaravanaBarbara(int linha, int coluna) const;
-//   void adicionaCaravanaJogador(std::shared_ptr<Caravana> caravana);//processaMapa
-    std::string jogadorCompraCaravana(char cidadeLetra, char tipoCaravana, int precoCaravana) const;//comprac
-//    void adicionaCaravanaBarbara(std::shared_ptr<CaravanaBarbara> caravana);
-//
-//    void mostrarDescricaoCaravana(int idCaravana) const;
-//
+    void adicionaCaravanaJogador(std::unique_ptr<Caravana> caravana);//processaMapa
+    void jogadorCompraCaravana(char cidadeLetra, char tipoCaravana, int precoCaravana) const;//comprac
+    void adicionaCaravanaBarbara(std::unique_ptr<CaravanaBarbara> caravana);
+    void setLinhaMapa(int l, int c, char linha);
+
 //    void moverCaravana(int idCaravana, const std::string &direcao, char** mapa);
 //    void ativarAutoGestao(int idCaravana);
 //    void desativarAutoGestao(int idCaravana);
 //
-////    compras e vendas
-//    void comprarMercadoria(int idCaravana, int quantidadeMercadoria, int precoCompraMercadoria);
-//    void venderMercadoria(int idCaravana, int precoVendaMercadoria);
+//    compras e vendas
+    void comprarMercadoria(int idCaravana, int quantidadeMercadoria, int precoCompraMercadoria);
+    void venderMercadoria(int idCaravana, int precoVendaMercadoria);
 //
 ////    combates
-
+//     jogador
+    std::shared_ptr<Jogador>getJogador();
 
 private:
+    Buffer* bufferAtual;
+    //std::map<std::string, Buffer*> buffersSalvos;
     int fase;
-
+    char** mapa;
+    int linhas, colunas;
     std::vector<std::unique_ptr<Cidade>> cidades;
     std::shared_ptr<Jogador> jogador;
+    std::vector<std::unique_ptr<CaravanaBarbara>> caravanasBarbaras;
     int contadorInstantes;
 
 //recebe o preco no comando comprac
@@ -64,6 +72,4 @@ private:
 
 
 };
-
-
 #endif //POO_2024_25_TP_SIMULADOR_H

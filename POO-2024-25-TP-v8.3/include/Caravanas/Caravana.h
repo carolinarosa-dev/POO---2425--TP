@@ -16,12 +16,14 @@ public:
     };
 
     // Caravana();
-    Caravana(Tipo tipo,  int linha, int coluna);
+    Caravana(int id,  int linha, int coluna);
 
 
     Tipo getTipo() const;
 
     int getId() const;
+
+    static int getContador();
 
     std::pair<int, int> getPosicaoCaravana() const;
     std::pair<int, int> getPosicaoAnteriorCaravana() const;
@@ -66,7 +68,7 @@ public:
 protected:
 
     //Comandos comandos;
-
+    int id;
     Tipo tipo;
     int linha, coluna;
     int linhaAnterior, colunaAnterior;
@@ -80,6 +82,6 @@ protected:
     bool emCidade;
     bool autoGestao;
 private:
-    static int id; // Variável estática para gerar IDs único
+    static int contador; // Variável estática para gerar IDs único
 };
 #endif //POO_2024_25_TP_CARAVANA_H

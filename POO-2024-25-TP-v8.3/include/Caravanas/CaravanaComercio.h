@@ -7,7 +7,7 @@ class CaravanaComercio : public Caravana {
 public:
     CaravanaComercio();
 
-    CaravanaComercio(Tipo tipo, int linha, int coluna);
+    CaravanaComercio(int id, int linha, int coluna, Tipo tipo);
 
     virtual std::string getDesignacaoTipo()const override;
 

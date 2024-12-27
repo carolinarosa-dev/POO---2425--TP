@@ -7,7 +7,11 @@ CaravanaBarbara::CaravanaBarbara(Tipo tipo, int linha, int coluna)
     //id = getId();
     tripulantes = 40;
 }
-
+CaravanaBarbara::CaravanaBarbara(int linha, int coluna)
+        : Caravana(616, linha, coluna) {
+    //id = getId();
+    tripulantes = 40;
+}
 
 void CaravanaBarbara::moverAleatoriamente() {
     int direcao = rand() % 4;

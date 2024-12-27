@@ -19,7 +19,7 @@ class CaravanaSecreta : public Caravana {
 
 public:
 //    CaravanaSecreta(int id, int linha, int coluna);
-    CaravanaSecreta(Tipo tipo,  int linha, int coluna);
+    CaravanaSecreta(int id,  int linha, int coluna, Tipo tipo);
 
     virtual std::string getDesignacaoTipo()const override;
 

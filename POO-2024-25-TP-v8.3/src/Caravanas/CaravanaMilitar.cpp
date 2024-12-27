@@ -1,7 +1,8 @@
 
 #include "../../include/Caravanas/CaravanaMilitar.h"
-CaravanaMilitar::CaravanaMilitar(Tipo tipo, int linha, int coluna)
-        : Caravana(MILITAR, getPosicaoCaravana().first, getPosicaoCaravana().second) {
+CaravanaMilitar::CaravanaMilitar(int id, int linha, int coluna, Tipo tipo)
+        : Caravana(id, linha, coluna) {
+    this->tipo = tipo;
     tripulantes = 40;
     carga = 0;
     agua = 400;

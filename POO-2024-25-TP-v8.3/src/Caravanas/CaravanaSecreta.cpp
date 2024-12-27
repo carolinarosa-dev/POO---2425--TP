@@ -1,8 +1,9 @@
 
 #include "../../include/Caravanas/CaravanaSecreta.h"
 
-CaravanaSecreta::CaravanaSecreta(Tipo tipo, int linha, int coluna)
-        : Caravana(Tipo::SECRETA, getPosicaoCaravana().first, getPosicaoCaravana().second) {
+CaravanaSecreta::CaravanaSecreta(int id, int linha, int coluna, Tipo tipo)
+        : Caravana(id, linha, coluna) {
+    this->tipo = tipo;
     tripulantes = 10;
     capacidadeAgua = 100;
     consumoAgua = 1;
