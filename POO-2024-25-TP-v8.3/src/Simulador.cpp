@@ -1,13 +1,20 @@
 
 #include "../include/Simulador.h"
+#include "../include/Caravanas/CaravanaBarbara.h"
+
 
 #include "Mapa/Cidade.h"
 #include "Jogador.h"
 #include <sstream>
 
 
-Simulador::Simulador() {
+Simulador::Simulador(int linhas, int colunas) : linhas(linhas), colunas(colunas) {
     jogador = std::make_shared<Jogador>();  // Inicializa o jogador
+    bufferAtual = new Buffer(linhas, colunas);
+    mapa = new char*[linhas];
+    for(int i = 0; i<linhas; i++){
+        mapa[i] = new char[colunas];
+    }
 }
 
 void Simulador::setFase(int fase) {
@@ -18,8 +25,30 @@ int Simulador::getFase()const {
     return 0;
 }
 
-std::string Simulador::jogadorCompraCaravana(char cidadeLetra, char tipoCaravana, int precoCaravana) const {
-    std::ostringstream oss;
+char Simulador::getCaractere(int l, int c) const{
+    return mapa[l][c];
+}
+int Simulador::getLinhas() const {
+    return linhas;
+}
+
+int Simulador::getColunas() const {
+    return colunas;
+}
+
+void Simulador::setLinhaMapa(int l, int c, char linha){
+    mapa[l][c] = linha;
+}
+void Simulador::adicionaCaravanaJogador(std::unique_ptr<Caravana> caravana) {
+     jogador->adicionarCaravana(std::move(caravana));
+}
+
+void Simulador::adicionaCaravanaBarbara(std::unique_ptr<CaravanaBarbara> caravana) {
+    caravanasBarbaras.push_back(std::move(caravana));
+}
+
+void Simulador::jogadorCompraCaravana(char cidadeLetra, char tipoCaravana, int precoCaravana) const {
+
     Caravana::Tipo tipo;
     switch (tipoCaravana) {
         case 'C':
@@ -35,29 +64,59 @@ std::string Simulador::jogadorCompraCaravana(char cidadeLetra, char tipoCaravana
             throw std::invalid_argument("Tipo invalido de caravana!");
     }
 
-    Cidade* cidadeEscolhida = nullptr;
     int i;
     for (i = 0; i < cidades.size(); i++) {
         if (cidades.at(i)->getNome() == cidadeLetra) {
             break;
         }
     }
-    std::cout << cidades.at(i)->getNome();
+    //std::cout << cidades.at(i)->getNome();
     if (i == cidades.size()) {
-        throw std::invalid_argument("Cidade nao encontrada!");
+        std::cout << "Cidade nao encontrada!" << std::endl;
     }
     if (cidades.at(i)->possuiCaravana(tipo)) {
         auto novaCaravana = cidades.at(i)->removerCaravanaDaCidadeParaJogador(tipo);
         jogador->comprarCaravana(std::move(novaCaravana), precoCaravana);  // Transfere a posse
     } else {
-        oss << "Cidade " << cidadeLetra << "nao  pode adiciona mais caravana deste tipo." << std::endl;
+        std::cout << "Cidade " << cidadeLetra << "nao  pode adiciona mais caravana deste tipo." << std::endl;
     }
-    oss << "Caravana de tipo " << tipoCaravana
+    std::cout << "Caravana de tipo " << tipoCaravana
         << " comprada na cidade " << cidadeLetra
         << " por " << precoCaravana << " moedas.\n";
-    return oss.str();
 }
 
+void Simulador::adicionarCidade(std::unique_ptr<Cidade> cidade){
+    if (!cidade) { // Verifica se o ponteiro é nulo
+        std::cerr << "Erro: Tentativa de adicionar uma cidade nula.\n";
+        return;
+    }
+    // Verifica se a cidade já existe no simulador
+    for (const auto& c : cidades) {
+        if (c && c->getNome() == cidade->getNome()) {  // Verifica se a cidade já foi adicionada
+            std::cerr << "Cidade '" << cidade->getNome() << "' ja existe no simulador.\n";
+            return;
+        }
+    }
+    // Adiciona a nova cidade
+    cidades.push_back(std::move(cidade));
+}
+
+std::shared_ptr<Jogador> Simulador::getJogador() {
+    return jogador;
+}
+
+char** Simulador::getMapa() const{
+    return mapa;
+}
+
+void Simulador::imprimeMapa() const{
+    for(int i =0; i < linhas; i++) {
+        for (int j = 0; j < colunas; j++) {
+            std::cout << mapa[i][j];
+        }
+        std::cout << std::endl;
+    }
+}
 
 
 
