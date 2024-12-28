@@ -23,51 +23,50 @@ public:
     Comandos();
 
     // Comandos da Fase 1
-//    void cmd_config(const std::string &nomeFicheiro, int linhas, int colunas, Simulador simulador) const;
     void cmd_config(const std::string &nomeFicheiro);
 
-    std::string cmd_sair();
+    void cmd_sair();
 
 // Comandos da Fase 2
-    std::string cmd_exec(std::istringstream &iss);
+    void cmd_exec(std::istringstream &iss);
 
-    std::string cmd_prox(std::istringstream &iss);
+    void cmd_prox(std::istringstream &iss);
 
     void cmd_comprac(std::istringstream &iss);// implementar a "logica" no simulador
 
     std::string cmd_precos();
 
-    std::string cmd_cidade(std::istringstream &iss);
+    void cmd_cidade(std::istringstream &iss);
 
     void cmd_caravana(std::istringstream &iss);
 
-    std::string cmd_compra(std::istringstream &iss);
+    void cmd_compra(std::istringstream &iss);
 
-    std::string cmd_vende(std::istringstream &iss);
+    void cmd_vende(std::istringstream &iss);
 
-    std::string cmd_move(std::istringstream &iss);
+    void cmd_move(std::istringstream &iss);
 
-    std::string cmd_auto(std::istringstream &iss);
+    void cmd_auto(std::istringstream &iss);
 
-    std::string cmd_stop(std::istringstream &iss);
+    void cmd_stop(std::istringstream &iss);
 
-    std::string cmd_barbaro(std::istringstream &iss);
+    void cmd_barbaro(std::istringstream &iss);
 
-    std::string cmd_areia(std::istringstream &iss);
+    void cmd_areia(std::istringstream &iss);
 
-    std::string cmd_moedas(std::istringstream &iss);
+    void cmd_moedas(std::istringstream &iss);
 
-    std::string cmd_tripul(std::istringstream &iss);
+    void cmd_tripul(std::istringstream &iss);
 
-    std::string cmd_saves(std::istringstream &iss);
+    void cmd_saves(std::istringstream &iss);
 
-    std::string cmd_loads(std::istringstream &iss);
+    void cmd_loads(std::istringstream &iss);
 
-    std::string cmd_lists();
+    void cmd_lists();
 
-    std::string cmd_dels(std::istringstream &iss);
+    void cmd_dels(std::istringstream &iss);
 
-    std::string cmd_terminar();
+    void cmd_terminar();
 
     //Mapa
     void processaMapa();

@@ -1,11 +1,11 @@
 
+#include "../include/Caravanas/CaravanaComercio.h"
+#include "../include/Caravanas/CaravanaMilitar.h"
+#include "../include/Caravanas/CaravanaSecreta.h"
+#include "../include/Caravanas/CaravanaBarbara.h"
 #include "../include/Comandos.h"
-#include "Mapa/Cidade.h"
-#include "Caravanas/CaravanaComercio.h"
-#include "Caravanas/CaravanaMilitar.h"
-#include "Caravanas/CaravanaSecreta.h"
-#include "Caravanas/CaravanaBarbara.h"
-#include "Jogador.h"
+#include "../include/Mapa/Cidade.h"
+#include "../include/Jogador.h"
 #include <iostream>
 #include <filesystem>
 #include <fstream>
@@ -20,52 +20,50 @@ void Comandos::cmd_config(const std::string &nomeFicheiro){
     std::cout << "Configuracao carregada com sucesso!" << std::endl;
 }
 
-std::string Comandos::cmd_sair(){
-    std::ostringstream oss;
-    oss << "Implementar - Saindo do programa...\n";
-    return oss.str();
+void Comandos::cmd_sair(){
+
+    std::cout  << "Implementar - Saindo do programa...\n";
+    limpaDados();//é assim?
 }
 
-std::string Comandos::cmd_exec(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_exec(std::istringstream &iss){
+
     std::string nomeFicheiro;
     iss >> nomeFicheiro;
     if (nomeFicheiro.empty()) {
-        oss << "Nome de ficheiro não especificado!\n";
-        return oss.str();
+        std::cout << "Nome de ficheiro não especificado!\n";
     }
     std::ifstream ficheiro(nomeFicheiro);
     if (!ficheiro.is_open()) {
-        oss << "Erro ao abrir o ficheiro: " << nomeFicheiro << std::endl;
-        return oss.str();
+        std::cout << "Erro ao abrir o ficheiro: " << nomeFicheiro << std::endl;
+
     }
     std::string linha, mensagem;
     while (std::getline(ficheiro, linha)) {
         try {
             executarComando(linha, mensagem);
             if (!mensagem.empty()) {
-                oss << "Resultado do comando: " << mensagem << std::endl;
+                std::cout << "Resultado do comando: " << mensagem << std::endl;
             }
         } catch (const std::exception &e) {
-            oss << "Erro ao executar comando '" << linha << "': " << e.what() << std::endl;
+            std::cout << "Erro ao executar comando '" << linha << "': " << e.what() << std::endl;
         }
     }
     ficheiro.close();
-    oss << "Comandos do ficheiro " << nomeFicheiro << " executados com sucesso!" << std::endl;
-    return oss.str();
+    std::cout << "Comandos do ficheiro " << nomeFicheiro << " executados com sucesso!" << std::endl;
+
 }
 
-std::string Comandos::cmd_prox(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_prox(std::istringstream &iss){
+
     int n = 1; // Valor padrão
     iss >> n;
     if (n <= 0) {
-        oss << "Numero de instantes deve ser maior que 0!\n";
-        return oss.str();
+        std::cout << "Numero de instantes deve ser maior que 0!\n";
     }
     for (int i = 0; i < n; ++i) {
         // adicionar a lógica para atualizar o estado da simulação a cada instante
-        oss << "Avancando instante " << (i + 1) << " de " << n;
+        std::cout << "Avancando instante " << (i + 1) << " de " << n;
 
          //"Atualizar o estado da simulação chamando Simulacao::atualizarEstado\n\n\n\";
         // simulador.atualizarEstado(); // 'simulacao' é uma instância da classe Simulacao
@@ -73,7 +71,6 @@ std::string Comandos::cmd_prox(std::istringstream &iss){
 
         //mostrarConfig();
     }
-    return oss.str();
 }
 
 //void Comandos::cmd_comprac(std::istringstream &iss, int precoCaravana) {
@@ -87,7 +84,7 @@ void Comandos::cmd_comprac(std::istringstream &iss){
     if (moedas >= precoCaravana) {
         simulador->jogadorCompraCaravana(cidadeNome, tipoCaravana, precoCaravana);
     } else {
-        std::cout << "Moedas insuficientes para comprar uma caravana!";
+        std::cout << "Moedas insuficientes para comprar uma caravana!\n";
     }
 
 }
@@ -95,151 +92,130 @@ void Comandos::cmd_comprac(std::istringstream &iss){
 std::string Comandos::cmd_precos(){
     std::ostringstream oss;
     auto atributos = getAtributosConfiguraveis();
-    oss << "Precos das mercadorias:"
+    std::cout << "Precos das mercadorias:"
         << "\nPreco de venda: " << atributos.at("preco_venda_mercadoria") << " moedas"
         << "\nPreco de compra: " << atributos.at("preco_compra_mercadoria") << " moedas" << std::endl;
-
     return oss.str();
+
 }
 
-std::string Comandos::cmd_cidade(std::istringstream &iss){
+void Comandos::cmd_cidade(std::istringstream &iss){
     char letraCidade;
     iss >> letraCidade;
 
+    // Encontra a cidade usando a letra fornecida
+    std::unique_ptr<Cidade> cidadeEscolhida = simulador->encontrarCidade(letraCidade);
+    if (!cidadeEscolhida) {
+        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' nao encontrada!");
+    }
 
-    //std::unique_ptr<Cidade> cidadeEscolhida = simulador->encontrarCidade(letraCidade);
+    // Lista as caravanas da cidade
+    std::string detalhesCaravanas = cidadeEscolhida->listarCaravanas();
 
-//    if (!cidadeEscolhida) {
-//        throw std::invalid_argument("Erro: Cidade '" + std::string(1, letraCidade) + "' nao encontrada!");
-//    }
-//
-//    // Agora que encontramos a cidade, listamos as caravanas que estão lá
-    std::string detalhesCaravanas;// = cidadeEscolhida->listarCaravanas();  // Supondo que o metodo `listarCaravanas` exista
-//    std::cout << detalhesCaravanas << std::endl;  // Exibe as caravanas da cidade
-
-    // Armazena a resposta no stringstream
-    std::ostringstream oss;
-    oss << detalhesCaravanas;
-    return oss.str();  // Retorna as caravanas da cidade como uma string
+    // Exibe os detalhes das caravanas na cidade
+    std::cout << detalhesCaravanas << std::endl;
 }
 
 void Comandos::cmd_caravana(std::istringstream &iss){
-    //std::ostringstream oss;
     int numCaravana;
     iss >> numCaravana;
     auto caravana = simulador->getJogador()->exibirDetalheCaravana(numCaravana);
-
     std::cout << caravana;
 }
 
-std::string Comandos::cmd_compra(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_compra(std::istringstream &iss){
     int idCaravana, quantidadeMercadoria;
     iss >> idCaravana >> quantidadeMercadoria;
 
     try {
-        simulador->comprarMercadoria(idCaravana, quantidadeMercadoria, atributosConfiguraveis.at("preco_compra_mercadoria"));
+        simulador->comprarMercadoria(idCaravana, quantidadeMercadoria, atributosConfiguraveis.at("precoCompraMercadoria"));
     } catch (const std::exception &e) {
-        oss << "Erro ao comprar mercadorias: " << e.what() << std::endl;
+        std::cout << "Erro ao comprar mercadorias: " << e.what() << std::endl;
     }
-    return oss.str();
 }
 
-std::string Comandos::cmd_vende(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_vende(std::istringstream &iss){
     int idCaravana;
     iss >> idCaravana;
-
+    std::cout << "venda";
     try {
-       simulador->venderMercadoria(idCaravana, atributosConfiguraveis.at("preco_venda_mercadoria"));
-        oss<< "Vendida toda a mercadoria da caravana " << idCaravana << "." << std::endl;
+       simulador->venderMercadoria(idCaravana, atributosConfiguraveis.at("precoVendaMercadoria"));
+        std::cout << "Vendida toda a mercadoria da caravana " << idCaravana << "." << std::endl;
     } catch (const std::exception &e) {
-        oss << "Erro ao vender mercadorias: " << e.what() << std::endl;
+        std::cout << "Erro ao vender mercadorias: " << e.what() << std::endl;
     }
-    return oss.str();
 }
 
-std::string Comandos::cmd_move(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_move(std::istringstream &iss){
     int idCaravana;
     std::string direcao;
     iss >> idCaravana >> direcao;
 
     try {
-//        simulador->moverCaravana(idCaravana, direcao, mapa);
-        oss << "Caravana " << idCaravana << " movida na direcao " << direcao << "." << std::endl;
+        simulador->moverCaravana(idCaravana, direcao, simulador->getMapa());
+        std::cout << "Caravana " << idCaravana << " movida na direcao " << direcao << "." << std::endl;
     } catch (const std::exception &e) {
-        oss << "Erro ao mover a caravana: " << e.what() << std::endl;
+        std::cout << "Erro ao mover a caravana: " << e.what() << std::endl;
     }
     atualizaMapa();
-    return oss.str();
 }
 
-std::string Comandos::cmd_auto(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_auto(std::istringstream &iss){
+
     int idCaravana;
     iss >> idCaravana;
 
     try {
 //        simulador->ativarAutoGestao(idCaravana);
-        oss << "Caravana " << idCaravana << " colocada em auto-gestao." << std::endl;
+        std::cout << "Caravana " << idCaravana << " colocada em auto-gestao." << std::endl;
     } catch (const std::exception &e) {
-        oss << "Erro ao ativar auto-gestao: " << e.what() << std::endl;
+        std::cout << "Erro ao ativar auto-gestao: " << e.what() << std::endl;
     }
-    return oss.str();
 }
 
-std::string Comandos::cmd_stop(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_stop(std::istringstream &iss){
+
     int idCaravana;
     iss >> idCaravana;
 
     try {
 //        simulador->desativarAutoGestao(idCaravana);
-        oss << "Caravana " << idCaravana << " parou o comportamento automatico." << std::endl;
+        std::cout << "Caravana " << idCaravana << " parou o comportamento automatico." << std::endl;
     } catch (const std::exception &e) {
-        oss << "Erro ao parar o comportamento automatico: " << e.what() << std::endl;
+        std::cout << "Erro ao parar o comportamento automatico: " << e.what() << std::endl;
     }
-    return oss.str();
 }
-std::string Comandos::cmd_barbaro(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_barbaro(std::istringstream &iss){
     int linha, coluna;
     iss >> linha >> coluna;
     try {
 //        simulador->criarCaravanaBarbara(linha, coluna);
         //std::cout << "Caravana barbara criada nas coordenadas (" << linha << ", " << coluna << ")." << std::endl;
     } catch (const std::exception &e) {
-        oss << "Erro ao criar caravana barbara: " << e.what() << std::endl;
+        std::cout << "Erro ao criar caravana barbara: " << e.what() << std::endl;
     }
-    return oss.str();
 }
 
-std::string Comandos::cmd_areia(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_areia(std::istringstream &iss){
     int linha, coluna, raio;
     iss >> linha >> coluna >> raio;
 
     try {
 //        simulador->provocarTempestade(linha, coluna, raio);
-        oss << "Tempestade de areia criada na posicao (" << linha << ", " << coluna << ") com raio " << raio << "." << std::endl;
+        std::cout << "Tempestade de areia criada na posicao (" << linha << ", " << coluna << ") com raio " << raio << "." << std::endl;
     } catch (const std::exception &e) {
-        oss << "Erro ao criar tempestade de areia: " << e.what() << std::endl;
+        std::cout << "Erro ao criar tempestade de areia: " << e.what() << std::endl;
     }
-    return oss.str();
 }
 
-std::string Comandos::cmd_moedas(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_moedas(std::istringstream &iss){
     int n;
     iss >> n;
 //    jogador.moedas += n;
 //    oss << "Moedas atualizadas: " << jogador.getMoedas() << std::endl;
-    return oss.str();
 }
 
-std::string Comandos::cmd_tripul(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_tripul(std::istringstream &iss){
     int idCaravana, quantidadeTripulantes;
     iss >> idCaravana >> quantidadeTripulantes;
 //    try {
@@ -268,30 +244,27 @@ std::string Comandos::cmd_tripul(std::istringstream &iss){
 //    } catch (const std::exception &e) {
 //        oss << "Erro: " << e.what() << std::endl;
 //    }
-    return oss.str();
+
 }
-std::string Comandos::cmd_saves(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_saves(std::istringstream &iss){
+
     std::string nome;
     iss >> nome;
     if (nome.empty()) {
-        oss << "Nome nao especificado!" << std::endl;
-        return oss.str();
+        std::cout << "Nome nao especificado!\n";
     }
 
     //buffersSalvos[nome] = new Buffer(*bufferAtual);
-    oss << "Estado do buffer salvo com o nome: " << nome << std::endl;
-
-    return oss.str();
+    std::cout << "Estado do buffer salvo com o nome: " << nome << std::endl;
 }
 
-std::string Comandos::cmd_loads(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_loads(std::istringstream &iss){
+
     std::string nome;
     iss >> nome;
     if (nome.empty()) {
-        oss << "Nome nao especificado!" << std::endl;
-        return oss.str();
+        std::cout << "Nome nao especificado!" << std::endl;
+
     }
 //    auto it = buffersSalvos.find(nome);
 //    if (it != buffersSalvos.end()) {
@@ -299,10 +272,9 @@ std::string Comandos::cmd_loads(std::istringstream &iss){
 //    } else {
 //        oss << "Nenhum buffer salvo com o nome: " << nome << std::endl;
 //    }
-    return oss.str();
+
 }
-std::string Comandos::cmd_lists(){
-    std::ostringstream oss;
+void Comandos::cmd_lists(){
     /*if (buffersSalvos.empty()) {
         oss << "Nenhum buffer salvo." << std::endl;
     } else {
@@ -311,11 +283,10 @@ std::string Comandos::cmd_lists(){
             std::cout << pair.first << std::endl;
         }
     }
-    */return oss.str();
+    */
 }
 
-std::string Comandos::cmd_dels(std::istringstream &iss){
-    std::ostringstream oss;
+void Comandos::cmd_dels(std::istringstream &iss){
     std::string nome;
     iss >> nome;
 //    if (nome.empty()) {
@@ -330,20 +301,19 @@ std::string Comandos::cmd_dels(std::istringstream &iss){
 //    } else {
 //        oss << "Nenhum buffer salvo com o nome: " << nome << std::endl;
 //    }
-    return oss.str();
+
 }
 
-std::string Comandos::cmd_terminar(){
-    std::ostringstream oss;
+void Comandos::cmd_terminar(){
+
     // Calcular e exibir a pontuação
     int pontuacao = calcularPontuacao();
-    oss << "Simulacao terminada!\n"
+    std::cout << "Simulacao terminada!\n"
         << "Pontuacao final: " << pontuacao << std::endl;
 
     simulador->setFase(1);
     limpaDados();
-    oss << "Esta de volta a fase 1. Pode iniciar uma nova simulacao ou sair do programa." << std::endl;
-    return oss.str();
+    std::cout << "Esta de volta a fase 1. Pode iniciar uma nova simulacao ou sair do programa." << std::endl;
 }
 
 

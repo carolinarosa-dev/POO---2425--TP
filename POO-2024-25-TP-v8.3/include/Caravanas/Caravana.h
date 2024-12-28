@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "Simulador.h"
+#include "../include/Simulador.h"
 
 class Comandos;
 
@@ -25,7 +25,7 @@ public:
 
     static int getContador();
 
-    std::pair<int, int> getPosicaoCaravana() const;
+    std::pair<int, int> getPosicao() const;
     std::pair<int, int> getPosicaoAnteriorCaravana() const;
 
     void setPosicao(int novaLinha, int novaColuna);

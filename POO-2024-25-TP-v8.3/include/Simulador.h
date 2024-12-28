@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include "memory"
-//#include "Mapa/Cidade.h"
+
 
 #include "Buffer.h"
 class Caravana;
@@ -23,10 +23,11 @@ public:
 
     int getFase()const;
     bool terminarSimulacao() const;
-
+    bool posicaoValida(int linha, int coluna, char** mapa) const;
 
 //    Deserto
     void adicionarMontanha(double latitude, double longitude);
+
 //    cidade
     void adicionarCidade(std::unique_ptr<Cidade> cidade);
     void listarCaravanasNaCidade(char cidadeLetra) const;
@@ -44,7 +45,7 @@ public:
     void adicionaCaravanaBarbara(std::unique_ptr<CaravanaBarbara> caravana);
     void setLinhaMapa(int l, int c, char linha);
 
-//    void moverCaravana(int idCaravana, const std::string &direcao, char** mapa);
+    void moverCaravana(int idCaravana, const std::string &direcao, char** mapa);
 //    void ativarAutoGestao(int idCaravana);
 //    void desativarAutoGestao(int idCaravana);
 //
@@ -55,7 +56,7 @@ public:
 ////    combates
 //     jogador
     std::shared_ptr<Jogador>getJogador();
-
+    ~Simulador();
 private:
     Buffer* bufferAtual;
     //std::map<std::string, Buffer*> buffersSalvos;
@@ -67,8 +68,6 @@ private:
     std::vector<std::unique_ptr<CaravanaBarbara>> caravanasBarbaras;
     int contadorInstantes;
 
-//recebe o preco no comando comprac
-    int precoComprac;
 
 
 };

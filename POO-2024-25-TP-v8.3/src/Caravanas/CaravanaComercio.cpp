@@ -1,5 +1,5 @@
 
-#include "../../include/Caravanas/CaravanaComercio.h"
+#include "../include/Caravanas/CaravanaComercio.h"
 
 CaravanaComercio::CaravanaComercio()
         : Caravana(Tipo::COMERCIO, 0, 0) {

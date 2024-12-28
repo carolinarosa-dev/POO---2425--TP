@@ -2,7 +2,7 @@
 // Created by Carolina Rosa on 10/11/2024.
 //
 
-#include "../../include/Itens/Item.h"
+#include "../include/Itens/Item.h"
 
 //Para a classe base Item, não precisa de um arquivo Item.cpp porque a classe é abstrata e não contém implementações de métodos que precisam ser definidos fora da classe. As classes derivadas (CaixaDePandora, ArcaDoTesouro, Jaula, Mina, Surpresa) já têm seus próprios arquivos .cpp onde os métodos específicos são implementados.
 

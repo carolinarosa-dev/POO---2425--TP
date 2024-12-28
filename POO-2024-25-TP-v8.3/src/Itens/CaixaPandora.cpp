@@ -3,4 +3,4 @@
 //
 
 
-#include "../../include/Itens/CaixaPandora.h"
+#include "../include/Itens/CaixaPandora.h"

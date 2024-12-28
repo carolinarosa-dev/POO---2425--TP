@@ -1,5 +1,5 @@
 
-#include "../../include/Caravanas/CaravanaSecreta.h"
+#include "../include/Caravanas/CaravanaSecreta.h"
 
 CaravanaSecreta::CaravanaSecreta(int id, int linha, int coluna, Tipo tipo)
         : Caravana(id, linha, coluna) {

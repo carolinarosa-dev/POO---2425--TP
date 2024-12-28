@@ -1,7 +1,7 @@
 #ifndef POO_2024_25_TP_CARAVANACOMERCIO_H
 #define POO_2024_25_TP_CARAVANACOMERCIO_H
 
-#include "Caravana.h"
+#include "../include/Caravanas/Caravana.h"
 
 class CaravanaComercio : public Caravana {
 public:

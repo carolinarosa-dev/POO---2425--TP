@@ -20,9 +20,7 @@ public:
     bool possuiCaravana(Caravana::Tipo tipo);
     std::unique_ptr<Caravana>removerCaravanaDaCidadeParaJogador(Caravana::Tipo tipo);
 
-    void adicionaCaravanasCidade(std::unique_ptr<Caravana> caravana);//conhece do dono jogador
-//    std::shared_ptr<Caravana> cidadeVendeCaravana(int id);
-
+    void adicionaCaravanasCidade(std::unique_ptr<Caravana> caravana);
     std::string listarCaravanas() const;
 
 private:

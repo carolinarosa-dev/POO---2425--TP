@@ -6,7 +6,7 @@
 #define POO_2024_25_TP_CAIXAPANDORA_H
 
 
-#include "Item.h"
+#include "../include/Itens/item.h"
 
 class CaixaPandora : public Item {
 public:

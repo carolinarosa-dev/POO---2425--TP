@@ -1,5 +1,5 @@
 
-#include "../../include/Caravanas/CaravanaMilitar.h"
+#include "../include/Caravanas/CaravanaMilitar.h"
 CaravanaMilitar::CaravanaMilitar(int id, int linha, int coluna, Tipo tipo)
         : Caravana(id, linha, coluna) {
     this->tipo = tipo;

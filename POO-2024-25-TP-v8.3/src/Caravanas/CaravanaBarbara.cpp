@@ -1,9 +1,9 @@
 
-#include "../../include/Caravanas/CaravanaBarbara.h"
+#include "../include/Caravanas/CaravanaBarbara.h"
 
 
 CaravanaBarbara::CaravanaBarbara(Tipo tipo, int linha, int coluna)
-        : Caravana(BARBARA, getPosicaoCaravana().first, getPosicaoCaravana().second) {
+        : Caravana(BARBARA, getPosicao().first, getPosicao().second) {
     //id = getId();
     tripulantes = 40;
 }
@@ -16,22 +16,22 @@ CaravanaBarbara::CaravanaBarbara(int linha, int coluna)
 void CaravanaBarbara::moverAleatoriamente() {
     int direcao = rand() % 4;
     switch (direcao) {
-        case 0: setPosicao(getPosicaoCaravana().first - 1, getPosicaoCaravana().second); break; // esquerda
-        case 1: setPosicao(getPosicaoCaravana().first + 1, getPosicaoCaravana().second); break; // direita
-        case 2: setPosicao(getPosicaoCaravana().first, getPosicaoCaravana().second - 1); break; // cima
-        case 3: setPosicao(getPosicaoCaravana().first, getPosicaoCaravana().second + 1); break; // baixo
+        case 0: setPosicao(getPosicao().first - 1, getPosicao().second); break; // esquerda
+        case 1: setPosicao(getPosicao().first + 1, getPosicao().second); break; // direita
+        case 2: setPosicao(getPosicao().first, getPosicao().second - 1); break; // cima
+        case 3: setPosicao(getPosicao().first, getPosicao().second + 1); break; // baixo
     }
 }
 
 void CaravanaBarbara::moverParaCaravana(int caravanaLinha, int caravanaColuna) {
-    if (getPosicaoCaravana().first < caravanaLinha) setPosicao(getPosicaoCaravana().first + 1, getPosicaoCaravana().second);
-    else if (getPosicaoCaravana().first > caravanaLinha) setPosicao(getPosicaoCaravana().first - 1, getPosicaoCaravana().second);
-    else if (getPosicaoAnteriorCaravana().second < caravanaColuna) setPosicao(getPosicaoCaravana().first, getPosicaoCaravana().second + 1);
-    else if (getPosicaoAnteriorCaravana().second > caravanaColuna) setPosicao(getPosicaoCaravana().first, getPosicaoCaravana().second - 1);
+    if (getPosicao().first < caravanaLinha) setPosicao(getPosicao().first + 1, getPosicao().second);
+    else if (getPosicao().first > caravanaLinha) setPosicao(getPosicao().first - 1, getPosicao().second);
+    else if (getPosicaoAnteriorCaravana().second < caravanaColuna) setPosicao(getPosicao().first, getPosicao().second + 1);
+    else if (getPosicaoAnteriorCaravana().second > caravanaColuna) setPosicao(getPosicao().first, getPosicao().second - 1);
 }
 
 bool CaravanaBarbara::verificarProximidade(int caravanaLinha, int caravanaColuna) {
-    int distancia = abs(getPosicaoCaravana().first- caravanaLinha) + abs(getPosicaoCaravana().second - caravanaColuna);
+    int distancia = abs(getPosicao().first- caravanaLinha) + abs(getPosicao().second - caravanaColuna);
     return distancia <= 8;
 }
 

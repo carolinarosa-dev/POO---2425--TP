@@ -13,7 +13,7 @@ Habilidade Especial: Pode se esconder por um turno, tornando-se invisível para 
 #ifndef POO_2024_25_TP_CARAVANASECRETA_H
 #define POO_2024_25_TP_CARAVANASECRETA_H
 
-#include "Caravana.h"
+#include "../include/Caravanas/Caravana.h"
 
 class CaravanaSecreta : public Caravana {
 

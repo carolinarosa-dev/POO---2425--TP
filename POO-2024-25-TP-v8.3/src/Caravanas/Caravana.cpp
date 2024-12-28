@@ -1,5 +1,5 @@
 
-#include "../../include/Caravanas/Caravana.h"
+#include "../include/Caravanas/Caravana.h"
 
 #include <sstream>
 
@@ -30,7 +30,7 @@ std::pair<int, int> Caravana::getPosicaoAnteriorCaravana() const {
     return {linhaAnterior, colunaAnterior};
 }
 
-std::pair<int, int> Caravana::getPosicaoCaravana() const {
+std::pair<int, int> Caravana::getPosicao() const {
     return {linha, coluna};
 }
 

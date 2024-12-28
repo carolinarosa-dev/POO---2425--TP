@@ -66,8 +66,8 @@ std::shared_ptr<Caravana> Cidade::cidadeVendeCaravana(int id) {
 
 std::string Cidade::listarCaravanas() const {
     std::ostringstream oss;
-    oss << "Caravanas na cidade " << nome << ":" << std::endl;
-//    for (const auto& caravana : caravanasNaCidade) {
+//    oss << "Caravanas na cidade " << nome << ":" << std::endl;
+//    for (const auto& caravana : caravanas) {
 //        // Assumindo que caravana é um shared_ptr ou unique_ptr
 //        oss << "ID: " << caravana->getId() << " Tipo: " << caravana->exibirDetalhes() << std::endl;
 //    }
